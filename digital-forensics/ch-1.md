@@ -50,3 +50,38 @@ Digital Forensics & Incident Response (DFIR)
 
 
 
+
+
+### 🔹 الفكرة الأساسية
+
+الـ **Investigations Triad** هو نموذج يعتمد على ثلاث وظائف أساسية تعمل مع بعض زي أضلاع مثلث لضمان تحقيق رقمي ناجح:
+
+1. **Vulnerability/Threat Assessment & Risk Management**
+2. **Incident Response / SOC Team**
+3. **Digital Forensics / Digital Investigations**
+
+الثلاثة بيكملوا بعض، ومحدش يقدر يشتغل لوحده لو عايزين نوصل لتحقيق كامل.
+
+### 1. Vulnerability Assessment & Risk Management
+
+* **المهمة**: بيختبر سلامة السيستم والسيرفرات (High Integrity).
+* **العمل**: يتأكد من إن مفيش ثغرات (Zero-Day أو Vulnerabilities) أو إن الثغرات اتعمل لها Patch.
+* **الفايدة**: بيساعد الـ investigator يستبعد فرضيات غلط.
+  * **مثال**: لو في هجوم وقالوا يمكن بسبب ثغرة ما ، والـ Risk Manager أكد إن الثغرة دي متقفلة قبل وقت الهجوم → يبقى دي مش السبب.
+
+### 2. Incident Response / SOC Team
+
+* **المهمة**: أول فريق بيتم الرجوع ليه لما يتقال في اختراق أو Suspicious Activity.
+* **الأدوات**:
+  * **SIEM**: بيجمع Logs.
+* **الدور**: بيلم الأدلة الأولية (Artifacts) من اللوجات والتولز، ويشوف لو في Callbacks أو Connections مع C2 Server.
+* **الفايدة**: بيدي الـ Investigator بيانات أولية يثبت أو ينفي بيها الفرضيات.
+
+### 3. Digital Forensics / Digital Investigations
+
+* **المهمة**: بيبدأ بعد الـ Incident Response.
+* **العمل**: بيركز على تحليل عميق للأدلة (Artifacts + Evidence) ويحافظ عليها قانونيًا (Preservation).
+* **الهدف**: يقدم نتايج قوية ومقبولة قانونيًا.
+
+
+
