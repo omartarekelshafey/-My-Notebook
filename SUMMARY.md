@@ -9,6 +9,12 @@
   * [Securing Yourself Online](blue-team-junior-analyst-pathway-bundle/intro-to-osint/securing-yourself-online.md)
   * [Tools and Services](blue-team-junior-analyst-pathway-bundle/intro-to-osint/tools-and-services.md)
 
+***
+
+* [sans 450.2](sans-450.2/README.md)
+  * [summary sans450.2](sans-450.2/summary-sans450.2.md)
+  * [summary sans450.2](sans-450.2/summary-sans450.2-1.md)
+
 ## let's defend soc analyst path&#x20;
 
 * [Phishing Email Analysis](lets-defend-soc-analyst-path/phishing-email-analysis/README.md)
@@ -27,7 +33,3 @@
 * [detection eng part 1](weinnovate/detection-eng-part-1.md)
 * [Phishing](weinnovate/phishing.md)
 * [THREAT INTEL 101](weinnovate/threat-intel-101.md)
-
-## digital forensics
-
-* [CH 1](digital-forensics/ch-1.md)
