@@ -33,3 +33,7 @@
 * [detection eng part 1](weinnovate/detection-eng-part-1.md)
 * [Phishing](weinnovate/phishing.md)
 * [THREAT INTEL 101](weinnovate/threat-intel-101.md)
+
+## digital-forensics
+
+* [CH 1](digital-forensics/ch-1.md)
