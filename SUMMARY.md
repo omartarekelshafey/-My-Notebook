@@ -34,6 +34,11 @@
 * [Phishing](weinnovate/phishing.md)
 * [THREAT INTEL 101](weinnovate/threat-intel-101.md)
 
-## digital-forensics
+## digital forensics
 
 * [CH 1](digital-forensics/ch-1.md)
+* [CH 2](digital-forensics/ch-2.md)
+
+## digital-forensics
+
+* [CH 1](digital-forensics-1/ch-1.md)
