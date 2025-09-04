@@ -46,11 +46,7 @@ Digital Forensics & Incident Response (DFIR)
 
 ديه تلات حاجات بتتنفذ مع بعض لما بيحصل  incident هنشوفهم واحده واحده دلوقتي
 
-<figure><img src="broken-reference" alt=""><figcaption></figcaption></figure>
-
-
-
-
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔹 الفكرة الأساسية
 
