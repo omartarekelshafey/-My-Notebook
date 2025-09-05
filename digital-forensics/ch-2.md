@@ -76,23 +76,23 @@
 
 **steps**
 
-* **Get Authority :** لازم تاخد إذن رسمي (من المدير، النيابة، إلخ) قبل ما تبدأ.
-* **Collecting Basic Information :** اجمع كل بيانات القضية (زي نوع الجهاز المصاب) قبل الاكتساب.
-* **Determine Acquisition Points :** حدد مصادر البيانات (مثلاً: إيميلات معينة، لا كل الجهاز).
-* **Acquisition :** استخدم أدوات لسحب البيانات (مثل استخراج الـ logs أو الميموري).
-* **Coding/Recording/Labeling:** ضع ليبل على كل artifact يوضح المحتوى، اسمك، الوقت، التول، والـ hash لتأكيد عدم التلاعب.
-* **Preservation/Submission :** احفظ الأدلة وسلمهم مع تقرير يحتوي على الفرضية.
-* **Reporting/Hypothesis :** ارفع تقرير يوضح الـ artifacts والفرضية (مثلاً: "هذا الشخص المتهم").
+* **Get Authority:** لازم تاخد إذن رسمي (من المدير، النيابة، إلخ) قبل ما تبدأ.
+* **Collecting Basic Information:** اجمع كل بيانات القضية (زي نوع الجهاز المصاب) قبل الاكتساب.
+* **Determine Acquisition Points:** حدد مصادر البيانات (مثلاً: إيميلات معينة، لا كل الجهاز).
+* **Acquisition:** استخدم أدوات لسحب البيانات (مثل استخراج الـ logs أو الميموري).
+* **Coding/Recording/Labeling:** ضع labelعلى كل artifact يوضح المحتوى
+* **Preservation/Submission:** احفظ الأدلة وسلمهم مع تقرير يحتوي على الفرضية.
+* **Reporting/Hypothesis:** ارفع تقرير يوضح الـ artifacts والفرضية (مثلاً: "هذا الشخص المتهم").
 
 ### 2. 🧪 Lab Work
 
 **steps**&#x20;
 
-* **Acquire :** استلم الـ artifacts من Field Work مع الـ label والـ Chain of Custody (فورم يوضح انتقال الأدلة).
-* **Cloning :** اصنع نسخة من الـ image عشان تحافظ على الأصل وتعمل عليها.
-* **Extraction :** اني اطلع ال **Evidence**\
-  **Analysis :** تحليل البيانات لإثبات أو نفي الفرضية.
-* **Proof :** قدم دليل قوي يثبت الفرضية أو ينفيها .
+* **Acquire:** استلم الـ artifacts من Field Work مع الـ label والـ Chain of Custody (فورم يوضح انتقال الأدلة).
+* **Cloning:** اصنع نسخة من الـ image عشان تحافظ على الأصل وتعمل عليها.
+* **Extraction:** اني اطلع ال **Evidence**\
+  **Analysis:** تحليل البيانات لإثبات أو نفي الفرضية.
+* **Proof:** قدم دليل قوي يثبت الفرضية أو ينفيها .
 
 ## Types Digital Forensics
 
