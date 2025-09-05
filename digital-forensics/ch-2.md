@@ -204,25 +204,14 @@ example
 
 <div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-05 125318.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
+## EXIF TOOL
 
+&#x20;هنجرب دلوقتي نفس اللي عملناه بال stat بس المرادي هنستعمل exif tool&#x20;
 
-📌 ملاحظة:
+اول  حاجه نزلها لو مش عندك ب sudo apt install exif \
+&#x20;       بعدها  تكتب Exif  واسم الصورة&#x20;
 
-* لو لقيت `Access = Modify = Birth` → الملف لسه متكوّن جديد.
-* لو لقيت اختلاف في الـ Timestamps → الملف إما اتعدل أو اتنقل من نظام تاني.
+example
 
-***
+<figure><img src="../.gitbook/assets/Screenshot 2025-09-05 160704.png" alt=""><figcaption></figcaption></figure>
 
-## 🎯 الخلاصة
-
-* تحليل الميتاداتا بالـ `ls` و `stat` بيديك **Timeline للملف**:
-  * اتعمل إمتى.
-  * اتعدل إمتى.
-  * اتفتح آخر مرة إمتى.
-  * اتنقل ولا اتولد على نفس الجهاز.
-
-ودي خطوة أساسية في أي **Digital Forensics Investigation** عشان نعرف تاريخ الملف وتطوره.
-
-***
-
-تحب أزودلك جزء صغير فيه مقارنة شكل جدول بين **ls -l** و **stat** عشان تبقى مرجع سريع في GitBook؟
