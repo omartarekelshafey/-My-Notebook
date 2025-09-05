@@ -138,7 +138,7 @@
 
 ***
 
-## Artifacts Types
+### Artifacts Types
 
 * **Web Browser History**&#x20;
 * **Download & Temporary Files**&#x20;
@@ -151,3 +151,78 @@
 * **Event Logs**&#x20;
 * **Applications & Packages**
 * **Social Media & OSINT**
+
+
+
+## Stat Command
+
+### `ls -l`
+
+* بيعرضلك تفاصيل عن الملفات بشكل طويل:
+  * **Permissions**:&#x20;
+  * **Timestamps**: تاريخ آخر تعديل (Modification Time).
+
+**example**
+
+<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+
+### 3. استخدام أمر `stat`
+
+* بيديك تفاصيل أعمق عن الملف مقارنة بـ `ls`.
+* بيعرض:
+  * **Inode**:  بيديك مكان ال file  علي الهارد.
+  * **Size**
+  * **Blocks**: عدد البلوكات اللي مستخدمها الملف.
+  * **File Type**:
+  * **Timestamps**:
+    * **Access**
+    * **Modify**
+    * **Change**&#x20;
+    * **Birth**&#x20;
+
+example
+
+<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### 5. Notes
+
+*   **Move file** :
+
+    * الـ **Inode** بيبقى زي ما هو  معناه إن الملف متغيرش فعليًا، بس مكانه اتغير.
+
+    before move                                                                              after move&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/image (23).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure></div>
+
+*   **Copy الملف**:
+
+    * بيتولد **Inode جديد** → يعني اتكتب فعليًا نسخة جديدة.
+
+    before copy                                                                                  after copy&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-05 125318.png" alt="" width="375"><figcaption></figcaption></figure></div>
+
+
+
+📌 ملاحظة:
+
+* لو لقيت `Access = Modify = Birth` → الملف لسه متكوّن جديد.
+* لو لقيت اختلاف في الـ Timestamps → الملف إما اتعدل أو اتنقل من نظام تاني.
+
+***
+
+## 🎯 الخلاصة
+
+* تحليل الميتاداتا بالـ `ls` و `stat` بيديك **Timeline للملف**:
+  * اتعمل إمتى.
+  * اتعدل إمتى.
+  * اتفتح آخر مرة إمتى.
+  * اتنقل ولا اتولد على نفس الجهاز.
+
+ودي خطوة أساسية في أي **Digital Forensics Investigation** عشان نعرف تاريخ الملف وتطوره.
+
+***
+
+تحب أزودلك جزء صغير فيه مقارنة شكل جدول بين **ls -l** و **stat** عشان تبقى مرجع سريع في GitBook؟
