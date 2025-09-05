@@ -93,3 +93,61 @@
 * **Extraction :** اني اطلع ال **Evidence**\
   **Analysis :** تحليل البيانات لإثبات أو نفي الفرضية.
 * **Proof :** قدم دليل قوي يثبت الفرضية أو ينفيها .
+
+## Types Digital Forensics
+
+### Volatile vs Non-volatile Forensics
+
+#### 🔹 Volatile Forensics (الأدلة المتطايرة)
+
+* الأدلة اللي بتفقد بسرعة مع فصل الكهرباء.
+* أشهر مثال: **الـ Memory (RAM)**.
+* أول ما التيار الكهربائي يتفصل، البيانات اللي فيها بتروح.
+* أمثلة:
+  * Memory Forensics
+  * Network Forensics (لأن الترافيك بيتفقد لو ما اتعملش له Capture في الوقت الحقيقي).
+
+#### 🔹 Non-volatile Forensics (الأدلة غير المتطايرة)
+
+* الأدلة اللي ما بتضيعش بفصل الكهرباء.
+* مثال: **Hard Disk** (البيانات والميتاداتا محفوظة).
+*   أمثلة:
+
+    * File System & OS Forensics
+    * Storage/Disk Forensics
+    * Mobile Device Forensics
+    * Image, Video & Audio Forensics
+
+
+
+1. **File System & OS Forensics**
+   * تحليل الـ File System والـ OS (Windows, Linux, macOS, Android).
+2. **Storage/Disk Forensics**
+   * تحليل الديسك نفسه حتى لو الفايل سيستم متدمر.
+3. **Memory Forensics**
+   * تحليل محتوى الرام.
+   * مهم جدًا لأنه بيوضح البرامج اللي كانت شغالة وقت معين.
+4. **Network Forensics**
+   * التقاط وتحليل الترافيك.
+   * لازم يحصل Capture في نفس اللحظة، وإلا البيانات بتضيع.
+5. **Mobile Device Forensics / IoT Forensics**
+   * تحليل الموبايلات والأجهزة الذكية.
+   * فيها Storage + Memory.
+6. **Image, Video & Audio Forensics**
+   * يركز على التلاعب بالصور والفيديوهات والصوتيات (زي قضايا الـ Deepfake).
+
+***
+
+## Artifacts Types
+
+* **Web Browser History**&#x20;
+* **Download & Temporary Files**&#x20;
+* **Printer Logs**&#x20;
+* **Registry**&#x20;
+* **Deleted Files**&#x20;
+* **Emails**&#x20;
+* **SMS** .
+* **Photos taken by digital cameras**
+* **Event Logs**&#x20;
+* **Applications & Packages**
+* **Social Media & OSINT**
