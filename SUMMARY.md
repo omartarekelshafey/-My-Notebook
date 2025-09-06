@@ -32,3 +32,4 @@
 
 * [CH 1](digital-forensics/ch-1.md)
 * [CH 2](digital-forensics/ch-2.md)
+* [CH3](digital-forensics/ch3.md)
