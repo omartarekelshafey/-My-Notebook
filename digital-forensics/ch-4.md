@@ -202,3 +202,169 @@ IDIF→ used by i look investgator
 * لازم تحفظ الكيز أو حتى الهاردوير اللي بيعمل Unlock.
 * اتأكد إن أي Sector محمي أو Secure يتم أخده بالكامل
 
+
+
+## Disk Acquisition Using Linux DD command
+
+**اول  حاجه خلنا نعرف كذا command  هيفيدونا**
+
+### 1. lsblk
+
+* بيعرضلك كل الهاردات + البارتيشنز+loop &#x20;
+* بيبينك حجم كل بارتيشن ومكان اللي معمول فيه ال mount&#x20;
+
+<figure><img src="../.gitbook/assets/lsblk.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+#### 2. df
+
+* بيوريك المساحة المستخدمة والفاضية لكن للـ File Systems اللي معمولة Mount بس.
+* مبيظهرش الديسكات اللي مش معمولة Mount.
+
+<figure><img src="../.gitbook/assets/df.png" alt=""><figcaption></figcaption></figure>
+
+
+
+### Partition vs. Full Disk
+
+لازم تحدد:
+
+* هل عايز تعمل Image للبارتيشن بس؟
+* ولا للـ Physical Disk كله؟
+
+ممكن تستخدم: **fdisk**&#x20;
+
+ده يوريك حجم الديسك، وعدد السيكتورز، والبارتيشنز اللي جواه.
+
+لو حجم البارتيشن ≈ حجم الديسك يبقى مفيش Hidden Partition.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+
+
+## Acquisition with dd
+
+هنا بنستخدم تول Native في اللينكس:
+
+* `if=` = Input File (الديسك أو البارتيشن).
+* `of=` = Output File (المكان اللي هيتحفظ فيه).
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-09-08 145756.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Handling Errors with dd
+
+لو خايف يبقى فيه bad sectors:
+
+```bash
+sudo dd if=/dev/sdb of=/home/user/Desktop/images/second.dd conv=noerror,sync
+```
+
+* `noerror` = يتجاهل الأخطاء ويكمل.
+* `sync` = يحط صفر مكان البلوك اللي فيه Error.
+
+طب ليه بيحط 0  علشان يحافظ علي مكان الداتا اخل الهار زي ما كان ميترحلش
+
+***
+
+### Verification (Hashing)
+
+بعد ما تعمل Acquisition:
+
+* اعمل Hash (MD5 أو SHA1).
+* قارن الهاش مع أي نسخة تانية.
+* لو متطابقين يبقى مفيش تغيير.
+
+***
+
+### Splitting Large Images
+
+لو الديسك حجمه كبير (1TB مثلاً)، ممكن تقسّم الـ Image باستخدام:
+
+<figure><img src="../.gitbook/assets/split.png" alt=""><figcaption></figcaption></figure>
+
+#### ليه هنا ما استخدمناش `of=` مع `dd`؟
+
+* أداة `dd` في الطبيعي بتاخد **input file** (`if=`) و **output file** (`of=`).
+* لو إنت كتبت `of=...` معناها إنك هتخلي `dd` يكتب النتيجة كلها في ملف واحد كبير.
+
+لكن هنا إحنا عايزين **نقسم الـ image لقطع صغيرة** (split).
+
+* بالتالي لازم نخلي **output بتاع dd** يروح على **stdout** (يعني يطبع على الشاشة).
+* عشان كده ما كتبناش `of=...`.
+* وبعدين عملنا **pipe** (`|`) عشان نبعته كـ input للـ `split`.
+
+#### result
+
+<div align="left"><figure><img src="../.gitbook/assets/ouput.png" alt=""><figcaption></figcaption></figure></div>
+
+***
+
+### Mounting the Image
+
+ازاي هتعمل mount&#x20;
+
+&#x20;هتكتب الكوماند اللي في اول الصورة ده
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-09-08 163851.png" alt=""><figcaption></figcaption></figure>
+
+***
+
+### Preservation in digital forensics
+
+تمام 👌 خليني أظبطهولك بحيث يبقى منسق ينفع يتكتب في **GitBook**، والعناوين بالإنجليزي بس.
+
+***
+
+### Hashing and Verification
+
+دلوقتي بعد ما ناخد الـ **acquisition** أو بعد ما نعمل الـ **cloning**، لازم نفتكر إننا مش هنشتغل مباشرة على الـ image الأصلية اللي اتاخدت من مسرح الجريمة أو من الجهاز. دايمًا لازم نشتغل على نسخة (clone) عشان نضمن إن الأصل يفضل محفوظ زي ما هو.
+
+لكن قبل ما نبدأ الشغل على النسخة، لازم نتأكد إن الـ **version** أو الـ image اللي عندنا مطابقة تمامًا للأصل. هنا بييجي دور الـ **hashing**.
+
+***
+
+### Hash Generation
+
+إحنا بنعمل **hash** للـ image اللي اتاخدت، والـ hash ده بيبقى الدليل إن النسخة سليمة وماحصلش فيها أي تعديل.\
+الـ hash لازم يتسجل:
+
+* في التقرير الرسمي.
+* على الدليل نفسه (الليبل).
+* نسخة رقمية (digital copy) تتشارك مع الفريق اللي هيكمل الشغل.
+
+***
+
+### Hash Protection
+
+مهم جدًا نحمي الـ **hash value** زي ما بنحمي الـ artifact نفسه.\
+لأن أي شخص ممكن يحاول يبوز القضية مش بسرقة الـ artifact، لكن إنه يغير أو يعبث في قيمة الـ hash.\
+عشان كده لازم يتسجل في أكتر من مكان مختلف.
+
+***
+
+### Preferred Hash Algorithms
+
+إحنا عادة بنستخدم:
+
+* **SHA-2** أو **SHA-256** (الأفضل).
+* ممكن نستخدم **MD5** أو **SHA-1** بس مش مفضل.
+
+***
+
+### Why Not MD5 or SHA-1?
+
+مع إن معظم الأدوات بتدعم **MD5** و **SHA-1**، لكن مش بنفضلهم للأسباب دي:
+
+* في مجال **penetration testing** بيتقال ما تستخدمهمش علشان سهل يتكسروا بالـ brute force أو rainbow tables.
+* بس في حالتنا إحنا مش فارق معانا brute force، لأننا بنتعامل مع **artifacts** ضخمة مش passwords.
+
+اللي يهمنا أكتر هو موضوع الـ hitting rates(يعني اتنين artifacts يطلعوا بنفس الـ hash).
+
+* في **MD5** نسبة الـ hitting ratesأعلى، وده ممكن يفتح مجال للتشكيك في الأدلة.
+* عشان كده بنفضل نستخدم خوارزميات زي **SHA-256** اللي الـ hitting rates فيها ضعيف جدًا.
+
+
+
