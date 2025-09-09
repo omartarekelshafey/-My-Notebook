@@ -312,6 +312,87 @@ sudo dd if=/dev/sdb of=/home/user/Desktop/images/second.dd conv=noerror,sync
 
 ***
 
+## Acquisition on Windows with FTK Imager
+
+هي  Tool قوية ومجانية اسمها FTK Imager. الأداة مش بس بتعمل Acquisition لكن كمان Analysis، وبتسمحلك تعرض الـ Disk والمحتويات من غير ما تعمله Mount فعلي على السيستم.
+
+***
+
+How to Create Disk Image ?
+
+اختار Create Disk Image
+
+<div align="left" data-full-width="true"><figure><img src="../.gitbook/assets/1.png" alt="" width="168"><figcaption></figcaption></figure></div>
+
+حدد الـ Source (Physical Drive – Logical Drive – Image File)
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 180030.png" alt="" width="294"><figcaption></figcaption></figure></div>
+
+اختار الـ Drive
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 180057.png" alt="" width="286"><figcaption></figcaption></figure></div>
+
+
+
+اختار الفورمات (Raw – E01 – SMART – AD1)&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 181137.png" alt="" width="289"><figcaption></figcaption></figure></div>
+
+Case Information
+
+في الخطوة دي هتدخل Metadata مهمة:
+
+* Case Number
+* Evidence Number
+* Examiner Name
+* Description
+* Notes
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 181659.png" alt="" width="306"><figcaption></figcaption></figure></div>
+
+بعد  كده حدد مكان حفظ الـ Image
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 182114.png" alt="" width="288"><figcaption></figcaption></figure></div>
+
+***
+
+Verification and Hashing
+
+بعد الـ Acquisition FTK Imager بيحسب Hash (MD5 أو SHA1 أو SHA256) ويعمل Verification أوتوماتيك عشان يضمن إن الـ Image مظبوطة.
+
+<div align="left"><figure><img src="../.gitbook/assets/report.png" alt="" width="375"><figcaption></figcaption></figure></div>
+
+***
+
+Mount Image
+
+ممكن تعمل Mount للـ Image من خلال FTK Imager:
+
+* File → Image Mounting
+
+<div align="left"><figure><img src="../.gitbook/assets/2.png" alt="" width="168"><figcaption></figcaption></figure></div>
+
+* اختار الـ Image
+
+<div align="left"><figure><img src="../.gitbook/assets/3.png" alt="" width="336"><figcaption></figcaption></figure></div>
+
+* اختار Drive Letter&#x20;
+* اختار Mount Mode , type &#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 201904.png" alt="" width="335"><figcaption></figcaption></figure></div>
+
+
+
+
+
+* **ديه صورة من safe block  لما لقط انه في خاجه اتعملها mount**&#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 201928.png" alt="" width="300"><figcaption></figcaption></figure></div>
+
+
+
+***
+
 ### Preservation in digital forensics
 
 تمام 👌 خليني أظبطهولك بحيث يبقى منسق ينفع يتكتب في **GitBook**، والعناوين بالإنجليزي بس.
