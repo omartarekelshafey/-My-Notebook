@@ -1,9 +1,5 @@
 # CH5
 
-
-
-***
-
 ### Introduction to Windows Registry
 
 هنبدأ الأول بالـ Windows، وهنبدأ بأهم حاجة بتميز الـ Windows عن باقي أنظمة التشغيل وهي **الـ Registry**.\
@@ -148,7 +144,166 @@
 
 <div align="left"><figure><img src="../.gitbook/assets/image (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
 
-**result**
+### **result**&#x20;
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-09-09 230135.png" alt=""><figcaption></figcaption></figure>
+
+## Registry Analysis in Digital Forensics
+
+### Problem with Using Regedit
+
+* ملفات الـ **Registry Hives** بتتبعتلك كـ evidence.
+* لو حاولت تفتحها بـ **Regedit** العادي، هو مش هيسمحلك تختار ملف خارجي.
+* السبب: Regedit بيقرأ الـ **active registry** بتاع الـ Operating System اللي شغال حاليًا على جهازك.
+* وبالتالي لو فتحت حاجة، هتكون بتشوف الـ registry بتاع جهازك مش بتاع جهاز الضحية (Forensic Lab).
+
+***
+
+### Registry Explorer (Eric Zimmerman’s Tool)
+
+* عشان نحل المشكلة دي بنستخدم **Registry Explorer** (من أدوات Eric Zimmerman – SANS Instructor).
+*   ممكن تنزلها من:
+
+    [https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md)
+* التول بتتوزع كـ **ZIP File** → تعملها extract.
+* لازم يكون عندك **.NET Framework v4**.
+
+***
+
+### Dirty Hives and Transaction Logs
+
+* أوقات لما تـ Load Hive بيظهرلك تحذير: **Dirty Hive**.
+  * معناها: مش كل البيانات اتحفظت.
+  * في Transaction Logs ناقصة.
+
+<div align="left"><figure><img src="../.gitbook/assets/1 (1).png" alt="" width="455"><figcaption></figcaption></figure></div>
+
+## 🛠️ Handling Dirty Hives
+
+### ✅ الحل خطوة بخطوة
+
+#### 1. Extraction من FTK Imager
+
+* **Step 1 — Add Evidence Item**\
+  **Step 2 — Open C Drive**\
+  **Step 3 — select root folder**\
+  **Step 4 —select users folder and select user folder**\
+  **Step 5 — Locate NTUSER.DAT**
+
+#### 2. Export الملفات
+
+* اعمل Export للفايلز واختر فولدر مخصص ليهم.
+* هتلاقي مع الـ Hive ملفات زي:
+  * `.LOG1`
+  * `.LOG2`
+  * أحيانًا `.LOG3`
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 175248.png" alt="" width="563"><figcaption></figcaption></figure></div>
+
+#### 3. Load في Registry Explorer
+
+* افتح **Registry Explorer**.
+* اعمل **Load Hive** من الفولدر اللي فيه الـ Hive + Logs.
+
+<figure><img src="../.gitbook/assets/Screenshot 2025-09-10 210858.png" alt="" width="563"><figcaption></figcaption></figure>
+
+* الأداة أوتوماتيك هتعمل **Recovery** للـ Dirty Hive باستخدام الـ Logs.
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 210549.png" alt="" width="563"><figcaption></figcaption></figure></div>
+
+### ShellBags
+
+#### التعريف
+
+* **ShellBags** هي مجموعة من الـ **Registry Keys & Values** في الويندوز.
+* وظيفتها إنها تخزن **إعدادات عرض الفولدرات** اللي اليوزر فتحها قبل كده (زي الـ view mode: icons, list, details).
+* لكن في نفس الوقت، المعلومات دي بتكشف بشكل غير مباشر:
+  * إيه الفولدرات اللي اتفتحت؟
+  * إمتى اتفتحت آخر مرة؟
+
+#### أماكن وجودها
+
+* ShellBags بتتخزن في اتنين Hives:
+  1. **NTUSER.DAT**
+     * خاص باليوزر (User Profile).
+     * بيخزن فولدرات اليوزر اللي فتحها.
+  2. **USRCLASS.DAT**
+     * خاص برضه باليوزر لكن بيركز أكتر على إعدادات الـ Explorer.
+
+### ShellBags Explorer
+
+* أداة تانية من أدوات **Eric Zimmerman**: **ShellBags Explorer**.
+* موجوده يف نفس موقع وعايز بردو .net&#x20;
+
+#### استخدام ShellBags Explorer
+
+**steps**&#x20;
+
+* **Load Offline Hive**
+  * Open ShellBags Explorer.
+  * Select **File → Load Offline Hive**.
+  *   Choose a user hive like:
+
+      * NTUSER.DAT
+      * USRCLASS.DAT
+
+      &#x20;              &#x20;
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 181813.png" alt="" width="341"><figcaption></figcaption></figure></div>
+
+* **Analyze User Activity**
+  *   The tool will display:
+
+      * Folders the user opened.
+      * Names of devices the user connected to (e.g., SMB shares, other PCs).
+      * Directories browsed.
+      * Search operations performed inside Windows Explorer.
+
+
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 193022.png" alt="" width="563"><figcaption></figcaption></figure></div>
+
+***
+
+### 🔹 Regripper
+
+### 📌 Overview
+
+* RegRipper أداة قوية لتحليل الـ **Windows Registry**.
+* متاحة على **Windows و Linux** كـ GUI وكمان كـ Command Line.
+* بتنزل كـ **ZIP File** من GitHub → مجرد تعمل Download & Extract.
+
+### 🛠️ Components
+
+* **`rip.exe`** → Command Line version.
+* **`rr.exe`** → GUI version.
+
+### ⚙️ Usage
+
+1. اختر الـ Registry Hive اللي عايز تحلله.
+2. حدد مكان اللي هيكون فيه ال report&#x20;
+3. اضغط **Rip**.
+
+**after rip                                                                                            before rip**
+
+<div><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194805.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194837.png" alt=""><figcaption></figcaption></figure></div>
+
+### 📊 Capabilities
+
+* مش بس بتركز على **ShellBags**، لكنها بتحلل **أي Hive** بالكامل.
+* مثال: عند تحليل **SYSTEM Hive**، ممكن تستخرج:
+  * معلومات الـ **Startup Programs**.
+  * بيانات الـ **Backup & Restore**.
+  * قائمة بالـ **Installed Applications**.
+  * **Timeline** لبعض الأحداث.
+
+### 📄 Output
+
+* ينتج ملف **Text Report (.txt)**.
+* التقرير بيكون كبير ومليان تفاصيل.
+* سهل البحث فيه بالكلمات المفتاحية.
+
+<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194738.png" alt="" width="279"><figcaption></figcaption></figure></div>
+
+
 
