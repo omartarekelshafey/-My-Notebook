@@ -307,3 +307,42 @@
 
 
 
+## What we are looking for at analysis phase
+
+### 🖥️ From SYSTEM Hive
+
+1. **Computer Name**
+2. **Time Zone**
+3. **Network Interfaces**
+4. **Connected Devices / Drivers**
+
+***
+
+### 👤 From NTUSER.DAT Hive
+
+1. **Installed Software**
+2. **Internet Explorer Data** _(قديمة شوية لكن ممكن تلاقيها)_
+   * يحتوي على:
+     * **TypedURLs** → العناوين اللي اليوزر كتبها يدويًا.
+     * التبويبات المفتوحة.
+3. **Recent Files (MRU - Most Recently Used)**
+   * يوضح آخر ملفات اتفتحت
+   * مع أسماء الملفات والـ Location بتاعها.
+4.  **Run MRU (Commands)**
+
+    recently commands used
+5. **Mounted Devices**
+   * يوضح الحاجات اللي  اتعملها Mount على الجهاز.
+
+***
+
+### Notes
+
+* مش لازم تحفظ كل الـ Registry Paths، الأفضل يبقى عندك **Reference List** ترجع لها.
+* الأماكن دي ممكن تختلف حسب نسخة الويندوز (Windows 7 / 10 / 11).
+* كل الحاجات ديه ممكن تبها من خلالregistry explorer او من خلال regripper
+
+***
+
+
+
