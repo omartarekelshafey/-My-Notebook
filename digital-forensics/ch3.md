@@ -22,7 +22,7 @@
 
 * **Forensic Workstation**: جهاز قوي مخصص للفورنسيك، مفصول عن الإنترنت.
 * **Internet Access PC**: جهاز تاني منفصل للبحث/تحميل أدوات.
-* **Microscope/**: للأدلة التالفة (زي هارد متكسر أو chip damage).
+* **Microscope**: للأدلة التالفة (زي هارد متكسر أو chip damage).
 * **Forensic Tools/Software**: زي EnCase, FTK, Autopsy, X-Ways.
 
 ***
@@ -50,7 +50,7 @@
 
 ## Small lab forensics
 
-**ايه اللي ختحتاجه لو انت في شركه صغيره**
+**ايه اللي هتحتاجه لو انت في شركه صغيره**
 
 1. **Virtualization Layer**:
    * نزّل أي **Hypervisor** (زي VMware Workstation أو VirtualBox).
@@ -181,8 +181,6 @@
   * شهادات مهنية مشهورة (Certifications).
   * اعتراف الخبراء في المجال.
 * أي تقنية مستخدمة بشكل واسع ومعروفة  تعتبر **مقبولة** طبقًا للـ Daubert Law.
-
-تمام، دي النسخة المضبوطة ومع العناوين بالإنجليزي علشان تحطها في الـ GitBook:
 
 ***
 

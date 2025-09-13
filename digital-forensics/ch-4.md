@@ -168,7 +168,7 @@ IDIF→ used by i look investgator
 
 ### Disk Size
 
-أول حاجة لازم تاخد بالك منها السايز بتاع الديسك اللي هتعمل منه Image.\
+أول حاجة لازم تاخد بالك منها الsize بتاع الديسك اللي هتعمل منه Image.\
 ليه؟ عشان يبقى معاك ميديا كافية تسحب عليها الـ Image الجديدة.
 
 ### Compression
@@ -206,7 +206,7 @@ IDIF→ used by i look investgator
 
 ## Disk Acquisition Using Linux DD command
 
-**اول  حاجه خلنا نعرف كذا command  هيفيدونا**
+**اول  حاجه خلينا نعرف كذا command  هيفيدونا**
 
 ### 1. lsblk
 
