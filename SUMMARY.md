@@ -9,13 +9,15 @@
   * [Securing Yourself Online](blue-team-junior-analyst-pathway-bundle/intro-to-osint/securing-yourself-online.md)
   * [Tools and Services](blue-team-junior-analyst-pathway-bundle/intro-to-osint/tools-and-services.md)
 
-## let's defend soc analyst path&#x20;
+***
 
-* [Phishing Email Analysis](lets-defend-soc-analyst-path/phishing-email-analysis/README.md)
-  * [Introduction to Phishing](lets-defend-soc-analyst-path/phishing-email-analysis/introduction-to-phishing.md)
-  * [Information Gathering](lets-defend-soc-analyst-path/phishing-email-analysis/information-gathering.md)
-  * [What is an Email Header and How to Read Them?](lets-defend-soc-analyst-path/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
-  * [Email Header Analysis](lets-defend-soc-analyst-path/phishing-email-analysis/email-header-analysis.md)
+* [let's defend](lets-defend/README.md)
+  * [soc analyst](lets-defend/soc-analyst/README.md)
+    * [Phishing Email Analysis](lets-defend/soc-analyst/phishing-email-analysis/README.md)
+      * [Introduction to Phishing](lets-defend/soc-analyst/phishing-email-analysis/introduction-to-phishing.md)
+      * [Information Gathering](lets-defend/soc-analyst/phishing-email-analysis/information-gathering.md)
+      * [What is an Email Header and How to Read Them?](lets-defend/soc-analyst/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
+      * [Email Header Analysis](lets-defend/soc-analyst/phishing-email-analysis/email-header-analysis.md)
 
 ## weinnovate
 
