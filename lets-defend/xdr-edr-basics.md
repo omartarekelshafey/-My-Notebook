@@ -45,8 +45,6 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 | **Relationship**      | IDS can complement IPS by providing additional alerting.           | IPS builds upon IDS by adding prevention capabilities.                        | EDR complements IDS and IPS by focusing on endpoint protection and advanced threat detection.       |
 | **Example Tools**     | Snort, Suricata, Zeek (formerly Bro)                               | Cisco Firepower, Palo Alto Threat Prevention, Check Point IPS                 | Microsoft Defender for Endpoint, CrowdStrike Falcon, SentinelOne                                    |
 
-
-
 ## EDR/XDR Installation and Configuration Process
 
 تمام يا أنور ✌️\
@@ -72,7 +70,7 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 * Status بتاع الـ Agents والسياسات.
 * رسومات بيانية للـ Threat Trends.
 
-#### Visibility&#x20;
+#### Visibility
 
 * Threat Hunting & Investigation.
 * تفاصيل عن الـ Attack Vectors, Tools, Affected Systems.
@@ -166,15 +164,12 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 
 ### 7. Identify Exclusions
 
-*   types of Exclusions
-
-    * **Hash**
-    * **Path**
-    * **Certificate**
-    * **File Type**
-    * **Browser**
-
-
+* types of Exclusions
+  * **Hash**
+  * **Path**
+  * **Certificate**
+  * **File Type**
+  * **Browser**
 
 تمام يا أنور 👌\
 أنا هظبطلك الكلام في شكل **ملخص مرتب** تحطه في GitBook، من غير الحشو، بحيث يدي Overview كامل عن **Managing Endpoints with EDR/XDR (SentinelOne)**.
@@ -272,13 +267,7 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 
 * **Enrichment**: ربط البيانات بمصادر إضافية (Threat Intel DBs, GeoIP, User Credentials).
 * **Storage**: منصات XDR بتوفر تخزين واسع النطاق للـ Logs/Events.
-* **Querying**: بحث سريع وفعال  أساسي في Threat Hunting & Incident Investigation.
+* **Querying**: بحث سريع وفعال أساسي في Threat Hunting & Incident Investigation.
 
 ***
 
-
-
-\
-
-
-### &#x20;

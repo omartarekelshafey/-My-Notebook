@@ -19,6 +19,7 @@
       * [What is an Email Header and How to Read Them?](lets-defend/soc-analyst/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
       * [Email Header Analysis](lets-defend/soc-analyst/phishing-email-analysis/email-header-analysis.md)
   * [XDR/EDR Basics](lets-defend/xdr-edr-basics.md)
+  * [Threat Detection and Classification with EDR/XDR](lets-defend/threat-detection-and-classification-with-edr-xdr.md)
 
 ## weinnovate
 
