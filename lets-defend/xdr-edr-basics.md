@@ -72,7 +72,7 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 * Status بتاع الـ Agents والسياسات.
 * رسومات بيانية للـ Threat Trends.
 
-#### Visibility \&deep Visibility
+#### Visibility&#x20;
 
 * Threat Hunting & Investigation.
 * تفاصيل عن الـ Attack Vectors, Tools, Affected Systems.
