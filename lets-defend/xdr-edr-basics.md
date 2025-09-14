@@ -272,8 +272,7 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 
 * **Enrichment**: ربط البيانات بمصادر إضافية (Threat Intel DBs, GeoIP, User Credentials).
 * **Storage**: منصات XDR بتوفر تخزين واسع النطاق للـ Logs/Events.
-* **Querying**: بحث سريع وفعال → أساسي في Threat Hunting & Incident Investigation.
-* **Example**: CrowdStrike Falcon XDR بيستخدم **Humio Infrastructure** لإدارة البيانات.
+* **Querying**: بحث سريع وفعال  أساسي في Threat Hunting & Incident Investigation.
 
 ***
 
