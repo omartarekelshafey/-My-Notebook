@@ -256,8 +256,122 @@ EDR/XDR بيدوا فرق الأمن القدرة إنها تتابع الأنش
 * **Detection Type** → أسلوب الكشف (Behavioral, Signature…).
 * **Analyst Verdict:** It is the decision or interpretation made by the cybersecurity analyst or an automated system about the threat.
 * **Incident Status** → (i.e. quarantined, resolved, pending, etc.)
-* **Indicators** → الـ IoCs المرتبطة.
+* **Indicators**&#x20;
 * **Notes**&#x20;
 
 ***
 
+### 📌 Data Collection and Analysis with EDR
+
+* **EDR (Endpoint Detection and Response)** بيجمع بيانات تفصيلية جدًا من الأجهزة (endpoints) زي: كمبيوترات، سيرفرات، موبايلات.
+* البيانات دي اسمها **Telemetry Data** وهي سجلات دقيقة ومستمرة بتوضح إيه اللي بيحصل على الجهاز لحظة بلحظة.
+* الهدف: تساعد في **كشف، فهم، والرد على أي نشاط ضار**.
+* البيانات دي كمان ممكن تتعمل لها تحليل معقد (Analytics) باستخدام:
+  * **Heuristic checks** → فحوصات تعتمد على الأنماط والقواعد.
+  * **Behavioral analysis** → تحليل سلوك البرامج أو المستخدمين.
+  * **Machine Learning** → خوارزميات تتعلم تفرق بين الطبيعي والمشبوه.
+
+**الخلاصة:** التليمتري بتاع EDR زي "الكاميرا المراقبة" اللي شغالة 24/7 على كل الأجهزة، علشان أي هجوم يتشاف بدري ويترد عليه بسرعة.
+
+***
+
+### 📌 Categories of Telemetry Data (أنواع البيانات اللي EDR بيجمعها)
+
+<div align="left"><figure><img src="../.gitbook/assets/image.png" alt="" width="500"><figcaption></figcaption></figure></div>
+
+💡 ملاحظة: مش كل EDR بيجمع نفس التفاصيل → ده بيعتمد على النسخة والإعدادات.
+
+***
+
+### 📌 (Telemetry data Use Cases)
+
+#### 🔎 Threat Hunting
+
+* المحللين يقدروا يدوروا يدويًا على أي نشاط غريب.
+* مثال: اتصالات غير معتادة أو برامج مش متوقعة.
+
+#### 🚨 Incident Response
+
+* عند وقوع هجوم → البيانات بتوضح:
+  * المهاجم دخل إزاي.
+  * أي ملفات أو أنظمة اتأثرت.
+  * المهاجم عمل إيه جوه الشبكة.
+
+#### 🕵️ Forensics
+
+* بعد الحادثة → التليمتري يساعد تعرف:
+  * إيه اللي حصل بالظبط.
+  * ليه حصل.
+  * إزاي تمنع إنه يتكرر.
+
+#### 📊 Risk and Compliance Assessment
+
+* تستخدم البيانات لتقييم:
+  * هل الأجهزة محدثة؟
+  * هل فيه يوزرز عندهم صلاحيات زيادة؟
+* ده مفيد عشان الالتزام بالـ **Security Standards**.
+
+#### 🧠 Behavioral Analysis
+
+* التليمتري يوضح الأنشطة العادية مقابل الغريبة.
+* ممكن تدريب AI أو ML علشان يكشفوا التهديدات المستقبلية.
+
+#### 🌐 Network Monitoring and Analysis
+
+* تحليل الترافيك والاتصالات.
+* يساعد في اكتشاف:
+  * DDoS attacks.
+  * Unauthorized access.
+  * Data theft (سرقة بيانات).
+  * تهديدات الشبكة بشكل عام.
+
+***
+
+## 📌 Creating Custom EDR Rules and Policies
+
+واحدة من أقوى مميزات الـ **EDR systems** (خاصة في بيئات IT كبيرة ومعقدة) هي إنك تقدر تعمل **قواعد (Rules) مخصصة**.
+
+* الفكرة: مش كل المؤسسات زي بعض → فالقواعد الجاهزة (Standard Rules) معمولة تهاندل التهديدات العامة، لكن مش دايمًا مناسبة لكل بيئة.
+* هنا ييجي دور **Custom Rules** → تقدر تبني قواعد تناسب بيئتك واحتياجاتك بالظبط.
+
+***
+
+## 📌 Details on Custom EDR Rule Development
+
+### Why is it necessary to develop a special rule?
+
+* كل منظمة عندها تطبيقات خاصة، Workflows، وخصائص بيئة IT مختلفة.
+* القواعد الجاهزة بتغطي تهديدات عامة، لكن مش دايمًا مناسبة 100%.
+* Custom Rules بتسد الفجوة دي.
+
+أسباب إضافية:
+
+1. **التهديدات بتتغير باستمرار** → مهاجمين جدد، طرق جديدة.
+   * الـ Custom Rules تخليك ترد بشكل محدد على تهديدات معينة أو حتى تهديدات مرتبطة بمكان جغرافي معين.
+2. **تقدر تحدد مخاطر خاصة بمؤسستك** → وده يوفر حماية استباقية.
+3. مش بس تهديدات خارجية، كمان **Internal Threats** (تهديدات داخلية أو Insider Threats).
+   * Custom Rules تساعد تكتشف وتحيدها.
+4. تقلل **False Positives** لأنك بتصمم القاعدة تناسب بنيتك التحتية بالظبط.
+
+***
+
+### How Should the Rule Development Process Be?
+
+1. **Needs Analysis**
+   * تحدد الأول إيه اللي محتاجه القاعدة.
+   * أمثلة: مراقبة برنامج معين، التحكم في ترافيك من IP Range معين، مراجعة سلوك ملف أو Process.
+2. **Rule Design**
+   * بعد ما تحدد الاحتياج → تصمم القاعدة: إيه اللي هيتراقب؟ وإمتى تتفعل؟
+3. **Testing and Implementation**
+   * لازم تختبر القاعدة في بيئة تجريبية قبل ما تطبقها.
+   * الهدف: تتأكد إنها شغالة صح وما بتديش False Positives أو False Negatives.
+4. **Monitoring and Improvement**
+   * القواعد لازم تتطور وتتظبط مع الوقت حسب التهديدات الجديدة.
+
+***
+
+### Important point that need extra attention
+
+* **False Positives**: لو القاعدة صارمة جدًا أو بتغطي مجال واسع → ممكن تدي إنذارات غلط على سلوك طبيعي.
+* **Performance Issues**: لو عندك قواعد كتير أو واسعة جدًا → ممكن تبطّأ السيستم أو تأثر على شغل المستخدمين.
+* **Update and Maintenance**: القواعد محتاجة مراجعة وتحديث باستمرار مع تغير التهديدات وبيئة الـ IT.

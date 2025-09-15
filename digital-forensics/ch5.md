@@ -12,7 +12,7 @@
 * من قائمة Start في Windows نكتب `regedit` → ده هيفتح أداة اسمها **Registry Editor**.
 * الـ Registry Editor هي Tool موجودة جوه الـ Windows بتسمحلك تعرض وتعدل على الـ Registry.
 
-<div align="left"><figure><img src="../.gitbook/assets/image.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-09 233312.png" alt="" width="270"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-09 233312.png" alt="" width="270"><figcaption></figcaption></figure></div>
 
 ***
 
@@ -123,28 +123,24 @@
 
 * ده بيطلعلك كل الـ Hives (SAM, SYSTEM, SOFTWARE, SECURITY, NTUSER.DAT, …).
 
-
-
 <div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 225411.png" alt="" width="467"><figcaption><p>manual method</p></figcaption></figure></div>
-
-
 
 ***
 
 ### Example with FTK Imager
 
-اول من file  اختار**Obtain Protected Files**
+اول من file اختار**Obtain Protected Files**
 
 <div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 225433.png" alt="" width="260"><figcaption></figcaption></figure></div>
 
 * حدد مكان تحفظ فيه files
 * بيظهرلك Option:
-  * **Password recovery only**&#x20;
-  * **Password recovery and all registry files**&#x20;
+  * **Password recovery only**
+  * **Password recovery and all registry files**
 
-<div align="left"><figure><img src="../.gitbook/assets/image (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../.gitbook/assets/image (1) (2).png" alt="" width="306"><figcaption></figcaption></figure></div>
 
-### **result**&#x20;
+### **result**
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-09-09 230135.png" alt=""><figcaption></figcaption></figure>
 
@@ -179,8 +175,6 @@
 <div align="left"><figure><img src="../.gitbook/assets/1 (1).png" alt="" width="455"><figcaption></figcaption></figure></div>
 
 ## 🛠️ Handling Dirty Hives
-
-
 
 #### 1. Extraction من FTK Imager
 
@@ -233,33 +227,27 @@
 ### ShellBags Explorer
 
 * أداة تانية من أدوات **Eric Zimmerman**: **ShellBags Explorer**.
-* موجوده يف نفس موقع وعايز بردو .net&#x20;
+* موجوده يف نفس موقع وعايز بردو .net
 
 #### استخدام ShellBags Explorer
 
-**steps**&#x20;
+**steps**
 
 * **Load Offline Hive**
   * Open ShellBags Explorer.
   * Select **File → Load Offline Hive**.
-  *   Choose a user hive like:
-
-      * NTUSER.DAT
-      * USRCLASS.DAT
-
-      &#x20;              &#x20;
+  * Choose a user hive like:
+    * NTUSER.DAT
+    * USRCLASS.DAT
 
 <div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 181813.png" alt="" width="341"><figcaption></figcaption></figure></div>
 
 * **Analyze User Activity**
-  *   The tool will display:
-
-      * Folders the user opened.
-      * Names of devices the user connected to (e.g., SMB shares, other PCs).
-      * Directories browsed.
-      * Search operations performed inside Windows Explorer.
-
-
+  * The tool will display:
+    * Folders the user opened.
+    * Names of devices the user connected to (e.g., SMB shares, other PCs).
+    * Directories browsed.
+    * Search operations performed inside Windows Explorer.
 
 <div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 193022.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
@@ -281,10 +269,10 @@
 ### ⚙️ Usage
 
 1. اختر الـ Registry Hive اللي عايز تحلله.
-2. حدد مكان اللي هيكون فيه ال report&#x20;
+2. حدد مكان اللي هيكون فيه ال report
 3. اضغط **Rip**.
 
-**after rip                                                                                            before rip**
+**after rip before rip**
 
 <div><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194805.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194837.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -304,8 +292,6 @@
 * سهل البحث فيه بالكلمات المفتاحية.
 
 <div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194738.png" alt="" width="279"><figcaption></figcaption></figure></div>
-
-
 
 ## What we are looking for at analysis phase
 
@@ -332,7 +318,7 @@
 
     recently commands used
 5. **Mounted Devices**
-   * يوضح الحاجات اللي  اتعملها Mount على الجهاز.
+   * يوضح الحاجات اللي اتعملها Mount على الجهاز.
 
 ***
 
@@ -345,8 +331,6 @@
 ***
 
 ## Important Directories in the Linux Filesystem
-
-
 
 ### 1. User & Temporary Directories
 
@@ -422,8 +406,6 @@
 * البرامج والـ Binaries: ممكن يحط البرامج بتاعته في أي مكان تاني غير `/bin` أو `/usr/bin`.
 * الـ Logs: ممكن يغير مكان حفظ الـ Logs لمسار مختلف تماماً عن `/var/log`.
 
-
-
 ### Linux operating system analysis <a href="#linux-operating-system-analysis" id="linux-operating-system-analysis"></a>
 
 #### Accessing the System for Investigation <a href="#accessing-the-system-for-investigation" id="accessing-the-system-for-investigation"></a>
@@ -477,25 +459,23 @@
 * **ملف `/etc/crontab`:**
   * **الوظيفة:** يحتوي على المهام المجدولة (Cron Jobs) التي تعمل تلقائيًا في أوقات محددة. فحص هذا الملف يمكن أن يكشف عن وجود سكربتات أو برامج ضارة تعمل في الخلفية.
 
-
-
 حاضر، عدلتها زي ما طلبت بالظبط.
 
 ***
 
-### Firefox Forensics on Linux&#x20;
+### Firefox Forensics on Linux
 
 ***
 
 #### 1. Locating the Profile Directory
 
-الخطوة الأولى هي إننا نلاقي ال directory اللي Firefox بيخزن فيه كل بيانات المستخدم بما إن Firefox على Ubuntu بيتثبت عن طريق `snap`، فالمسار بتاعه بيكون هنا&#x20;
+الخطوة الأولى هي إننا نلاقي ال directory اللي Firefox بيخزن فيه كل بيانات المستخدم بما إن Firefox على Ubuntu بيتثبت عن طريق `snap`، فالمسار بتاعه بيكون هنا
 
 ```
 ~/snap/firefox/common/.mozilla/firefox/
 ```
 
-جوه الdirectory  ده، هتلاقي directory تاني باسم عشوائي (زي `f1quz1a9.default-release` مثلًا)، هو ده directory البروفايل الأساسي اللي فيه كل البيانات المهمة. أي مجلدات تانية زي `Crash Reports` مش بنحتاجها في عملية التحليل دي.
+جوه الdirectory ده، هتلاقي directory تاني باسم عشوائي (زي `f1quz1a9.default-release` مثلًا)، هو ده directory البروفايل الأساسي اللي فيه كل البيانات المهمة. أي مجلدات تانية زي `Crash Reports` مش بنحتاجها في عملية التحليل دي.
 
 <figure><img src="../.gitbook/assets/Screenshot 2025-09-13 151926.png" alt=""><figcaption></figcaption></figure>
 
@@ -533,10 +513,8 @@
 **Step 3: Examine the Database Content**
 
 1. افتح ملف `places.sqlite` اللي نسخته باستخدام البرنامج.
-2. هتلاقي جواه  (Tables)، كل جدول بيحتوي على نوع معين من البيانات.
+2. هتلاقي جواه (Tables)، كل جدول بيحتوي على نوع معين من البيانات.
 3. عشان تطلع history :
    * روح على جدول اسمه `moz_places`. الجدول ده فيه كل الروابط (URLs) اللي المستخدم زارها، ومعاها معلومات تانية زي عدد الزيارات وتاريخ آخر زيارة.
-4.  عشان تطلع bookmarks:
-
-    * هتلاقيها برضه موجودة ومترتبة جوه قاعدة البيانات دي، غالبًا في جدول `moz_bookmarks`.
-
+4. عشان تطلع bookmarks:
+   * هتلاقيها برضه موجودة ومترتبة جوه قاعدة البيانات دي، غالبًا في جدول `moz_bookmarks`.
