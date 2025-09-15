@@ -273,7 +273,7 @@ EDR/XDR بيدوا فرق الأمن القدرة إنها تتابع الأنش
 
 ### 📌 Categories of Telemetry Data (أنواع البيانات اللي EDR بيجمعها)
 
-<div align="left"><figure><img src="../.gitbook/assets/image.png" alt="" width="500"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image.png" alt="" width="500"><figcaption></figcaption></figure></div>
 
 💡 ملاحظة: مش كل EDR بيجمع نفس التفاصيل → ده بيعتمد على النسخة والإعدادات.
 
