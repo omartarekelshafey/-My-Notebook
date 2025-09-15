@@ -178,17 +178,13 @@
 
 7. **Anti-Exploitation / Fileless Engine**
 
-* يكشف الاستغلال (Exploits) والهجمات بدون ملفات (Memory-based).
+* detect Exploits and fileless attack Memory-based
 
 8. **PUA Engine**
 
-* يرصد البرامج المزعجة (Adware, Toolbars, Hijackers).
+* detect  (Adware, Toolbars, Hijackers).
 
 
-
-تمام ✅ خليني أعملك ملخص مرتب بأسلوب ينفع تحطه في GitBook، وكل عنوان أكتب تحته سطر صغير يوضح ده بتاع إيه قبل الشرح التفصيلي.
-
-***
 
 ## Threat Management and Analysis
 
