@@ -24,14 +24,14 @@
 
 ## weinnovate
 
-* [linux](weinnovate/linux.md)
 * [intro to soc](weinnovate/intro-to-soc.md)
-* [elastic](weinnovate/elastic.md)
 * [bash script](weinnovate/bash-script.md)
 * [siem part 1](weinnovate/siem-part-1.md)
 * [detection eng part 1](weinnovate/detection-eng-part-1.md)
 * [Phishing](weinnovate/phishing.md)
 * [THREAT INTEL 101](weinnovate/threat-intel-101.md)
+* [linux](weinnovate/linux.md)
+* [elastic](weinnovate/elastic.md)
 
 ## digital forensics
 
