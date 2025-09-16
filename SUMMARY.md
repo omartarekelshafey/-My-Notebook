@@ -18,10 +18,9 @@
       * [Information Gathering](lets-defend/soc-analyst/phishing-email-analysis/information-gathering.md)
       * [What is an Email Header and How to Read Them?](lets-defend/soc-analyst/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
       * [Email Header Analysis](lets-defend/soc-analyst/phishing-email-analysis/email-header-analysis.md)
-  * [detection eng](lets-defend/detection-eng/README.md)
-    * [XDR/EDR Basics](lets-defend/detection-eng/xdr-edr-basics.md)
-    * [Threat Detection and Classification with EDR/XDR](lets-defend/detection-eng/threat-detection-and-classification-with-edr-xdr.md)
-    * [Threat Hunting and IR with XDR/EDR](lets-defend/detection-eng/threat-hunting-and-ir-with-xdr-edr.md)
+  * [XDR/EDR Basics](lets-defend/xdr-edr-basics.md)
+  * [Threat Detection and Classification with EDR/XDR](lets-defend/threat-detection-and-classification-with-edr-xdr.md)
+  * [Threat Hunting and IR with XDR/EDR](lets-defend/threat-hunting-and-ir-with-xdr-edr.md)
 
 ## weinnovate
 
