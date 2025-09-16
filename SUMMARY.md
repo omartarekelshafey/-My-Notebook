@@ -21,6 +21,7 @@
   * [XDR/EDR Basics](lets-defend/xdr-edr-basics.md)
   * [Threat Detection and Classification with EDR/XDR](lets-defend/threat-detection-and-classification-with-edr-xdr.md)
   * [Threat Hunting and IR with XDR/EDR](lets-defend/threat-hunting-and-ir-with-xdr-edr.md)
+  * [correlation](lets-defend/correlation.md)
 
 ## weinnovate
 
