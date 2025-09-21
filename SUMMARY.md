@@ -12,16 +12,17 @@
 ***
 
 * [let's defend](lets-defend/README.md)
-  * [soc analyst](lets-defend/soc-analyst/README.md)
-    * [Phishing Email Analysis](lets-defend/soc-analyst/phishing-email-analysis/README.md)
-      * [Introduction to Phishing](lets-defend/soc-analyst/phishing-email-analysis/introduction-to-phishing.md)
-      * [Information Gathering](lets-defend/soc-analyst/phishing-email-analysis/information-gathering.md)
-      * [What is an Email Header and How to Read Them?](lets-defend/soc-analyst/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
-      * [Email Header Analysis](lets-defend/soc-analyst/phishing-email-analysis/email-header-analysis.md)
-  * [XDR/EDR Basics](lets-defend/xdr-edr-basics.md)
-  * [Threat Detection and Classification with EDR/XDR](lets-defend/threat-detection-and-classification-with-edr-xdr.md)
-  * [Threat Hunting and IR with XDR/EDR](lets-defend/threat-hunting-and-ir-with-xdr-edr.md)
-  * [correlation](lets-defend/correlation.md)
+  * [soc analyst path](lets-defend/soc-analyst-path/README.md)
+    * [Phishing Email Analysis](lets-defend/soc-analyst-path/phishing-email-analysis/README.md)
+      * [Introduction to Phishing](lets-defend/soc-analyst-path/phishing-email-analysis/introduction-to-phishing.md)
+      * [Information Gathering](lets-defend/soc-analyst-path/phishing-email-analysis/information-gathering.md)
+      * [What is an Email Header and How to Read Them?](lets-defend/soc-analyst-path/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
+      * [Email Header Analysis](lets-defend/soc-analyst-path/phishing-email-analysis/email-header-analysis.md)
+  * [detection](lets-defend/detection/README.md)
+    * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
+    * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
+    * [Threat Hunting and IR with XDR/EDR](lets-defend/detection/threat-hunting-and-ir-with-xdr-edr.md)
+    * [correlation](lets-defend/detection/correlation.md)
 
 ## weinnovate
 

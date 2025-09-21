@@ -6,3 +6,6 @@ description: >-
 
 # Email Header Analysis
 
+* Was the email sent from the correct SMTP server?
+* Are the data "From" and "Return-Path / Reply-To" the same?
+
