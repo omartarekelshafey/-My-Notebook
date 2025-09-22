@@ -18,6 +18,8 @@
       * [Information Gathering](lets-defend/soc-analyst-path/phishing-email-analysis/information-gathering.md)
       * [What is an Email Header and How to Read Them?](lets-defend/soc-analyst-path/phishing-email-analysis/what-is-an-email-header-and-how-to-read-them.md)
       * [Email Header Analysis](lets-defend/soc-analyst-path/phishing-email-analysis/email-header-analysis.md)
+      * [Static Analysis](lets-defend/soc-analyst-path/phishing-email-analysis/static-analysis.md)
+      * [Dynamic Analysis](lets-defend/soc-analyst-path/phishing-email-analysis/dynamic-analysis.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)

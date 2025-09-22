@@ -14,7 +14,7 @@ description: >-
 To determine whether the email was sent from the correct server, we check the **Received** field, which shows the path the message took.\
 In this case, the email came from the server **101\[.]99.94.116**.
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt="" width="563"><figcaption></figcaption></figure>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure></div>
 
 \
 However, the sender appears to be from the domain **letsdefend.io**.
@@ -28,7 +28,7 @@ The results showed that the domain **letsdefend.io** actually uses Google mail s
 \
 This analysis confirmed that the email was not sent from the legitimate address but was instead **spoofed**.
 
-<div align="left"><figure><img src="../../../.gitbook/assets/image (29).png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure></div>
 
 
 
