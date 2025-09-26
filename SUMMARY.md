@@ -54,5 +54,3 @@
     * [CH3](mahara-tech/digital-forensics/ch3.md)
     * [CH 4](mahara-tech/digital-forensics/ch-4.md)
     * [CH5](mahara-tech/digital-forensics/ch5.md)
-
-## digital forensics
