@@ -63,7 +63,7 @@ Preservation
 
 هوضح كل حاجه عن الصوره دلوقتي
 
-<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 ## Disk Acquisition&#x20;
 
@@ -213,7 +213,7 @@ IDIF→ used by i look investgator
 * بيعرضلك كل الهاردات + البارتيشنز+loop &#x20;
 * بيبينك حجم كل بارتيشن ومكان اللي معمول فيه ال mount&#x20;
 
-<figure><img src="../.gitbook/assets/lsblk.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/lsblk.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -222,7 +222,7 @@ IDIF→ used by i look investgator
 * بيوريك المساحة المستخدمة والفاضية لكن للـ File Systems اللي معمولة Mount بس.
 * مبيظهرش الديسكات اللي مش معمولة Mount.
 
-<figure><img src="../.gitbook/assets/df.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/df.png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -239,7 +239,7 @@ IDIF→ used by i look investgator
 
 لو حجم البارتيشن ≈ حجم الديسك يبقى مفيش Hidden Partition.
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 
@@ -250,7 +250,7 @@ IDIF→ used by i look investgator
 * `if=` = Input File (الديسك أو البارتيشن).
 * `of=` = Output File (المكان اللي هيتحفظ فيه).
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-08 145756.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-08 145756.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -283,7 +283,7 @@ sudo dd if=/dev/sdb of=/home/user/Desktop/images/second.dd conv=noerror,sync
 
 لو الديسك حجمه كبير (1TB مثلاً)، ممكن تقسّم الـ Image باستخدام:
 
-<figure><img src="../.gitbook/assets/split.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/split.png" alt=""><figcaption></figcaption></figure>
 
 #### ليه هنا ما استخدمناش `of=` مع `dd`؟
 
@@ -298,7 +298,7 @@ sudo dd if=/dev/sdb of=/home/user/Desktop/images/second.dd conv=noerror,sync
 
 #### result
 
-<div align="left"><figure><img src="../.gitbook/assets/ouput.png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/ouput.png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 
@@ -308,7 +308,7 @@ sudo dd if=/dev/sdb of=/home/user/Desktop/images/second.dd conv=noerror,sync
 
 &#x20;هتكتب الكوماند اللي في اول الصورة ده
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-08 163851.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-08 163851.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -322,21 +322,21 @@ How to Create Disk Image ?
 
 اختار Create Disk Image
 
-<div align="left" data-full-width="true"><figure><img src="../.gitbook/assets/1.png" alt="" width="168"><figcaption></figcaption></figure></div>
+<div align="left" data-full-width="true"><figure><img src="../../.gitbook/assets/1.png" alt="" width="168"><figcaption></figcaption></figure></div>
 
 حدد الـ Source (Physical Drive – Logical Drive – Image File)
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 180030.png" alt="" width="294"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 180030.png" alt="" width="294"><figcaption></figcaption></figure></div>
 
 اختار الـ Drive
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 180057.png" alt="" width="286"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 180057.png" alt="" width="286"><figcaption></figcaption></figure></div>
 
 
 
 اختار الفورمات (Raw – E01 – SMART – AD1)&#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 181137.png" alt="" width="289"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 181137.png" alt="" width="289"><figcaption></figcaption></figure></div>
 
 Case Information
 
@@ -348,11 +348,11 @@ Case Information
 * Description
 * Notes
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 181659.png" alt="" width="306"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 181659.png" alt="" width="306"><figcaption></figcaption></figure></div>
 
 بعد  كده حدد مكان حفظ الـ Image
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 182114.png" alt="" width="288"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 182114.png" alt="" width="288"><figcaption></figcaption></figure></div>
 
 ***
 
@@ -360,7 +360,7 @@ Verification and Hashing
 
 بعد الـ Acquisition FTK Imager بيحسب Hash (MD5 أو SHA1 أو SHA256) ويعمل Verification أوتوماتيك عشان يضمن إن الـ Image مظبوطة.
 
-<div align="left"><figure><img src="../.gitbook/assets/report.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/report.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ***
 
@@ -370,16 +370,16 @@ Mount Image
 
 * File → Image Mounting
 
-<div align="left"><figure><img src="../.gitbook/assets/2.png" alt="" width="168"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/2.png" alt="" width="168"><figcaption></figcaption></figure></div>
 
 * اختار الـ Image
 
-<div align="left"><figure><img src="../.gitbook/assets/3.png" alt="" width="336"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/3.png" alt="" width="336"><figcaption></figcaption></figure></div>
 
 * اختار Drive Letter&#x20;
 * اختار Mount Mode , type &#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 201904.png" alt="" width="335"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 201904.png" alt="" width="335"><figcaption></figcaption></figure></div>
 
 
 
@@ -387,7 +387,7 @@ Mount Image
 
 * **ديه صورة من safe block  لما لقط انه في خاجه اتعملها mount**&#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 201928.png" alt="" width="300"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 201928.png" alt="" width="300"><figcaption></figcaption></figure></div>
 
 
 

@@ -12,7 +12,7 @@
 * من قائمة Start في Windows نكتب `regedit` → ده هيفتح أداة اسمها **Registry Editor**.
 * الـ Registry Editor هي Tool موجودة جوه الـ Windows بتسمحلك تعرض وتعدل على الـ Registry.
 
-<div align="left"><figure><img src="../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-09 233312.png" alt="" width="270"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 233312.png" alt="" width="270"><figcaption></figcaption></figure></div>
 
 ***
 
@@ -98,7 +98,7 @@
   * الـ Transaction Files دي بتخزن التغييرات اللي بيعملها الـ User مؤقتًا (زي ما بيفتح Browser أو يعمل Search) قبل ما تترحل للـ Hive الرئيسي
 * لو أخدت `NTUSER.DAT` بس → ده اسمه **Dirty Hive** (غير مكتمل)، لأنه لسه في تغييرات متسجلتش.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-09 224442.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 224442.png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -125,7 +125,7 @@
 
 
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 225411.png" alt="" width="467"><figcaption><p>manual method</p></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 225411.png" alt="" width="467"><figcaption><p>manual method</p></figcaption></figure></div>
 
 
 
@@ -135,18 +135,18 @@
 
 اول من file  اختار**Obtain Protected Files**
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-09 225433.png" alt="" width="260"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 225433.png" alt="" width="260"><figcaption></figcaption></figure></div>
 
 * حدد مكان تحفظ فيه files
 * بيظهرلك Option:
   * **Password recovery only**&#x20;
   * **Password recovery and all registry files**&#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
 
 ### **result**&#x20;
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-09 230135.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 230135.png" alt=""><figcaption></figcaption></figure>
 
 ## Registry Analysis in Digital Forensics
 
@@ -176,7 +176,7 @@
   * معناها: مش كل البيانات اتحفظت.
   * في Transaction Logs ناقصة.
 
-<div align="left"><figure><img src="../.gitbook/assets/1 (1).png" alt="" width="455"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/1 (1).png" alt="" width="455"><figcaption></figcaption></figure></div>
 
 ## 🛠️ Handling Dirty Hives
 
@@ -198,18 +198,18 @@
   * `.LOG2`
   * أحيانًا `.LOG3`
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 175248.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 175248.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 #### 3. Load في Registry Explorer
 
 * افتح **Registry Explorer**.
 * اعمل **Load Hive** من الفولدر اللي فيه الـ Hive + Logs.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-10 210858.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 210858.png" alt="" width="563"><figcaption></figcaption></figure>
 
 * الأداة أوتوماتيك هتعمل **Recovery** للـ Dirty Hive باستخدام الـ Logs.
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 210549.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 210549.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ### ShellBags
 
@@ -249,7 +249,7 @@
 
       &#x20;              &#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 181813.png" alt="" width="341"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 181813.png" alt="" width="341"><figcaption></figcaption></figure></div>
 
 * **Analyze User Activity**
   *   The tool will display:
@@ -261,7 +261,7 @@
 
 
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 193022.png" alt="" width="563"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 193022.png" alt="" width="563"><figcaption></figcaption></figure></div>
 
 ***
 
@@ -286,7 +286,7 @@
 
 **after rip                                                                                            before rip**
 
-<div><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194805.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194837.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 194805.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 194837.png" alt=""><figcaption></figcaption></figure></div>
 
 ### 📊 Capabilities
 
@@ -303,7 +303,7 @@
 * التقرير بيكون كبير ومليان تفاصيل.
 * سهل البحث فيه بالكلمات المفتاحية.
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-10 194738.png" alt="" width="279"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-10 194738.png" alt="" width="279"><figcaption></figcaption></figure></div>
 
 
 
@@ -497,7 +497,7 @@
 
 جوه الdirectory  ده، هتلاقي directory تاني باسم عشوائي (زي `f1quz1a9.default-release` مثلًا)، هو ده directory البروفايل الأساسي اللي فيه كل البيانات المهمة. أي مجلدات تانية زي `Crash Reports` مش بنحتاجها في عملية التحليل دي.
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-13 151926.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-13 151926.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

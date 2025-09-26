@@ -45,10 +45,14 @@
 * [linux](weinnovate/linux.md)
 * [elastic](weinnovate/elastic.md)
 
-## digital forensics
+***
 
-* [CH 1](digital-forensics/ch-1.md)
-* [CH 2](digital-forensics/ch-2.md)
-* [CH3](digital-forensics/ch3.md)
-* [CH 4](digital-forensics/ch-4.md)
-* [CH5](digital-forensics/ch5.md)
+* [mahara tech](mahara-tech/README.md)
+  * [digital forensics](mahara-tech/digital-forensics/README.md)
+    * [CH 1](mahara-tech/digital-forensics/ch-1.md)
+    * [CH 2](mahara-tech/digital-forensics/ch-2.md)
+    * [CH3](mahara-tech/digital-forensics/ch3.md)
+    * [CH 4](mahara-tech/digital-forensics/ch-4.md)
+    * [CH5](mahara-tech/digital-forensics/ch5.md)
+
+## digital forensics

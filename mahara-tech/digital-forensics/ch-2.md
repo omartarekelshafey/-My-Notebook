@@ -42,7 +42,7 @@
 
 ## انت كا Forensics practitioner محتاج ايه ؟
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption><p>هو ده اللي انت محتلجه كا  Forensics practitioner </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>هو ده اللي انت محتلجه كا  Forensics practitioner </p></figcaption></figure>
 
 
 
@@ -51,7 +51,7 @@
 في تلات حاجات اساسيه في methodology \
 
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. 🔍 Hypothesis/Prediction (الفرضية/التوقع)
 
@@ -164,7 +164,7 @@
 
 **example**
 
-<figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 ### 3. استخدام أمر `stat`
 
@@ -182,7 +182,7 @@
 
 example
 
-<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
@@ -194,7 +194,7 @@ example
 
     before move                                                                              after move&#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/image (23).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (23).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 *   **Copy الملف**:
 
@@ -202,7 +202,7 @@ example
 
     before copy                                                                                  after copy&#x20;
 
-<div align="left"><figure><img src="../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Screenshot 2025-09-05 125318.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 125318.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ## EXIF TOOL
 
@@ -213,7 +213,7 @@ example
 
 example
 
-<figure><img src="../.gitbook/assets/Screenshot 2025-09-05 160704.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 160704.png" alt=""><figcaption></figcaption></figure>
 
 
 
