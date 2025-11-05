@@ -1,22 +1,20 @@
 # Detecting Command Injection Attacks
 
-## Command Injection — Summary
-
-### **Definition**
+## **Definition**
 
 Command injection occurs when untrusted user input is passed directly to an operating-system shell (or command interpreter) without proper validation or sanitization, allowing an attacker to execute arbitrary OS commands.
 
-### **How it works (simple example)**
+## **How it works (simple example)**
 
 A web app builds a shell command like:\
 `cp <filename> /tmp`\
 If an attacker supplies a filename such as `letsdefend; ls; .txt`, the shell interprets `;` as a command separator and executes `ls` (and possibly other injected commands) with the web app’s user privileges.
 
-### **How attackers exploit it**
+## **How attackers exploit it**
 
 They craft input that injects shell metacharacters (e.g., `;`, `&&`, `|`, backticks) or other payloads that alter the intended command flow and force execution of attacker-chosen commands.
 
-### **Prevention / Best practices**
+## **Prevention / Best practices**
 
 1. **Never trust user input** — validate and sanitize everything (filenames, parameters).
 2. **Least privilege** — run web applications with the minimum required privileges.
@@ -24,13 +22,13 @@ They craft input that injects shell metacharacters (e.g., `;`, `&&`, `|`, backti
 
 
 
-### **Detecting Command Injection Attacks**
+## **Detecting Command Injection Attacks**
 
-#### **Impact & Detection Overview:**
+### **Impact & Detection Overview:**
 
 Command injection is a highly critical vulnerability. If exploited without being detected, it can cause major financial and reputational damage to the affected organization.
 
-#### **How to Detect Command Injection Attacks:**
+### **How to Detect Command Injection Attacks:**
 
 * **Check every part of the web request:** Vulnerabilities may appear anywhere — in URLs, headers, query strings, POST bodies, file names, or cookies.
 * **Search for terminal-related keywords or symbols:** Look for command names or shell operators like `dir`, `ls`, `cp`, `cat`, `type`, `;`, `&&`, `` ` ``, and `|`.
@@ -55,7 +53,7 @@ This request was captured during the exploitation of the **Shellshock** vulnerab
 
 ***
 
-#### What is Shellshock?
+## What is Shellshock?
 
 **Shellshock** is a group of severe vulnerabilities discovered in **Bash** in 2014 (notably **CVE-2014-6271** and related ones).\
 It occurs because Bash incorrectly interprets certain environment variables that look like function definitions.\
