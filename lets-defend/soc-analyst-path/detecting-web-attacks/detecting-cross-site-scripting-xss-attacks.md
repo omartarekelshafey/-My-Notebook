@@ -63,6 +63,5 @@ As we mentioned in the previous lesson, according to a study by Acunetix, 75% of
 * **Learn about commonly used XSS payloads:** Attackers tend to use the same payloads to look for vulnerabilities before exploiting an XSS vulnerability. Therefore, familiarizing yourself with commonly used XSS payloads would make it easier for you to detect XSS vulnerabilities. You can examine some commonly used payloads [here](https://github.com/payloadbox/xss-payload-list).
 * **Check for the use of special characters:** Check data coming from a user to see if any special characters commonly used in XSS payloads, such as greater than (>) or less than (<), are present.
 
-\
-
+<br>
 

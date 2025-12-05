@@ -48,8 +48,7 @@
 
 ## &#x20;(Forensic Methodology)
 
-في تلات حاجات اساسيه في methodology \
-
+في تلات حاجات اساسيه في methodology <br>
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 

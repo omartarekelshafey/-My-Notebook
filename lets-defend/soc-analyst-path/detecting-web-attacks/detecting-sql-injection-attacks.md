@@ -88,8 +88,7 @@ To understand why SQL injection attacks are so important, let's take a look at w
 * **Use a framework:** Of course, just using a framework is not enough to prevent a SQL injection attack. However, it is still very important to use the framework according to the documentation.
 * **Keep your framework up to date:** Keep your web application secure by following security updates according to the framework you use.
 * **Always sanitize data received from a user:** Never trust data received from a user. In addition, sanitize all data (such as headers, URLs, etc.), not just form data.
-*   **Avoid the use of raw SQL queries:** You may be in the habit of writing raw SQL queries, but you should take advantage of the security provided by the framework.\
-
+*   **Avoid the use of raw SQL queries:** You may be in the habit of writing raw SQL queries, but you should take advantage of the security provided by the framework.<br>
 
     #### What Are Parameterized Queries?
 

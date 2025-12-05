@@ -61,4 +61,4 @@ When such a variable contains extra commands after the function, Bash executes t
 
 Because Bash is widely used on Unix/Linux systems, this vulnerability had a huge global impact.
 
-\
+<br>

@@ -28,6 +28,7 @@
       * [Detecting Command Injection Attacks](lets-defend/soc-analyst-path/detecting-web-attacks/detecting-command-injection-attacks.md)
       * [Detecting Insecure Direct Object Reference (IDOR) Attacks](lets-defend/soc-analyst-path/detecting-web-attacks/detecting-insecure-direct-object-reference-idor-attacks.md)
       * [Detecting RFI & LFI Attacks](lets-defend/soc-analyst-path/detecting-web-attacks/detecting-rfi-and-lfi-attacks.md)
+    * [Malware Analysis Fundamentals](lets-defend/soc-analyst-path/malware-analysis-fundamentals.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)

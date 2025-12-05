@@ -27,8 +27,7 @@ Exposing Cyber Criminals. Whilst this begins to move into the Threat Intelligenc
 
 ## For Attackers
 
-الـ OSINT بيساعد في جمع معلومات عن الشركات أو الأفراد، مما يسهل التخطيط للهجمات. يمكن للمهاجم معرفة الأنظمة المستخدمة، وجمع بيانات الموظفين لتنفيذphishing.  وكل  اللي بيتم ده بيكون اسمه target information gathering أو passive information gathering.\
-
+الـ OSINT بيساعد في جمع معلومات عن الشركات أو الأفراد، مما يسهل التخطيط للهجمات. يمكن للمهاجم معرفة الأنظمة المستخدمة، وجمع بيانات الموظفين لتنفيذphishing.  وكل  اللي بيتم ده بيكون اسمه target information gathering أو passive information gathering.<br>
 
 ## For Law Enforcement
 
@@ -36,11 +35,9 @@ Exposing Cyber Criminals. Whilst this begins to move into the Threat Intelligenc
 
 ## For Businesses
 
-الشركات بتستخدم OSINT لمراقبة المنافسين، تحليل السوق، وفهم العملاء لتحسين استراتيجيات التسويق والتفاعل معهم.. جزء مهم منه هو مراقبة سوشيال ميديا المنافسين للاستفادة من نجاحاتهم في تحسين استراتيجيات الشركة.\
-
+الشركات بتستخدم OSINT لمراقبة المنافسين، تحليل السوق، وفهم العملاء لتحسين استراتيجيات التسويق والتفاعل معهم.. جزء مهم منه هو مراقبة سوشيال ميديا المنافسين للاستفادة من نجاحاتهم في تحسين استراتيجيات الشركة.<br>
 
 \
-\
-
+<br>
 
 د
