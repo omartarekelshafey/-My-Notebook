@@ -475,9 +475,9 @@ P**eople**
 
 ***
 
-### 🏗️ SIEM Architecture Components
+### SIEM Architecture Components
 
-#### 1️⃣ **Collection (التجميع)**
+#### **Collection (التجميع)**
 
 * أول خطوة: الـ **SIEM** لازم ياخد Logs من مصادر مختلفة زي:
   * Firewalls
@@ -490,7 +490,7 @@ P**eople**
 
 ***
 
-#### 2️⃣ **Parsing (تحليل الخام)**
+#### **Parsing (تحليل الخام)**
 
 * الـ Logs عادةً بتكون نصوص غير منظمة (Raw Logs).
 * Parsing يعني: **استخراج الحقول المهمة** من الـ Log.
@@ -510,7 +510,7 @@ P**eople**
 
 ***
 
-#### 3️⃣ **Normalization (توحيد الشكل)**
+#### **Normalization (توحيد الشكل)**
 
 * كل جهاز بيطلع Logs بشكل مختلف.
 * الهدف: **توحيد صيغة الحقول** بحيث الـ SIEM يعرف يقارن الأحداث ببعض.
@@ -521,7 +521,7 @@ P**eople**
 
 ***
 
-#### 4️⃣ **Aggregation (التجميع/التلخيص)**
+#### **Aggregation (التجميع/التلخيص)**
 
 * بدل ما نسجل كل Log لوحده → الـ SIEM يعمل **Group** للأحداث المتشابهة.
 * الهدف: تقليل الحجم + التركيز على الـ Pattern.
@@ -530,7 +530,7 @@ P**eople**
 
 ***
 
-### 🔵 5. Correlation (الربط)
+### &#x20;Correlation (الربط)
 
 * **الوظيفة:** ربط أحداث مختلفة ببعض عشان تكشف Attack Scenario.
 * **الفكرة:** مش مجرد تكرار نفس الحاجة، لكن أحداث متنوعة مرتبطة ببعض بتدل على هجوم.
@@ -544,23 +544,13 @@ P**eople**
 
 ***
 
-### 🎯 **الخلاصة**
-
-* **Collection** → أجمع Logs.
-* **Parsing** → استخرج البيانات.
-* **Normalization** → وحّد شكلها.
-* **Aggregation** → قلل التكرار والضوضاء.
-* **Correlation** → اربط الأحداث واكشف التهديد.
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
 ### What types of events should be logged?
 
 ***
 
-### 📌 أنواع الـ Events اللي لازم تتسجل (Logging)
+### &#x20;أنواع الـ Events اللي لازم تتسجل (Logging)
 
-1️⃣ **Failures / Errors** 🛑
+**Failures / Errors**&#x20;
 
 * دي بتسجل الأخطاء اللي بتحصل عشان نعرف سبب المشكلة.
 * مثال:
@@ -570,7 +560,7 @@ P**eople**
 
 ***
 
-2️⃣ **Analytics / Usage Logs** 📊
+&#x20;**Analytics / Usage Logs**&#x20;
 
 * دي بتساعدنا نفهم إزاي الـ System بيتستخدم وأداءه عامل إزاي.
 * مثال:
@@ -580,7 +570,7 @@ P**eople**
 
 ***
 
-3️⃣ **System & Security Logs** 🖥️🔐
+&#x20;**System & Security Logs**&#x20;
 
 * دي الـ Logs الأساسية اللي بتيجي من الـ OS والـ Services:
   * **Application Log** → أخطاء أو معلومات من البرامج.
@@ -592,28 +582,23 @@ P**eople**
 
 ***
 
-🎯 **الخلاصة**:\
+&#x20;**الخلاصة**:\
 نسجل كل حاجة ليها قيمة فعلية:
 
 * Errors عشان نحل مشاكل.
 * Usage عشان نتابع الأداء.
 * Security/System Events عشان نأمن ونفهم البنية التحتية.
 
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-HOW DOES THE DEVICES SEND\
-THEIR LOGS TO THE SIEM
-
 ***
 
-### 📌 إزاي الأجهزة بتبعت الـ Logs للـ SIEM؟
+### &#x20;إزاي الأجهزة بتبعت الـ Logs للـ SIEM؟
 
 عشان الـ SIEM يشتغل، لازم كل جهاز (Server, Firewall, Switch, Endpoint…) يبعت له الـ Logs بتاعته.\
 ده بيتم بطريقتين أساسيين:
 
 ***
 
-#### 1️⃣ **Log Shippers** 🚚
+#### **Log Shippers**&#x20;
 
 * دي Tools بتتسطب على الجهاز أو السيرفر عشان **تجمع الـ Logs وتعالجها وتبعتها للـ SIEM**.
 * بتعمل:
@@ -629,7 +614,7 @@ THEIR LOGS TO THE SIEM
 
 ***
 
-#### 2️⃣ **Protocols** 📡
+#### &#x20;**Protocols** 📡
 
 فيه بروتوكولات (طرق تواصل) بتسمح للأجهزة تبعت الـ Logs مباشرة:
 
@@ -649,47 +634,38 @@ THEIR LOGS TO THE SIEM
 
 ***
 
-### 🎯 الخلاصة
+#### &#x20;الحاجات الأساسية اللي أي Log لازم يحتويها:
 
-* **Log Shippers** = Tools بتنزل على الأجهزة عشان تجمع وتبعت الـ Logs.
-* **Protocols** = الـ طريقة اللي بيستخدمها الجهاز يبعت بيها الـ Logs (Syslog, WEF, API…).
-
-***
-
-WHAT SHOULD BE IN&#x20;THE LOG
-
-#### ✅ الحاجات الأساسية اللي أي Log لازم يحتويها:
-
-1️⃣ **Timestamp (الوقت والتاريخ)**
+**Timestamp (الوقت والتاريخ)**
 
 * لازم نعرف الحدث حصل إمتى بالظبط (مع Timezone لو أمكن).
 
-2️⃣ **Source Information (المصدر)**
+**Source Information (المصدر)**
 
 * الـ IP Address / Hostname للجهاز أو الـ User اللي عمل الـ Action.
 
-3️⃣ **Destination Information (لو فيه تواصل)**
+**Destination Information (لو فيه تواصل)**
 
 * الـ IP / Port / Hostname اللي رايح له الترافيك.
 
-4️⃣ **Event / Action Description**
+&#x20;**Event / Action Description**
 
 * نوع الحدث: Login, Logout, File Access, Command Execution, Network Connection…
 
-5️⃣ **User / Account Information** 👤
+**User / Account Information**&#x20;
 
 * الـ Username أو الـ User ID اللي نفّذ العملية.
 
-6️⃣ **Status / Result**
+**Status / Result**
 
 * نجح ولا فشل (Success / Fail / Error Code).
 
-7️⃣ **Process / Application Details**
+&#x20;**Process / Application Details**
 
 * اسم البرنامج أو الـ Service اللي أصدر الـ Log.
 * أحيانًا كمان PID (Process ID).
 
-8️⃣ **Device / Log Source Type**
+&#x20;**Device / Log Source Type**
 
 * هل جاي من Firewall؟ Server؟ Endpoint؟ Application؟
 
