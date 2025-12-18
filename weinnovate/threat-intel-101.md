@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # THREAT INTEL 101
 
 ## Threat intel overview

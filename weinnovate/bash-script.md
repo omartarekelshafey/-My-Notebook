@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # bash script
 
 ```bash
