@@ -55,3 +55,6 @@
     * [CH3](mahara-tech/digital-forensics-basics/ch3.md)
     * [CH 4](mahara-tech/digital-forensics-basics/ch-4.md)
     * [CH5](mahara-tech/digital-forensics-basics/ch5.md)
+* [ccna](ccna/README.md)
+  * [semster2](ccna/semster2/README.md)
+    * [module 1](ccna/semster2/module-1.md)
