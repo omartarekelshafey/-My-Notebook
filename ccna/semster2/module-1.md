@@ -27,7 +27,7 @@ Initial Settings
 **Step 5: Finally, the boot loader locates and loads a default IOS operating system**\
 **software image into memory and gives control of the switch over to the IOS**
 
-<div align="center"><figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
 
 ### Switch LED Indicators
 
@@ -58,7 +58,7 @@ Initial Settings
 
 * الوظيفة: هو الزرار المسؤول عن التنقل بين الأوضاع اللي فوق دي (STAT -> DUPLX -> SPEED -> PoE). كل دوسة بتنقل اللمبة للي تحتها عشان تغير وظيفة مؤشرات البورتات
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Switch Management Access
 
@@ -79,7 +79,7 @@ Initial Settings
 **3. واجهة السويتش الافتراضية (SVI - Switch Virtual Interface):**
 
 * المكان: الـ IP مابيتحطش على "بورت حقيقي" (Physical Port).
-* الطريقة: بيتم وضع الـ IP على واجهة وهمية اسمها SVI (وغالباً بتكون VLAN interface).
+* الطريقة: بيتم وضع الـ IP على واجهة وهمية اسمها SVI&#x20;
 
 **4. الإعداد الأولي (Initial Configuration):**
 
@@ -110,5 +110,70 @@ Initial Settings
 
 * تقنيات مثل Gigabit Ethernet وكروت الشبكة سرعة 10Gb تتطلب اتصالات من نوع Full-Duplex لكي تعمل.
 
+### Configure Switch Ports at the Physical Layer
 
+* Manual Configuration: يمكن ضبط منافذ السويتش يدوياً بأوامر محددة للسرعة (`speed`) ونمط الازدواج (`duplex`).
+* Operating Modes:
+  * عند سرعة 10/100 Mbps: المنافذ تعمل في وضع Half أو Full duplex.
+  * عند سرعة 1000 Mbps (1 Gbps): المنافذ تعمل فقط في وضع Full-duplex.
+* Best Practice:
+  * يفضل استخدام Autonegotiation (التفاوض التلقائي) مع الأجهزة غير المعروفة أو المتغيرة.
+  * يفضل استخدام Manual Settings (الإعداد اليدوي) مع الأجهزة المعروفة والثابتة مثل السيرفرات وأجهزة الشبكة لضمان الاستقرار.
+* Troubleshooting Note: عدم تطابق الإعدادات (Mismatched settings) بين الطرفين يسبب مشاكل في الاتصال، وغالباً ما يحدث بسبب فشل التفاوض التلقائي.
+* Fiber-Optic Ports: منافذ الفايبر تعمل دائماً بسرعة واحدة محددة مسبقاً وتكون دائماً Full-duplex.
+
+**Auto-MDIX**
+
+* Definition: هي خاصية تجعل السويتش يكتشف نوع الكابل المتوصل (Straight-through أو Crossover) ويقوم بضبط الاتصال تلقائياً ليعمل بنجاح.
+* Without Auto-MDIX (بدون الخاصية): يجب الالتزام بأنواع الكابلات:
+  * Straight-through: لتوصيل أجهزة مختلفة (سويتش مع راوتر/سيرفر/PC).
+  * Crossover: لتوصيل أجهزة متشابهة (سويتش مع سويتش أو Repeater).
+* Enabling the Feature: في السويتشات الحديثة، يتم تفعيل الخاصية بالأمر: `mdix auto`.
+* Pre-requisite (شرط أساسي): لكي تعمل خاصية Auto-MDIX، يجب أن تكون إعدادات السرعة (Speed) والازدواج (Duplex) مضبوطة على Auto.
+
+Default Settings: الوضع الافتراضي في سويتشات Cisco Catalyst (2960/3560) هو auto لكل من السرعة والـ duplex.
+
+### Network Access Layer Issue
+
+&#x20;(Error Types)
+
+* Input Errors: إجمالي عدد الأخطاء في البيانات المستلمة (تشمل Runts, Giants, CRC, إلخ).
+* Output Errors: إجمالي الأخطاء التي منعت إرسال البيانات للخارج.
+* Runts: فريمات تم تجاهلها لأن حجمها صغير جداً (أقل من الحد الأدنى).
+* Giants: فريمات تم تجاهلها لأن حجمها كبير جداً (تجاوزت الحد الأقصى).
+* CRC: خطأ في الحسابات؛ المجموع المحسوب (Checksum) لا يطابق المرسل (دليل على تلف البيانات).
+* Collisions: عدد الرسائل التي أعيد إرسالها بسبب حدوث تصادم.
+* Late Collisions: تصادم يحدث متأخراً (بعد إرسال 512 بت من الفريم).
+
+**Configure Switch Ports - Interface Input and Output Errors**
+
+1\. Runt Frames (الفريمات الناقصة):
+
+* التعريف: هي إطارات Ethernet حجمها أقل من 64-byte (وهو الحد الأدنى المسموح به).
+* السبب: السبب المعتاد هو كارت شبكة تالف (Malfunctioning NIC)، وقد تحدث أيضاً بسبب التصادمات.
+
+2\. Giants (الفريمات العملاقة):
+
+* التعريف: هي إطارات Ethernet حجمها أكبر من 1518 bytes (وهو الحد الأقصى المسموح به).
+
+3\. CRC errors (أخطاء فحص التكرار الدوري):
+
+* المعنى: تشير غالباً إلى مشكلة في "الكابل" أو الوسط الناقل (Media error).
+* الأسباب الشائعة:
+  * تداخل كهربائي (Electrical interference/Noise).
+  * وصلات مفككة أو تالفة (Loose or damaged connections).
+  * استخدام نوع كابل خاطئ.
+* الحل: إذا رأيت أخطاء CRC كثيرة، يجب فحص الكابل والبحث عن مصادر الشوشرة (Noise) وإزالتها.
+
+1\. Collisions (التصادمات):
+
+* في حالة Half-duplex: وجود التصادمات أمر طبيعي.
+* في حالة Full-duplex: يجب ألا ترى أي تصادمات نهائياً (وجودها يعني مشكلة).
+
+2\. Late Collisions (التصادمات المتأخرة):
+
+* التعريف: تصادم يحدث بعد إرسال 512 bits من الفريم.
+* السبب الأشهر: طول الكابل زائد عن الحد المسموح به (Excessive cable lengths).
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
