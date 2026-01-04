@@ -1,6 +1,6 @@
 # module 1
 
-1.1 Configure a Switch with\
+&#x20;Configure a Switch with\
 Initial Settings
 ----------------
 
@@ -85,7 +85,7 @@ Initial Settings
 
 * بما إن السويتش لسه مفيهوش IP في البداية، بنستخدم كابل الكونسول (Console Cable) لتوصيل كمبيوتر بالسويتش مباشرة لعمل الإعدادات الأولية دي.
 
-## 1.2 Configure Switch Ports
+## &#x20;Configure Switch Ports
 
 ### Duplex Communication
 
