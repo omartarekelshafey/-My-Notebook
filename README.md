@@ -6,4 +6,4 @@ After studying Security+, Linux, Networking, SANS SEC450, and Active Directory, 
 I also have some basic knowledge of OSINT.
 
 I am constantly striving to improve my defensive skills and contribute to the cybersecurity community by sharing knowledge and practical insights.\
-This GitBook reflects my learning journey and aims to support others who are starting their path in cybersecurity.
+This GitBook reflects my learning journey&#x20;
