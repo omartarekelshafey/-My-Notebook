@@ -60,3 +60,8 @@
     * [module 1](ccna/semster2/module-1.md)
     * [module 3](ccna/semster2/module-3.md)
     * [module 4](ccna/semster2/module-4.md)
+
+## splunk
+
+* [mahmoud shaker course](splunk/mahmoud-shaker-course/README.md)
+  * [Splunk SIEM Explained a Beginner's Guide In Arabic](splunk/mahmoud-shaker-course/splunk-siem-explained-a-beginners-guide-in-arabic.md)
