@@ -66,7 +66,7 @@
    *   المدى بتاعها من 0 لـ 255.
 
 
-2. Tie-breaker: لو الـ Priority متساوية، الراوتر اللي عنده IPv4 Address أعلى هو اللي بيكسب<sup>14</sup>.
+2. Tie-breaker: لو الـ Priority متساوية، الراوتر اللي عنده IPv4 Address أعلى هو اللي بيكسب.
 
 **خاصية الـ Preemption (مهمة جداً)**
 
@@ -81,5 +81,3 @@
   * بيبعتوا رسايل Hello كل 3 ثواني (Default).
   * الـ Standby بيعتبر الـ Active وقع لو ماوصلوش Hello لمدة 10 ثواني (Hold timer).
   * نصيحة: ماتقللش الـ Hello timer عن ثانية واحدة عشان متعملش حمل زيادة على الـ CPU.
-
-<a class="button secondary"></a>
