@@ -68,4 +68,5 @@
 ## splunk
 
 * [mahmoud shaker course](splunk/mahmoud-shaker-course/README.md)
-  * [Splunk SIEM Explained a Beginner's Guide In Arabic](splunk/mahmoud-shaker-course/splunk-siem-explained-a-beginners-guide-in-arabic.md)
+  * [Splunk SIEM Explained a Beginner's Guide](splunk/mahmoud-shaker-course/splunk-siem-explained-a-beginners-guide.md)
+  * [Deep Dive into Splunk SPL Commands](splunk/mahmoud-shaker-course/deep-dive-into-splunk-spl-commands.md)

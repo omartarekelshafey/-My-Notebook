@@ -1,6 +1,4 @@
-# Splunk SIEM Explained a Beginner's Guide In Arabic
-
-what are the  component of splunk, how to deal with splunk&#x20;
+# Splunk SIEM Explained a Beginner's Guide
 
 #### 1. What is SIEM?&#x20;
 
