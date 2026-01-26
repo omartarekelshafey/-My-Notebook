@@ -64,6 +64,7 @@
     * [module 6](ccna/semster2/module-6.md)
     * [module 9](ccna/semster2/module-9.md)
     * [module 10](ccna/semster2/module-10.md)
+    * [module 11](ccna/semster2/module-11.md)
 
 ## splunk
 
