@@ -2,6 +2,11 @@
 
 * [Who Am I](README.md)
 
+## Effective Threat Investigation for SOC Analysts
+
+* [Part 1:   Email Investigation Techniques](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/README.md)
+  * [CH1 Investigating Email Threats](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch1-investigating-email-threats.md)
+
 ## Blue Team Junior Analyst Pathway Bundle
 
 * [🧠 intro to OSINT](blue-team-junior-analyst-pathway-bundle/intro-to-osint/README.md)
