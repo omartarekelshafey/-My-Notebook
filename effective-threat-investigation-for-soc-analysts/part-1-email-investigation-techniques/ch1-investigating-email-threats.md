@@ -123,3 +123,172 @@ access?
 * تلاعب بالـ Email Header: بيتم تعديل الـ From field عشان يبان قدام الضحية إنه إيميل سليم، لكن في الحقيقة الإيميل مبعوث من Mail server مختلف تماماً تحت سيطرة المهاجم.
 * استخدام Look-alike Domains: المهاجم بيسجل Domain قريب جداً من الحقيقي (مثلاً تغيير حرف واحد زي `g0ogle.com` بدل `google.com`) عشان يخدع عين الضحية اللي مش مركزة.
 
+## Attacker techniques to evade email security detection
+
+#### Using newly created domains to send a malicious email
+
+تعتمد الـ Modern email security solutions بشكل كبير على Threat Intelligence feeds. الfeeds دي فيها قايمة بالـ Domains اللي عندها (Bad Reputation) لأنها استخدمت قبل كده في attacks  قبل كده .
+
+* الفكرة هنا: عشان الattackerيهرب من موضوع ده، بيجيب  New Domains لسه معمولة جديد ومستخدمتش قبل كده.
+* النتيجة: لما الـ Security Solution بيcheck  على الـ Domain ده، مبيلاقيش عليه أي تاريخ سيء، فبيسمح بمرور الإيميل.
+
+***
+
+#### Using non-blacklisted SMTP servers
+
+احنا بنعمل check  علي ip  اللي مربوط بال smtp server  اللي بعت email&#x20;
+
+* &#x20;الattackers بيتجنبوا استخدام سيرفرات معروفة  لأن الـ IPs بتاعتها بتكون موجودة في الـ Blacklists.
+* البديل: بيحرص المهاجم على استخدام SMTP Server IPs جديده ومش  موجوده في black list، عشان يضمن إن الإيميل ميتعملوش Block بسبب Bad Reputation
+
+***
+
+#### Sandbox analysis evasion
+
+دلوقتي هنكلم عن ال techniques  اللي بيعملها attackers علشان يعدي من sand box&#x20;
+
+**Malware sleep**
+
+بيقوم الattacker ببرمجة الـ Malware إنه ميشتغلش علي طول اول ما يتعمله execute لحد فترة معينة (مثلاً 3 دقايق) .
+
+* السبب: الـ Sandbox ليه وقت محدد للفحص، لو الـ Malware فضل خامل طول الوقت ده، الـ Sandbox هيفتكر إنه ملف سليم ويسمح بمروره. بعد ما الوقت يخلص ويكون وصل لجهاز الضحية، يبدأ النشاط الخبيث.
+
+**Encrypted file**
+
+بيستخدم المهاجم حيلة إرسال Malware file مضغوط (Compressed) أو ملف Document بس مشفر بـ Password.
+
+* الخدعة: المهاجم بيكتب الباسورد في نص الإيميل نفسه عشان الضحية يشوفه.
+* المشكلة التقنية: الـ Sandbox عملية أوتوماتيكية (Non-interactive)، يعني مبيقدرش يقرا الإيميل وياخد الباسورد ويفك تشفير الملف.
+* النتيجة: الـ Sandbox بيفشل في تحليل المحتوى المشفر، فبيضطر يعدي الملف للضحية عشان ميعطلش الشغل، وهنا بتتم الإصابة.
+
+**Sandbox discovery**
+
+بعد تشغيل الـ Malware، بيبدأ الكود الخبيث يفحص البيئة اللي هو شغال فيها. بيدور على علامات تقول إنه جوه Virtual Machine أو Sandbox.
+
+* &#x20;لو الـ Malware اكتشف إنه متراقب داخل Sandbox، بيوقف نفسه فوراً، أو بيغير سلوكه لسلوك بريء، أو يدخل في Sleep mode&#x20;
+
+**Responding to specific requests**
+
+هنا ال attacker  بيرمج السيرفر إنه يرد فقط على ال requestsاللي جاية من IP addresses تابعة لمؤسسة الضحية&#x20;
+
+لو ip  تاني بعتله مش هيرد&#x20;
+
+***
+
+#### Trusted Domains Hosting Phishing Pages
+
+تعتبر هذه التقنية واحدة من أذكى حيل الـ Evasion التي ظهرت بقوة في عام 2019، حيث تخلى المهاجمون عن استخدام Domains خاصة بهم ولجأوا لاستغلال البنية التحتية لشركات عملاقة.
+
+***
+
+#### The Core Concept
+
+بدلاً من أن يقوم المهاجم بحجز Domain جديد (والذي قد يكون له Bad Reputation أو New Domain يثير الشك)، يقوم الattackerبإنشاء حساب مجاني على Cloud Platforms عالمية وموثوقة مثل:
+
+* &#x20;appspot.com: الخاصة بخدمة Google App Engine.
+* &#x20;web.app: الخاصة بخدمة Google Firebase.
+
+بما أن هذه المنصات تسمح للمطورين برفع تطبيقاتهم ومواقعهم، يقوم المهاجم برفع صفحة Phishing (مثلاً صفحة تسجيل دخول مزيفة لـ Microsoft Outlook) على هذه الاستضافة.
+
+## The anatomy of secure email gateway logs
+
+
+
+تعتبر حلول الـ Email Gateway Security خط الدفاع الأول لأنها بتفحص وتحلل كل بريد إلكتروني صادر أو وارد، بما في ذلك المحتوى. وجودها في مسار البيانات بناءً على النص المقدم، ده تلخيص شامل لمكونات وتشريح سجلات الـ Secure Email Gateway، وهي أداة أساسية لأي SOC Analyst، بالتنسيق المتفق عليه:
+
+### Secure Email Gateway Logs
+
+تعتبر حلول الـ Email Gateway Security خط الدفاع الأول لأنها بتفحص وتحلل كل بريد إلكتروني صادر أو وارد، بما في ذلك المحتوى. وجودها في مسار البيانات (Inline position) بيديها  (Visibility)، مما يجعل السجلات الخاصة بيها كنزاً أثناء عمليات الكشف عن التهديدات والتحقيقات.
+
+***
+
+#### Log Types
+
+توفر هذه الأنظمة عدة أنواع من السجلات لمراقبة نشاط البريد الإلكتروني:
+
+* ال SMTP logs: تحتوي على معلومات التسليم عبر بروتوكول SMTP، زي الـ Sender IP، وعنوان المستلم، والـ Timestamps.
+* ال Message tracking logs: تقدم تفاصيل دقيقة عن الرسائل اللي عدت، شاملة الـ Metadata زي الـ Message ID، والـ Subject، والتاريخ.
+* ال Content filtering logs: تسجل القواعد اللي اتطبقت على محتوى الرسالة، وهل المحتوى ده اتعمله Blocked ولا Allowed.
+* ال Spam and malware logs: ترصد الإيميلات اللي اتعملها Flag كرسائل مزعجة (Spam) أو بتحتوي على برمجيات خبيثة (Malware).
+* ال Quarantine logs: تخص الرسائل اللي تم عزلها في الـ Quarantine، مع ذكر سبب العزل وتفاصيل الرسالة.
+
+***
+
+#### Common Log Fields
+
+بغض النظر عن اسم المنتج أو الـ Vendor، دي أهم الfields اللي هتلاقيها في السجلات ولازم تحللها:
+
+* ال SMTP server IP: هو الـ IP اللي استخدمه الsender، وبنستخدمه عشان نكشف لو الـ Server ده موجود في الـ Blacklists
+* ال Sender email address: العنوان اللي اتبعت منه الرسالة، ومهم جداً نتأكد إنه مش جاي من Blacklisted domain أو منتحل لخداع الضحية.
+* ال Recipient email address: عنوان الشخص اللي استلم الرسالة، وده بيساعدنا نحدد نطاق الإصابة (Scope) ونعرف مين المستخدمين أو الأجهزة المتأثرة في حالات الـ Phishing.
+* ال Email subject: الوصف اللي كتبه الراسل لمحتوى الرسالة. المهاجمين غالباً بيستخدموا عبارات تحفيزية زي "Urgent Action Required" أو "Unauthorized Access Attempt"، أو مواضيع غير منطقية لوظيفة الموظف (زي محاسب بيجيله إيميل عن كورسات IT).
+* ال Attached filename: اسم الملف المرفق، ولازم نربط بين أنواع ملفات الـ Phishing والأسماء الجذابة اللي بتشجع الضحية يفتحها
+* ال Attached file hash: قيمة الهاش الخاصة بالملف المرفق، ودي بنستخدمها للبحث في قواعد بيانات الـ Threat Intelligence زي VirusTotal للتأكد من سلامة الملف.
+* ال Malware category: بيظهر ده بس لو قاعدة بيانات الـ Signatures طابقت الملف، وبيقولنا اسم عائلة الفيروس زي ZLoader أو RedLine Infostealer.
+* ال Attached URL: بيسجل الروابط الموجودة داخل نص الرسالة، بعض الأجهزة بتسجل كل الروابط والبعض بيسجل بس اللي بيطابق قاعدة بيانات الـ Malicious URLs.
+* ال  Device action: الإجراء اللي الجهاز أخذه (سواء عدى الإيميل أو وقفه)، وده بيعرف المحلل الأمني هل التهديد وصل للمستخدم ولا لأ.
+* ال  Block reason: بيوضح ليه الإيميل اتعمله Block من قبل الـ Gateway.
+
+## Investigating suspicious emails
+
+تعتبر عملية التحقيق في الإيميلات المشبوهة هي عملية فحص شاملة لكل الأدلة الرقمية، بداية من سجلات الـ Appliances ومحتوى الإيميل، وصولاً لتحليل سلوك الراسل والمرفقات. وعشان نأكد إذا كان الإيميل Malicious أو Benign، لازم نمشي ورا الخطوات دي بالتفصيل:
+
+***
+
+#### Domain & SMTP Reputation
+
+أول خطوة هي فحص سمعة الـ Domain والـ SMTP Server اللي مبعوت منهم الإيميل:
+
+* محركات Search Engine: بنعمل بحث عن الدومين، وممكن نلاقي تقارير (Threat reports) بتأكد إنه دومين خبيث، أو نكتشف إنه دومين لسه معمول جديد (Newly created) وده بيزود الشكوك.
+* أداة MxToolbox: بنستخدمها للكشف عما إذا كان الـ Domain أو الـ SMTP IP موجود في القوائم السوداء (Blacklists) المعروفة&#x20;
+
+***
+
+#### Spoofing Validation
+
+حتى لو الدومين يبان إنه تبع شركة حقيقية (زي `fedex.com`)، لازم نتأكد إن المهاجم مش عامل Spoofing:
+
+* تحليل SMTP IP: بنطلع الـ IP الحقيقي اللي بعت الإيميل من الـ Logs.
+* فحص MX Records: بنستخدم MxToolbox عشان نشوف السيرفرات المصرح ليها بالإرسال باسم الدومين ده، ونقارنها بالـ IP اللي معانا.
+* تحليل WHOIS: لو الـ IP مش موجود في الـ MX Records، بنعمل WHOIS lookup عشان نتأكد من ملكيته، وغالباً بنكتشف إنه Unauthorized.
+
+***
+
+#### Email Sender Behavior
+
+لو الفحوصات التقنية سليمة، بنبدأ نحلل سلوك الراسل (Sender Behavior) عشان نكشف الخداع:
+
+* تاريخ Communication History: هل استقبلنا إيميلات من الشخص ده قبل كده؟ لو أيوة، ده مؤشر إيجابي.
+* نمط Subject Pattern: هل نفس الراسل بيبعت إيميلات بنفس صيغة العنوان لأقسام مختلفة في الشركة؟ دي علامة Phishing.
+* علاقة Job Relevance: هل منطقي إن محاسب يجيله إيميل عن "IT Stuff"؟ عدم التوافق بين المحتوى ووظيفة المستلم مؤشر خطر.
+
+***
+
+#### Subject & Filename Indicators
+
+بيعتمد المهاجمين على كلمات مفتاحية معينة لإثارة اهتمام الضحية أو إشعاره بالخطر:
+
+* حقل Subject: استخدام كلمات زي RE: و FW: للإيحاء إنها محادثة سابقة، أو Urgent Action Required.
+* اسم Filename: استخدام أسماء جذابة للمرفقات زي Invoice, Payment, Contract.
+
+***
+
+#### Advanced Content Analysis
+
+عشان نحسم الأمر تماماً، بنلجأ لأدوات تحليل متقدمة لفحص الروابط والملفات:
+
+**1. URL Analysis (URL Scan)**
+
+بنستخدم منصة URL Scan لفحص الروابط المشبوهة:
+
+* طريقة Submission: بنحط الرابط وبنختار الفحص سواء Public أو Private.
+* النتيجة Results: الأداة بتوضح لو الرابط ده Malicious، وايه العلامات التجارية المستهدفة (Targeted Brands) زي SharePoint أو Microsoft لسرقة الاعتمادات.
+
+**2. File Analysis (ANY.RUN)**
+
+بنستخدم بيئة ANY.RUN Sandbox عشان نشغل الملفات ونشوف سلوكها بشكل تفاعلي (Interactive):
+
+* فك تشفير Encrypted Files: لو الملف محمي بباسورد (مكتوب في الإيميل)، بنقدر ندخله ونتفاعل مع الملف.
+* مراقبة Processes: بنشوف تسلسل العمليات، زي إن ملف Excel يشغل cmd.exe وبعدين powershell.exe.
+* تحليل Network Traffic: بنتابع الـ HTTP/DNS Requests عشان نشوف الاتصالات بالسيرفرات الخبيثة.
+* فك أكواد Scripts: لو لقينا أوامر PowerShell مشفرة (Base64)، بنقدر نستخدم أدوات زي CyberChef لفك التشفير وفهم الغرض الخبيث.
