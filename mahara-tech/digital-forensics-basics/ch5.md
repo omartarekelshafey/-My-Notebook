@@ -12,7 +12,7 @@
 * من قائمة Start في Windows نكتب `regedit` → ده هيفتح أداة اسمها **Registry Editor**.
 * الـ Registry Editor هي Tool موجودة جوه الـ Windows بتسمحلك تعرض وتعدل على الـ Registry.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (3).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 233312.png" alt="" width="270"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (3) (1).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-09 233312.png" alt="" width="270"><figcaption></figcaption></figure></div>
 
 ***
 
@@ -142,7 +142,7 @@
   * **Password recovery only**&#x20;
   * **Password recovery and all registry files**&#x20;
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
 
 ### **result**&#x20;
 

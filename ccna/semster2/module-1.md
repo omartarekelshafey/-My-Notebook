@@ -27,7 +27,7 @@ Initial Settings
 **Step 5: Finally, the boot loader locates and loads a default IOS operating system**\
 **software image into memory and gives control of the switch over to the IOS**
 
-<div align="center"><figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="center"><figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 ### Switch LED Indicators
 
@@ -58,7 +58,7 @@ Initial Settings
 
 * الوظيفة: هو الزرار المسؤول عن التنقل بين الأوضاع اللي فوق دي (STAT -> DUPLX -> SPEED -> PoE). كل دوسة بتنقل اللمبة للي تحتها عشان تغير وظيفة مؤشرات البورتات
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Switch Management Access
 
@@ -175,5 +175,5 @@ Default Settings: الوضع الافتراضي في سويتشات Cisco Cataly
 * التعريف: تصادم يحدث بعد إرسال 512 bits من الفريم.
 * السبب الأشهر: طول الكابل زائد عن الحد المسموح به (Excessive cable lengths).
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 

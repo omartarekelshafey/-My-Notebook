@@ -128,9 +128,9 @@
     * ده أقصى وقت السويتش بيستناه قبل ما يقرر إن فيه تغيير حصل في التوبولوجي (يعني لو مسمعش من الـ Root لفترة).
     * القيمة الافتراضية: 20 ثانية (وممكن تتغير من 6 لـ 40 ثانية)
 
-    <figure><img src="../../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (4).png" alt="" width="563"><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 3. بروتوكول PVST (Per-VLAN Spanning Tree)
 

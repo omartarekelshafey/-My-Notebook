@@ -6,6 +6,7 @@
 
 * [Part 1:   Email Investigation Techniques](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/README.md)
   * [CH1 Investigating Email Threats](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch1-investigating-email-threats.md)
+  * [CH 2 Email Flow and Header Analysis](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch-2-email-flow-and-header-analysis.md)
 
 ## Blue Team Junior Analyst Pathway Bundle
 
