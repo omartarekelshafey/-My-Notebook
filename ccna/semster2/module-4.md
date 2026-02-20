@@ -89,8 +89,8 @@ Inter-VLAN Routing&#x20;Operation
 
 * أسرع بكتير (Much Faster): لأن كل حاجة بتتم عن طريق الـ Hardware Switching and Routing.
 * مش محتاج وصلات خارجية (No external links): مش محتاج توصل كابل من السويتش للراوتر عشان تعمل Routing.
-* Bandwidth أعلى: مش محدود بـ Link واحد، لأنك تقدر تستخدم Layer 2 EtherChannels كـ Trunk links بين السويتشات عشان تزود السرعة.
-* Latency أقل بكتير: لأن البيانات مش محتاجة تخرج برا السويتش عشان يتعملها Routing لشبكة تانية.
+* الBandwidth أعلى: مش محدود بـ Link واحد، لأنك تقدر تستخدم Layer 2 EtherChannels كـ Trunk links بين السويتشات عشان تزود السرعة.
+* الLatency أقل بكتير: لأن البيانات مش محتاجة تخرج برا السويتش عشان يتعملها Routing لشبكة تانية.
 * الأكثر انتشاراً: بتستخدم بشكل شائع جداً في الـ Campus LANs أكتر من الراوترات.
 
 4\. العيب الوحيد (The only disadvantage):
