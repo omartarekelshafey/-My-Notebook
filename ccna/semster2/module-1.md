@@ -8,19 +8,19 @@ Initial Settings
 
 **step1**:اول حاجه ال POST(Power On Self-Test)بيشتغل&#x20;
 
-**Step 2: Loading the Boot Loader (تحميل برنامج الإقلاع)**
+**Step 2: Loading the Boot Loader**&#x20;
 
-* الوقت (Timing): بتحصل فوراً بعد ما الجهاز يخلص فحص الهاردوير (After POST).
-* المكان (Location): السويتش بيحمل برنامج الـ Boot Loader من الذاكرة الدائمة (ROM).
-* الوظيفة (Function): هو برنامج صغير جداً ومهمته الأساسية التجهيز لتحميل نظام التشغيل.
+* ال (Timing): بتحصل فوراً بعد ما الجهاز يخلص فحص الهاردوير (After POST).
+* ال (Location): السويتش بيحمل الـ Boot Loader من ال(ROM).
+* ال (Function): هو برنامج صغير جداً ومهمته الأساسية التجهيز لتحميل نظام التشغيل.
 
-**Step 3: Low-level CPU Initialization (تهيئة المعالج)**
+**Step 3: Low-level CPU Initialization**&#x20;
 
-* الدور (Action): الـ Boot Loader بيقوم بتهيئة المعالج (CPU) عشان يقدر يشتغل.
-* العمليات (Operations): بيضبط "سجلات المعالج" (CPU Registers) المسؤولة عن حاجات حيوية زي:
-  1. Memory Mapping: تحديد فين الذاكرة الفعلية (RAM) ومكانها فين في الخريطة.
-  2. Quantity of Memory: التعرف على حجم الذاكرة المتاحة.
-  3. Speed: تحديد السرعة اللي الذاكرة هتشتغل بيها.
+* &#x20;الـ Boot Loader بيقوم بتهيئة المعالج (CPU) عشان يقدر يشتغل.
+* ال (Operations): بيضبط  (CPU Registers) المسؤولة عن حاجات زي:
+  1. الMemory Mapping: تحديد فين (RAM) ومكانها فين في الخريطة.
+  2. الQuantity of Memory: التعرف على حجم الذاكرة المتاحة.
+  3. الSpeed: تحديد السرعة اللي الذاكرة هتشتغل بيها.
 
 **Step 4: The boot loader initializes the flash file system on the system board.**
 
