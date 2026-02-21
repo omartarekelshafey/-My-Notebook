@@ -44,9 +44,9 @@
 
 الـ BID عبارة عن 3 حاجات مدموجين مع بعض:
 
-1. Bridge Priority: الرقم الافتراضي هو 32768 (وممكن يتغير بزيادات 4096).
-2. Extended System ID: ده رقم الـ VLAN عشان الـ PVST+
-3.  MAC Address: لو الـ Priority متساوية، السويتش صاحب أقل MAC Address يكسب.
+1. ال Bridge Priority: الرقم الافتراضي هو 32768 (وممكن يتغير بزيادات 4096).
+2. ال Extended System ID: ده رقم الـ VLAN عشان الـ PVST+
+3.  ال MAC Address: لو الـ Priority متساوية، السويتش صاحب أقل MAC Address يكسب.
 
 
 
