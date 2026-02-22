@@ -7,7 +7,9 @@
 * [Part 1:   Email Investigation Techniques](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/README.md)
   * [CH1 Investigating Email Threats](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch1-investigating-email-threats.md)
   * [CH 2 Email Flow and Header Analysis](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch-2-email-flow-and-header-analysis.md)
-  * [CH 3 Introduction to Windows   Event Logs](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch-3-introduction-to-windows-event-logs.md)
+* [Part2 Investigating Windows Threats by Using Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/README.md)
+  * [CH 3 Introduction to Windows   Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-3-introduction-to-windows-event-logs.md)
+  * [CH 4 Tracking Accounts Login and Management](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-4-tracking-accounts-login-and-management.md)
 
 ## Blue Team Junior Analyst Pathway Bundle
 
