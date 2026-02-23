@@ -101,13 +101,13 @@
 
 **Key Failure Codes (Sub Status)**
 
-| **الكود**  | **المعنى التقني**        |  **الوصف**                                    |
-| ---------- | ------------------------ | --------------------------------------------- |
-| 0xC0000064 | Username does not exist  | المخترق بيجرب أسماء مستخدمين مش موجودة أصلاً. |
-| 0xC000006A | Bad password             | الاسم صح بس الباسورد غلط (محاولة تخمين).      |
-| 0xC0000072 | Disabled account         | حد بيحاول يدخل بحساب مقفول (مريب جداً).       |
-| 0xC0000234 | Account has been locked  | الحساب اتجمد من كتر المحاولات الغلط.          |
-| 0xC000006F | Outside authorized hours | موظف بيحاول يدخل في وقت مش مسموح له بيه.      |
+| **الكود**  | **المعنى التقني**        |
+| ---------- | ------------------------ |
+| 0xC0000064 | Username does not exist  |
+| 0xC000006A | Bad password             |
+| 0xC0000072 | Disabled account         |
+| 0xC0000234 | Account has been locked  |
+| 0xC000006F | Outside authorized hours |
 
 **Detecting Attacks (Brute Force vs. Password Spraying)**
 
@@ -222,13 +222,13 @@
 
 خلي بالك، الأكواد هنا مختلفة عن الـ events اللي فاتت (4625 و 4776)،&#x20;
 
-| **الكود (Failure Code)** | **المعنى التقني**       | **الوصف**                                                       |
-| ------------------------ | ----------------------- | --------------------------------------------------------------- |
-| 0x6                      | User doesn't exist      | اليوزر اللي بيحاول يدخل مش موجود في الدومين.                    |
-| 0x12                     | Password expired        | الباسورد صلاحيته انتهت ولازم يتغير.                             |
-| 0x17                     | Wrong password          | الباسورد اللي اتكتب غلط.                                        |
-| 0x18                     | Account disabled/locked | الحساب مقفول أو محظور حالياً.                                   |
-| 0x25                     | Clock out of sync       | وقت الجهاز بعيد عن وقت الـ DC (ودي مشكلة مشهورة في الكيربيروس). |
+| **الكود (Failure Code)** | **المعنى التقني**       |
+| ------------------------ | ----------------------- |
+| 0x6                      | User doesn't exist      |
+| 0x12                     | Password expired        |
+| 0x17                     | Wrong password          |
+| 0x18                     | Account disabled/locked |
+| 0x25                     | Clock out of sync       |
 
 #### مثال
 
@@ -237,5 +237,77 @@
 * النتيجة: السيستم سجل Event 4771.
 * التحليل: لازم تبص على الـ Failure Code؛ لو لقيته 0x17 يبقى مصطفى بيكتب باسورده غلط، لو 0x6 يبقى فيه حد بيخمن أسماء موظفين من الجهاز ده.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt="" width="563"><figcaption></figcaption></figure>
 
+## Account and group management tracking
+
+بيسجل نظام Microsoft العديد من الـ events اللي بتسمح لك بتتبع نشاطات إدارة الحسابات (account) و (security group). النشاطات دي بتشمل:
+
+&#x20;account creation&#x20;
+
+* &#x20;account deletion
+* account disablement&#x20;
+* group creation&#x20;
+* adding and removing accounts from security groups
+* changes made to accounts&#x20;
+
+#### أهمية تتبع هذه الـ events:
+
+تتبع النشاطات دي بيساعدك في اكتشاف والتحقيق في تصرفات مشبوهة كتير، زي:
+
+* الـ accounts اللي بيتم إنشاؤها بواسطة attacker عشان يحافظ على الـ persistence
+* ال  accounts اللي بيتم إنشاؤها بواسطة unauthorized users
+* إضافة accounts المفروض متكونش موجوده في privileged security groupمعين &#x20;
+* عمليات الـ account deletion والتغييرات غير المتوقعة.
+* نشاطات إدارة الـ account والـ group اللي بتتم outside of working hours
+
+
+
+عشان نفهم تتبع الـ Windows account and security group management بشكل أفضل، هنقسم الجزء ده لقسمين فرعيين:
+
+1. Tracking account creation, deletion, and change activities
+2. Tracking creation and account adding to security groups&#x20;
+
+### Tracking account creation, deletion, and change activities
+
+بيسمح لك نظام Microsoft بتتبع عمليات الـ account creation والـ deletion والـ change عن طريق تسجيل مجموعة من الـ events في ملف الـ Security Event log. وبمجرد ما تفهم هيكل ومعلومات واحد من الـ events دي، هتقدر تحلل الباقي بسهولة لأن ليهم نفس الـ structure تقريباً.
+
+#### الـ Event ID 4720: A user account was created
+
+بيعتبر الـ Event 4720 هو الأهم، لأنه بيسجل نشاط إنشاء حساب جديد.
+
+* الأهمية الأمنية: الـ event ده مفيد جداً في اكتشاف محاولات الـ attacker للحفاظ على الـ persistence (التواجد المستمر) جوه البيئة المخترقة عن طريق عمل حسابات جديدة.
+* الPrivilege Escalation: الـ attacker ممكن يعمل حساب جديد ويضيفه لـ high-privilege group عشان يضمن إنه يقدر يرجع للسيستم حتى لو الحساب الأصلي اللي دخل بيه اتقفل.
+
+#### هيكل الـ Event (مين عمل إيه في مين؟)
+
+لو لاحظت في الـ event ده (زي ما باين في Figure 4.10)، هتلاقي دايماً إن فيه "حساب" قام بفعل تجاه "حساب آخر". الحساب اللي عمل الفعل (زي الـ Administrator) والحساب اللي اتعمل عليه الفعل (زي الحساب الجديد Mostafa.Yahia).
+
+<figure><img src="../../.gitbook/assets/image (34).png" alt="" width="347"><figcaption></figcaption></figure>
+
+***
+
+#### جدول الـ Account management events
+
+<table data-header-hidden><thead><tr><th></th><th></th><th data-hidden></th></tr></thead><tbody><tr><td><strong>الـ Event ID</strong></td><td><strong>الوصف</strong> </td><td><strong>الوصف</strong> </td></tr><tr><td>4720</td><td>A user account was created</td><td>إنشاء حساب مستخدم جديد.</td></tr><tr><td>4722</td><td>A user account was enabled</td><td>تفعيل حساب كان مقفول.</td></tr><tr><td>4723</td><td>An attempt was made to change an account’s password</td><td>محاولة تغيير الباسورد (بواسطة المستخدم نفسه).</td></tr><tr><td>4724</td><td>An attempt was made to reset an account’s password</td><td>محاولة ريسيت للباسورد (بواسطة أدمن مثلاً).</td></tr><tr><td>4725</td><td>A user account was disabled</td><td>تعطيل حساب مستخدم.</td></tr><tr><td>4726</td><td>A user account was deleted</td><td>حذف حساب مستخدم نهائياً.</td></tr><tr><td>4738</td><td>A user account was changed</td><td>تغيير في بيانات الحساب (زي الاسم أو الصلاحيات).</td></tr><tr><td>4740</td><td>A user account was locked out</td><td>الحساب اتقفل بسبب محاولات دخول غلط كتير.</td></tr><tr><td>4767</td><td>A user account was unlocked</td><td>فك القفل عن حساب كان معمل له Lockout.</td></tr></tbody></table>
+
+
+
+### Tracking creation and account adding to security groups
+
+تستخدم الـ Active Directory security groups لتخصيص صلاحيات أمنية محددة لأعضائها. وعشان كدة، تقدر تستنتج صلاحيات أي account من خلال الـ security group اللي هو عضو فيها. وعشان تتابع النشاطات دي، نظام Microsoft بيسجل events لمراقبة إنشاء المجموعات، حذفها، أو إضافة وإزالة الأعضاء منها.
+
+| **الـ Event ID** | **الوصف**                           | **(Scope)** |
+| ---------------- | ----------------------------------- | ----------- |
+| 4727             | Global Group Created                | Global      |
+| 4730             | Global Group Deleted                | Global      |
+| 4728             | Member Added to Global Group        | Global      |
+| 4729             | Member Removed from Global Group    | Global      |
+| 4731             | Local Group Created                 | Local       |
+| 4734             | Local Group Deleted                 | Local       |
+| 4732             | Member Added to Local Group         | Local       |
+| 4733             | Member Removed from Local Group     | Local       |
+| 4754             | Universal Group Created             | Universal   |
+| 4758             | Universal Group Deleted             | Universal   |
+| 4756             | Member Added to Universal Group     | Universal   |
+| 4757             | Member Removed from Universal Group | Universal   |
