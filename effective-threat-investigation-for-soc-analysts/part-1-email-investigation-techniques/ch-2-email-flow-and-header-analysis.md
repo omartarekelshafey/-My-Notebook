@@ -128,7 +128,7 @@ v=spf1 ip4:192.168.1.0/24 -all
 2. في الـ DNS: صاحب الدومين بينشر "المفتاح العام" (Public Key) في سجلات الـ DNS على هيئة TXT record.
 3. عند المستقبل (Verification): سيرفر الاستقبال بياخد المفتاح العام من الـ DNS ويفك تشفير التوقيع عشان يتأكد إنه سليم.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt="" width="563"><figcaption></figcaption></figure>
 
 #### &#x20;(Verification Steps)
 
@@ -141,7 +141,7 @@ v=spf1 ip4:192.168.1.0/24 -all
 
 #### component of DKIM
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 1.  (`v=1`)
 
@@ -186,7 +186,7 @@ v=spf1 ip4:192.168.1.0/24 -all
 
 #### Domain-Based Message Authentication, Reporting, and Conformance (DMARC)
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### component of DMARC
 
