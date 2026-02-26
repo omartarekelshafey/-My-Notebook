@@ -116,7 +116,7 @@
 * عملية Brute-forcing: هتلاقي محاولات فشل كتيييير جداً جاية على حساب واحد بس.
 * عملية Password Spraying: هتلاقي محاولات فشل جاية من جهاز واحد بس موجهة لـ حسابات كتير مختلفة (بيجرب باسورد واحد سهل على الكل).
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="535"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt="" width="535"><figcaption></figcaption></figure>
 
 
 
@@ -127,7 +127,7 @@
 * خانة Subject: بتبين لك مين "الجهاز" أو "الحساب" اللي اتسبب في قفل الحساب ده (زي جهاز `WIN-SOC2$`).
 * خانة Account That Was Locked: اسم الحساب اللي "اتقفل" (زي حساب `Ali`).
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Tracking Successful Administrator Logins
 

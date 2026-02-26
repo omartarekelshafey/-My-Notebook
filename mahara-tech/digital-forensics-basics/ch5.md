@@ -142,7 +142,7 @@
   * **Password recovery only**&#x20;
   * **Password recovery and all registry files**&#x20;
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt="" width="306"><figcaption></figcaption></figure></div>
 
 ### **result**&#x20;
 

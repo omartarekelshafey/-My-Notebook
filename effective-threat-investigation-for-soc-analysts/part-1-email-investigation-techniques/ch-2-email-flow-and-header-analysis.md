@@ -141,7 +141,7 @@ v=spf1 ip4:192.168.1.0/24 -all
 
 #### component of DKIM
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### 1.  (`v=1`)
 
