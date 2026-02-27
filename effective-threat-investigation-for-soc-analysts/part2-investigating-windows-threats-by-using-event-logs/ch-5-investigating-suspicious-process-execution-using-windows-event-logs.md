@@ -1,10 +1,10 @@
-# CH 5Investigating Suspicious  Process Execution Using   Windows Event Logs
+# CH 5 Investigating Suspicious Process Execution Using   Windows Event Logs
 
 ## Introduction to Windows Processes
 
 نظام التشغيل Windows بيعتمد بشكل أساسي على العمليات (Processes) عشان يشغل البرامج والمهام اللي في الخلفية. كل عملية (Process) بيكون ليها مساحة مخصصة في الذاكرة (Memory) وموارد خاصة بيها. أي نشاط بيحصل في بيئة Windows زي تسجيل الدخول، أو الوصول للملفات، أو تشغيل مكتبات الربط الديناميكي (DLLs)، دايماً بيكون مرتبط بـ Process معين.
 
-### Tools to View Processes
+**Tools to View Processes**
 
 تقدر تتابع وتشوف الـ Processes اللي شغالة على الجهاز بتاعك باستخدام طريقتين أساسيتين:
 
@@ -15,7 +15,7 @@
 tasklist
 ```
 
-### Windows Process Attributes
+**Windows Process Attributes**
 
 كل Process في الويندوز بيكون ليه مجموعة من (Attributes)
 
@@ -223,7 +223,7 @@ Process name: smss.exe\
 
 ***
 
-### Windows Logon (winlogon.exe)
+**Windows Logon (winlogon.exe)**
 
 الprocess دي هي اللي بتدير عملية دخول وخروج المستخدمين من الـ Interactive session.
 
@@ -237,7 +237,7 @@ Process name: smss.exe\
 
 ***
 
-### Logon User Interface (LogonUI.exe)
+**Logon User Interface (LogonUI.exe)**
 
 دي gui  اللي بتشوفها لما بتيجي تكتب الباسورد.
 
@@ -251,7 +251,7 @@ Process name: smss.exe\
 
 ***
 
-### Windows Explorer (explorer.exe)
+**Windows Explorer (explorer.exe)**
 
 ده اللي المستخدم بيتعامل معاه بعد ما بيعمل Login.
 
@@ -278,7 +278,7 @@ Process name: smss.exe\
 
 ***
 
-#### 2. Analysis of Event ID 4688
+### 2. Analysis of Event ID 4688
 
 الـ Event 4688 بعنوان "A new process has been created"الـ Event ده متقسم لـ 3 أقسام رئيسية:
 
@@ -307,3 +307,97 @@ Process name: smss.exe\
 
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
+
+
+#### Process Information Section (Event ID 4688)
+
+القسم ده هو أهم جزء في الـ Event لاكتشاف وتحليل أي نشاط مشبوه، لأنه بيربط العملية الجديدة بأصلها وصلاحياتها. إليك شرح كل الحقول اللي فيه:
+
+* ال New Process ID: ده الرقم التعريفي للعملية الجديدة، وبيستخدم لتتبع نشاطها وربطها بـ Events تانية ليها نفس الـ ID.
+* ال New Process Name: بيعرض اسم العملية والمسار الكامل للملف اللي اشتغل (Full Path)، وده أساسي لكشف العمليات اللي شغالة من أماكن مشبوهة.
+* ال Token Elevation Type: بيحدد الصلاحيات اللي الـ UAC اداها لprocess، وليه 3 قيم أساسية:
+  * ال %%1936 (Type 1): هو Full Token بيحتوي على كل الصلاحيات بدون تعديل، وبيستخدم لو الـ UAC مقفول أو للحسابات النظامية (SYSTEM/Administrator).
+  * ال %%1937 (Type 2): هو Elevated Token بيحتوي على كل الصلاحيات، وبيظهر لما المستخدم يختار Run as Administrator والـ UAC شغال.
+  * ال %%1938 (Type 3): هو Limited Token بصلاحيات محدودة، وبيستخدم لما يكون الـ UAC شغال والبرنامج مش محتاج صلاحيات أدمن.
+
+بص يا عمر، الجدول ده فيه الخلاصة لكل رتب الأمان (Integrity Levels) اللي في الصور، مع شرح مبسط لكل رتبة عشان تبقى فاهمها وأنت بتحلل أي Log:
+
+#### جدول مستويات النزاهة (Mandatory Label)
+
+| **(RID Label)** | **(SID)**    | **(RID)**    | **(Meaning)**    | explain                                                                |
+| --------------- | ------------ | ------------ | ---------------- | ---------------------------------------------------------------------- |
+| Untrusted       | S-1-16-0     | `0x00000000` | Untrusted        |  دي أقل حاجة وملهاش أي صلاحيات.                                        |
+| Low             | S-1-16-4096  | `0x00001000` | Low integrity    |  بتعطى للمتصفحات عشان لو جالك فيروس يفضل محبوس جواها وما يلمسش ملفاتك. |
+| Medium          | S-1-16-8192  | `0x00002000` | Medium integrity |  دي لأغلب البرامج اللي بتفتحها عادي زي الـ Word.                       |
+| Medium Plus     | S-1-16-8448  | `0x00002100` | Medium/high      |  درجة أعلى شوية من العادي                                              |
+| High            | S-1-16-12288 | `0X00003000` | High integrity   | ر دي لما تعمل Run as Administrator، وبتقدر تعدل في ملفات النظام.       |
+| System          | S-1-16-16384 | `0x00004000` | System integrity |  لعمليات الويندوز والخدمات الأساسية اللي بتدير الجهاز.                 |
+| Protected       | S-1-16-20480 | `0x00005000` | Protected        |  عمليات محمية جداً ومخصصة لحماية حقوق الملكية أو ملفات حساسة جداً.     |
+
+* يعني إيه SID؟
+  * هو اختصار لـ Security Identifier، وده "الرقم القومي" الطويل اللي الويندوز بيستخدمه عشان يميز   مستخدم  او process بشكل فريد.
+* يعني إيه RID؟
+  * هو اختصار لـ Relative Identifier، وده الجزء الأخير من الـ SID (زي 4096 أو 8192) وبيعبر عن مستوي permission اللي علي يوزر او ال process&#x20;
+
+كده الجدول جاهز معاك، تحب نطبق ده على الـ Log اللي في الصورة الأولى ونشوف الـ `RuntimeBroker.exe` كان واخد رتبة إيه؟
+
+* ال Creator Process ID: هو الـ PID بتاع  (Parent Process)، وبيساعد في تتبع  (Process Tree).
+* ال Creator Process Name: المسار الكامل ل(Parent Process)، وده بيساعد في  (Anomalous patterns).
+* ال Process Command Line: بيعرض الأوامر والمفاتيح اللي استخدمت لتشغيل الprocess  الحقل ده مهم جداً لفهم غرض الprocess  وكشف المهاجمين اللي بيستخدموا أدوات زي `cmd.exe` أو `powershell.exe` بأوامر خبيثة.
+  * ملحوظة: الحقل ده مش مفعل تلقائياً، لازم تفعله من الـ Group Policy تحت مسار `Audit Process Creation | Include command line`.
+
+#### 💡 User Account Control (UAC)&#x20;
+
+الـ UAC هو ميزة أمنية بتحمي النظام من التعديلات غير المصرح بها، وبمجرد ما process تطلب صلاحيات Administrator، الـ UAC بينبهك عشان توافق أو ترفض. هو دهاللي بيحدد قيم الـ Token Elevation Type والـ Mandatory Label اللي بنشوفها فوق.
+
+### **Windows Process Exit Tracking (Event ID 4689)**
+
+#### 1. Sections of Event ID 4689
+
+الـ Event ده بيتكون من قسمين أساسيين:
+
+* ال Subject Section: بيقدم معلومات عن الـ Login session والمستخدم (User) اللي كانت العملية شغالة تحت الـ Context بتاعه.
+* ال Process Information Section: بيحتوي على بيانات العملية اللي قفلت زي الـ Process ID، والـ Process Name، والـ Full path بتاعها
+
+#### 2. Tracking Process Execution Time
+
+أهم فايدة للـ Event 4689 هي إننا نقدر نحسب "مدة تشغيل العملية" عن طريق ربطها بالـ Event 4688:
+
+* Correlation: بنستخدم الـ Process ID المشترك بين الـ Event 4688 (لحظة البداية) والـ Event 4689 (لحظة النهاية).
+
+## Investigating suspicious process executions
+
+
+
+### Hiding in plain sight
+
+فكرة الـ Technique ده بتعتمد إن الـ Attacker بيسمي الـ Malware بتاعه بأسماء مشابهة جداً للـ Standard Windows processes المعروفة.
+
+* أمثلة على كده استخدام أسماء زي `Svch0st.exe`، `scvhost.exe`، أو `lssas.exe`.
+* طريقة تانية بيعملها الـ Attacker هي إنه يستخدم نفس اسم الـ Windows process بالظبط، بس يعمل ليه Save و Load من Windows path مختلف عن المسار بتاع الـ Legitimate process الأصلية.
+* الهدف من الـ Techniques دي إن الـ Attackers يعملوا Hide in plain sight ويقدروا يعملوا Evade detection efforts.
+
+### Detecting Suspicious Process Executions
+
+عشان نقدر نعمل Detect و Investigate للـ Suspicious activities دي بشكل فعال، لازم نكون عارفين الـ Common Windows standard process names والـ Full paths بتاعتهم، وكمان الـ Expected parent processes.
+
+* المعلومات دي بتساعدنا نعمل Identifying لأي Discrepancies أو Anomalies في الـ Process execution.
+* مثال على ده إننا نكتشف Malicious process ليها اسم مشابه لـ Legitimate one، أو نلاقي Process بتعمل Running من مسار غير الـ Standard path.
+* عن طريق تحليل الـ Parent-child process relationships، بنقدر نكتشف أي Suspicious behavior، زي مثلاً إن فيه Process طلعت من Unexpected parent process، أو إن فيه Legitimate process طلعت Suspicious child process.
+
+### Practical Case Study (Figure 5.9)
+
+المثال اللي في الصورة بيوضح عملية Suspicious execution للعملية اللي اسمها `svchost.exe`.
+
+1. أول حاجة غريبة هنا إن الـ `svchost.exe` process دي شغالة من المسار `C:\Windows`، وإحنا عارفين إن الـ Legit process المفروض تشتغل من المسار ده:
+
+DOS
+
+```
+C:\Windows\System32\
+```
+
+2. تاني حاجة، الـ Process دي حصل ليها Spawned من الـ `cmd.exe` process، والمفروض زي ما اتعلمنا إن الـ Expected parent process بتاعها يكون الـ `services.exe` process.
+3. طبعاً لو مكنتش عارف الـ Normal behaviors للـ Standard Windows processes، مكنتش هتقدر تلاحظ الـ Techniques دي أبداً.
+
+<figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
