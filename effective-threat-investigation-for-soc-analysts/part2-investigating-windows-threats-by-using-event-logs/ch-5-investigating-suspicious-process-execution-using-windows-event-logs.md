@@ -367,8 +367,6 @@ Process name: smss.exe\
 
 ## Investigating suspicious process executions
 
-
-
 ### Hiding in plain sight
 
 فكرة الـ Technique ده بتعتمد إن الـ Attacker بيسمي الـ Malware بتاعه بأسماء مشابهة جداً للـ Standard Windows processes المعروفة.
@@ -377,7 +375,7 @@ Process name: smss.exe\
 * طريقة تانية بيعملها الـ Attacker هي إنه يستخدم نفس اسم الـ Windows process بالظبط، بس يعمل ليه Save و Load من Windows path مختلف عن المسار بتاع الـ Legitimate process الأصلية.
 * الهدف من الـ Techniques دي إن الـ Attackers يعملوا Hide in plain sight ويقدروا يعملوا Evade detection efforts.
 
-### Detecting Suspicious Process Executions
+**Detecting Suspicious Process Executions**
 
 عشان نقدر نعمل Detect و Investigate للـ Suspicious activities دي بشكل فعال، لازم نكون عارفين الـ Common Windows standard process names والـ Full paths بتاعتهم، وكمان الـ Expected parent processes.
 
@@ -385,7 +383,7 @@ Process name: smss.exe\
 * مثال على ده إننا نكتشف Malicious process ليها اسم مشابه لـ Legitimate one، أو نلاقي Process بتعمل Running من مسار غير الـ Standard path.
 * عن طريق تحليل الـ Parent-child process relationships، بنقدر نكتشف أي Suspicious behavior، زي مثلاً إن فيه Process طلعت من Unexpected parent process، أو إن فيه Legitimate process طلعت Suspicious child process.
 
-### Practical Case Study (Figure 5.9)
+**Practical Case Study (Figure 5.9)**
 
 المثال اللي في الصورة بيوضح عملية Suspicious execution للعملية اللي اسمها `svchost.exe`.
 
@@ -401,3 +399,51 @@ C:\Windows\System32\
 3. طبعاً لو مكنتش عارف الـ Normal behaviors للـ Standard Windows processes، مكنتش هتقدر تلاحظ الـ Techniques دي أبداً.
 
 <figure><img src="../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+
+بص يا بطل، النوع ده من الهجمات بيعتبر من أخطر الأساليب وأذكاها، لأنه بيستخدم أسلحة النظام نفسه ضدك. ده الملخص بتنسيق GitBook وكل الشروط اللي اتفقنا عليها:
+
+**Living Off The Land (LOTL)**
+
+هنتكلم دلوقتي عن هجمات الـ LOTL اللي بتعتمد على التخفي التام جوه النظام.
+
+* مفهوم الـ LOTL attack بيحصل لما الـ Attacker يقرر يعتمد على الـ Legitimate software والـ Binaries اللي موجودة أصلاً في الـ Victim’s system عشان ينفذ الـ Malicious activities بتاعته ويحقق أهدافه.
+* الهدف الأساسي من التقنية دي هو تجنب عمل Uploading لأي New malware أو Tools على الـ Infected host، وبكده بيقدر يعمل Evade detection efforts بمنتهى السهولة.
+* أشهر الأمثلة للـ Tools والـ Binaries اللي بتستخدم في هجمات الـ LOTL هما:
+
+DOS
+
+```
+Powershell.exe, cmd.exe, Rundll32.exe, net.exe, adfind.exe, ipconfig.exe, reg.exe, wmic.exe
+```
+
+* عشان تقدر تعمل Track وتراقب الـ Suspicious use للـ Legitimate Windows processes دي، لازم تكون قادر تفهم وتحلل الـ Process command line.
+* بالإضافة لكده، لازم تتبع أي Suspicious legitimate process behavior، زي الـ Abnormal network communications، أو الـ File creation، أو الـ Process spawning.
+
+**The LOLBAS Project**
+
+بسبب خطورة التكنيك ده وانتشاره، تم تأسيس مشروع مخصص لتوثيق كل الأدوات دي.
+
+* مشروع الـ LOLBAS اتعمل عشان يوثق ويوفر معلومات عن الـ Binaries، والـ Scripts، والـ Libraries اللي ممكن تستخدم في الـ LOTL techniques.
+* الهدف من المشروع ده هو إنشاء Comprehensive list للأدوات دي، مع توفير Usage examples و Detection mechanisms عشان يساعد الـ Defenders إنهم يفهموا ويكتشفوا الـ LOTL attacks بشكل أفضل.
+* الموقع الرسمي للمشروع تقدر توصله من هنا: [https://lolbas-project.github.io/](https://lolbas-project.github.io/).
+* منصة الـ LOLBAS بتعتبر Comprehensive resource بتعمل Cataloging للعديد من الـ Discovered LOTL tools والـ Binaries، مع توضيح الـ Functions بتاعتها، والـ Types، والـ Corresponding MITRE ATT\&CK techniques.
+
+**Suspicious Parent-Child Process Relationships**
+
+&#x20;ال (Suspicious parent-child process relationship) بيحصل لما نلاقي Process طلعت Process تانية غير متوقعة، أو لما نلاقي Process شغالة تحت Parent process مش طبيعي. فهم العلاقات دي بيساعدنا جداً في التحقيق في أغلب الأنشطة الMalicious &#x20;
+
+عندنا هنا سيناريوهين أساسيين بنشوفهم كتير في الهجمات:
+
+#### Scenario 1: Weaponized Microsoft Office Execution
+
+* أسلوب الهجوم بيبدأ لما الـ Attacker يبعت للضحية Weaponized Microsoft Office document عشان يكسب Initial access.
+* داخل الـ Event ID 4688، هنلاقي Microsoft Office process (زي `excel.exe` أو `winword.exe`) بتظهر كـ Parent process وبتعمل Spawning لعمليات مش مفروض تتعمل &#x20;
+* أمثلة : Windows utility (زي `Rundll32.exe` و `Mshta.exe`) أو Windows command and scripting interpreter (زي `powershell.exe` أو `cmd.exe`).
+* هدف الـ Spawning ده هو تنفيذ Malicious code أو Scripts، أو حتى عمل Download لـ Additional payloads من External server.
+
+#### Scenario 2: Process Injection Behavior
+
+* طريقة الهجوم هنا بتعتمد إن الـ Attacker بيعمل Inject للـ Malicious code بتاعه جوه Legitimate Windows process (زي `svchost.exe` أو `explorer.exe`).
+* غرض الـ Injection ده هو إجبار الـ Legitimate process إنها تنفذ الـ Malicious intents والـ Actions بتاعة المهاجم.
+* سبب استخدام الـ Process injection هو عمل Elevate privileges وتخطي الحماية (Evade detection) من الـ Antivirus programs أو أي Security measures تانية
+
