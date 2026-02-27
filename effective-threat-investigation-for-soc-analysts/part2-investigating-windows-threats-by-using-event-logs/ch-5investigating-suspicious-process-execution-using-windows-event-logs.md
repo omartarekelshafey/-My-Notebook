@@ -26,7 +26,7 @@ tasklist
 5. ال  (Command-line Argument): دي(Arguments)   اللي بتوجه الـ Process وتقوله ينفذ إيه بالظبط.
 6. ال  (Parent Process): دي العملية الأساسية اللي قامت ب (Spawning) الـ Process الحالي.
 
-<figure><img src="../../.gitbook/assets/image.png" alt="" width="506"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt="" width="506"><figcaption></figcaption></figure>
 
 ## Windows process types
 
@@ -175,9 +175,9 @@ Process name: smss.exe\
 
 الـ DLL هي اختصار لـ Dynamic Link Library، وهي عبارة عن ملف بيحتوي على Code and Data تقدر أكتر من Application تستخدمهم في نفس الوقت:
 
-* Shared Resources: بدل ما كل برنامج يكتب الكود بتاعه من الصفر، الويندوز بيحط الوظائف المشتركة في ملفات DLL عشان الكل ينده عليها.
-* Not Executable: ملفات الـ DLL مش بتقدر تشتغل لوحدها زي ملفات الـ `.exe`؛ هي محتاجة Host process يشغلها ويحملها في الـ Memory.
-* Efficiency: الطريقة دي بتوفر مساحة كبيرة في الـ RAM والـ Hard disk لأن الكود بيتم تحميله مرة واحدة بس وتشاركه بين البرامج.
+* ال Shared Resources: بدل ما كل برنامج يكتب الكود بتاعه من الصفر، الويندوز بيحط الوظائف المشتركة في ملفات DLL عشان الكل ينده عليها.
+* ال Not Executable: ملفات الـ DLL مش بتقدر تشتغل لوحدها زي ملفات الـ `.exe`؛ هي محتاجة Host process يشغلها ويحملها في الـ Memory.
+* ال Efficiency: الطريقة دي بتوفر مساحة كبيرة في الـ RAM والـ Hard disk لأن الكود بيتم تحميله مرة واحدة بس وتشاركه بين البرامج.
 
 ***
 
@@ -185,8 +185,8 @@ Process name: smss.exe\
 
 بما إن كتير من الـ Windows services مكتوبة كـ DLL files، الويندوز عمل الـ svchost.exe عشان يكون هو الـ Shell أو الـ Container اللي بيحتوي الملفات دي:
 
-* The Hosting Role: الـ svchost.exe هو الـ Process المسؤول عن عمل Running and hosting للـ Service DLLs.
-* Grouping with "-k": عشان النظام ميبقاش زحمة، الـ svchost.exe بيستخدم Unique "-k" parameter عشان يجمع الـ Similar services (الخدمات المتشابهة) في نسخة واحدة. مثلاً، خدمات الشبكة كلها ممكن تتجمع في Instance واحدة من الـ svchost.exe.
+* الـ svchost.exe هو الـ Process المسؤول عن عمل Running and hosting للـ Service DLLs.
+* Grouping with "-k": عشان النظام ميبقاش زحمة، الـ svchost.exe بيستخدم Unique "-k" parameter عشان يجمع الـ Similar services  في نسخة واحدة. مثلاً، خدمات الشبكة كلها ممكن تتجمع في Instance واحدة من الـ svchost.exe.
 
 ***
 
@@ -207,3 +207,103 @@ Process name: smss.exe\
   * &#x20;(Username): The logged-in user.
   * (Number of instances): One or more.
   * &#x20;(Parent process): svchost.exe.
+
+#### Local Security Authentication Service (lsass.exe)
+
+الprocess ديه هي المسؤول الأول عن التحقق من هوية المستخدم.
+
+* الـ lsass.exe مسؤول عن Authenticating users سواء مقابل الـ Domain controller لحسابات الـ Domain، أو مقابل الـ SAM table للحسابات الـ Local.
+* &#x20;هو المسؤول عن تطبيق الـ Security policy وحفظ الـ Authentication credentials في الـ Memory section الخاص بيه. ده بيخليه Prime target للمهاجمين اللي بيحاولوا يسرقوا الـ Login credentials.
+* (Process Attributes)
+  * (Process name): lsass.exe.
+  * &#x20;(Process path): `%Systemroot%\System32\lsass.exe`.
+  * &#x20;(Username): SYSTEM.
+  * &#x20;(Number of instances): One&#x20;
+  * &#x20;(Parent process): wininit.exe.
+
+***
+
+### Windows Logon (winlogon.exe)
+
+الprocess دي هي اللي بتدير عملية دخول وخروج المستخدمين من الـ Interactive session.
+
+* ال  (Functionality): بتتعامل مع الـ Interactive user logins and logouts. هي المسؤولة عن تشغيل الـ LogonUI.exe عشان تستلم الـ Credentials من المستخدم، وبعدين بتبعتها للـ lsass.exe عشان يعمل ليها Validation.
+* (Process Attributes):
+  * &#x20;(Process name): winlogon.exe.
+  * &#x20;(Process path): `%Systemroot%\System32\winlogon.exe`.
+  * (Username): SYSTEM.
+  * (Number of instances): One for each interactive user login.
+  * ال  (Parent process): N/A (بيتم عمل Created ليها بواسطة الـ smss.exe بس مش بتظهر كـ Parent).
+
+***
+
+### Logon User Interface (LogonUI.exe)
+
+دي gui  اللي بتشوفها لما بتيجي تكتب الباسورد.
+
+* الوظيفة (Functionality): مسؤولة عن الـ User interface لشاشة الـ Login. لما بتكتب بياناتك، هي اللي بتبعتها للـ winlogon.exe أو الـ lsass.exe عشان تكمل عملية الـ Authentication.
+* (Process Attributes):
+  * &#x20;(Process name): LogonUI.exe.
+  * &#x20;(Process path): `%Systemroot%\System32\LogonUI.exe`.
+  * &#x20;(Username): SYSTEM.
+  * &#x20;(Number of instances): One or more.
+  * &#x20;(Parent process): winlogon.exe.
+
+***
+
+### Windows Explorer (explorer.exe)
+
+ده اللي المستخدم بيتعامل معاه بعد ما بيعمل Login.
+
+* ال (Functionality): مسؤول عن توفير الـ User interface للـ Desktop، والـ Taskbar، والـ File manager. هو اللي بيخليك توصل للملفات والـ Applications.
+* (Process Attributes):
+  * &#x20;(Process name): explorer.exe.
+  * (Process path): `%Systemroot%\explorer.exe` (لاحظ إنه مش في `System32`).
+  * &#x20;(Username): The logged-in user.
+  * (Number of instances): One for each interactive user login.
+  * ال(Parent Process): N/A (بيكون Orphaned بعد ما الـ Userinit.exe اللي شغله يقفل).
+
+<table data-header-hidden data-full-width="false"><thead><tr><th width="168.79998779296875"></th><th width="160.79998779296875"></th><th width="309"></th><th width="172"></th><th></th></tr></thead><tbody><tr><td> <strong>Process Name</strong></td><td> <strong>Parent Process</strong></td><td><strong>process path</strong> </td><td> <strong>Username</strong></td><td> <strong>Instances</strong></td></tr><tr><td>System</td><td>N/A</td><td>N/A</td><td>SYSTEM</td><td>One</td></tr><tr><td>smss.exe</td><td>System</td><td><code>%Systemroot%\System32\smss.exe</code></td><td>SYSTEM</td><td>One (Master)</td></tr><tr><td>csrss.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\csrss.exe</code></td><td>SYSTEM</td><td>One per Session</td></tr><tr><td>wininit.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\wininit.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>services.exe</td><td>wininit.exe</td><td><code>%Systemroot%\System32\services.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>svchost.exe</td><td>services.exe</td><td><code>%Systemroot%\System32\svchost.exe</code></td><td>SYSTEM, LOCAL/NETWORK SERVICE</td><td>Many</td></tr><tr><td>lsass.exe</td><td>wininit.exe</td><td><code>%Systemroot%\System32\lsass.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>winlogon.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\winlogon.exe</code></td><td>SYSTEM</td><td>One per User Login</td></tr><tr><td>LogonUI.exe</td><td>winlogon.exe</td><td><code>%Systemroot%\System32\LogonUI.exe</code></td><td>SYSTEM</td><td>One or More</td></tr><tr><td>explorer.exe</td><td>N/A</td><td><code>%Systemroot%\explorer.exe</code></td><td>Logged-in User</td><td>One per User Login</td></tr><tr><td>RuntimeBroker.exe</td><td>svchost.exe</td><td><code>%Systemroot%\System32\RuntimeBroker.exe</code></td><td>Logged-in User</td><td>One or More</td></tr></tbody></table>
+
+## Windows Process Tracking events
+
+نظام الويندوز بيسمح لك تتبع كل process بيتم إنشاؤها أو إنهاؤها من خلال تسجيل Event IDs محددة في ملف الـ Security event log.&#x20;
+
+#### 1. Key Process Tracking Events
+
+عندنا نوعين أساسيين من الـ Events بنراقبهم:
+
+* الـ Event ID 4688: بيسجل  (Process creation activity).
+* ال Event ID 4689: بيسجل (Process exit activity)
+
+***
+
+#### 2. Analysis of Event ID 4688
+
+الـ Event 4688 بعنوان "A new process has been created"الـ Event ده متقسم لـ 3 أقسام رئيسية:
+
+1. Creator Subject
+2. &#x20;Target Subject
+3. &#x20;Process Information
+   * New Process ID
+   * &#x20;New Process Name
+   * &#x20;Creator Process ID
+   * &#x20;Creator Process Name
+
+<div align="left"><figure><img src="../../.gitbook/assets/image.png" alt="" width="563"><figcaption></figcaption></figure></div>
+
+#### 1. Creator Subject Section
+
+القسم ده بيقدم معلومات عن الـ User والـ Login session اللي بدأ تشغيل الـ New process.
+
+* ال Parent Owner: بيوضح برضه مين هو الـ Owner بتاع الـ Parent process اللي عمل Created للعملية الجديدة.
+
+#### 2. Target Subject Section
+
+القسم ده مخصص للمعلومات المتعلقة بالـ User اللي بيملك الـ Newly created process.
+
+* ال Process Context: بيعرفك الـ Context اللي العملية شغالة تحته، والـ Login session المرتبطة بيها.
+* ال Empty Fields Case: لو الـ Owner بتاع العملية الجديدة هو نفسه المستخدم اللي بدأها (يعني نفس بيانات الـ Creator Subject)، الحقول في القسم ده هتكون Empty
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
