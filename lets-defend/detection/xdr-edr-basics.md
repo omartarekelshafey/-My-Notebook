@@ -31,26 +31,24 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 
 ### What is the difference between iDS, IPS and EDR?
 
-| **Primary Function**  | Detects malicious activity and alerts security personnel.          | Detects and prevents malicious activity.                                      | Detects, investigates, and responds to threats on endpoints.                                        |
-| --------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| **Deployment**        | Typically out-of-band, monitoring network traffic passively.       | Inline, actively inspecting network traffic.                                  | Agent-based, deployed on individual endpoints (laptops, servers, etc.).                             |
-| **Scope**             | Primarily network-focused; can also be host-based (HIDS).          | Primarily network-focused; can also be host-based (HIPS).                     | Endpoint-focused; provides deep visibility into endpoint activity.                                  |
-| **Data Source**       | Network traffic, system logs.                                      | Network traffic.                                                              | Endpoint activity data (file access, process execution, network connections, registry changes).     |
-| **Detection Methods** | Signature-based (known attacks), anomaly-based (unusual behavior). | Signature-based, anomaly-based.                                               | Behavioral analysis, machine learning, threat intelligence.                                         |
-| **Response**          | Passive; relies on human intervention or other systems.            | Active; automated threat blocking and mitigation.                             | Automated or manual responses, including isolation, quarantine, remediation.                        |
-| **Visibility**        | Limited visibility into endpoint activity.                         | Limited visibility into endpoint activity.                                    | Comprehensive visibility into endpoint activity.                                                    |
-| **Focus**             | Identifying and reporting potential threats.                       | Preventing threats from reaching their target.                                | Investigating and responding to threats that have bypassed other defenses.                          |
-| **Strengths**         | Early threat detection, security awareness, compliance.            | Proactive threat prevention, real-time protection.                            | Comprehensive endpoint visibility, advanced threat detection, rapid response, threat hunting.       |
-| **Weaknesses**        | Passive monitoring, prone to false positives, evasion techniques.  | Can impact network performance, prone to false positives, evasion techniques. | Requires agent deployment, can be complex to manage, potential for performance impact on endpoints. |
-| **Relationship**      | IDS can complement IPS by providing additional alerting.           | IPS builds upon IDS by adding prevention capabilities.                        | EDR complements IDS and IPS by focusing on endpoint protection and advanced threat detection.       |
-| **Example Tools**     | Snort, Suricata, Zeek (formerly Bro)                               | Cisco Firepower, Palo Alto Threat Prevention, Check Point IPS                 | Microsoft Defender for Endpoint, CrowdStrike Falcon, SentinelOne                                    |
+| feature               | EDR                                                                                                 | IPS                                                                           | IDS                                                                |
+| --------------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Primary Function**  | Detects, investigates, and responds to threats on endpoints.                                        | Detects and prevents malicious activity.                                      | Detects malicious activity and alerts security personnel.          |
+| **Deployment**        | Agent-based, deployed on individual endpoints (laptops, servers, etc.).                             | Inline, actively inspecting network traffic.                                  | Typically out-of-band, monitoring network traffic passively.       |
+| **Scope**             | Endpoint-focused; provides deep visibility into endpoint activity.                                  | Primarily network-focused; can also be host-based (HIPS).                     | Primarily network-focused; can also be host-based (HIDS).          |
+| **Data Source**       | Endpoint activity data (file access, process execution, network connections, registry changes).     | Network traffic.                                                              | Network traffic, system logs.                                      |
+| **Detection Methods** | Behavioral analysis, machine learning, threat intelligence.                                         | Signature-based, anomaly-based.                                               | Signature-based (known attacks), anomaly-based (unusual behavior). |
+| **Response**          | Automated or manual responses, including isolation, quarantine, remediation.                        | Active; automated threat blocking and mitigation.                             | Passive; relies on human intervention or other systems.            |
+| **Visibility**        | Comprehensive visibility into endpoint activity.                                                    | Limited visibility into endpoint activity.                                    | Limited visibility into endpoint activity.                         |
+| **Focus**             | Investigating and responding to threats that have bypassed other defenses.                          | Preventing threats from reaching their target.                                | Identifying and reporting potential threats.                       |
+| **Strengths**         | Comprehensive endpoint visibility, advanced threat detection, rapid response, threat hunting.       | Proactive threat prevention, real-time protection.                            | Early threat detection, security awareness, compliance.            |
+| **Weaknesses**        | Requires agent deployment, can be complex to manage, potential for performance impact on endpoints. | Can impact network performance, prone to false positives, evasion techniques. | Passive monitoring, prone to false positives, evasion techniques.  |
+| **Relationship**      | EDR complements IDS and IPS by focusing on endpoint protection and advanced threat detection.       | IPS builds upon IDS by adding prevention capabilities.                        | IDS can complement IPS by providing additional alerting.           |
+| **Example Tools**     | Microsoft Defender for Endpoint, CrowdStrike Falcon, SentinelOne                                    | Cisco Firepower, Palo Alto Threat Prevention, Check Point IPS                 | Snort, Suricata, Zeek (formerly Bro)                               |
 
 
 
 ## EDR/XDR Installation and Configuration Process
-
-تمام يا أنور ✌️\
-أنا هظبطلك الكلام في شكل ملخص مرتب تقدر تحطه في **GitBook** من غير الحشو النظري الممل، واللي يدي Overview كامل عن SentinelOne Installation & Configuration.
 
 ***
 
@@ -176,9 +174,6 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 
 
 
-تمام يا أنور 👌\
-أنا هظبطلك الكلام في شكل **ملخص مرتب** تحطه في GitBook، من غير الحشو، بحيث يدي Overview كامل عن **Managing Endpoints with EDR/XDR (SentinelOne)**.
-
 ***
 
 ## Managing Endpoints with EDR/XDR
@@ -225,11 +220,6 @@ XDR هو النسخة الأقوى والأشمل من EDR. الفكرة هنا 
 * الـ **Anti-Tamper** بيمنع إزالة أو تعطيل الـ Agent من المستخدم.
 * الإزالة بتتم فقط من الـ Console:\
   `Sentinels > Endpoints > Select Endpoint > Actions > Uninstall`.
-
-***
-
-تمام يا أنور ✌️\
-هظبطلك الكلام في **ملخص مرتب** تحطه على GitBook يدي Overview عن **Data Sources & Log Integration in XDR**.
 
 ***
 
