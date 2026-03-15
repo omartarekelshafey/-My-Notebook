@@ -66,8 +66,8 @@ tasklist
 * مكونات الـ Session: بتشمل الـ Processes، والـ Windows Stations، والـ Desktops.
 * الـ Memory: كل User بيكون ليه مساحة خاصة في الـ Virtual memory اسمها Session space.
 * أنواع الـ Sessions:
-  * Session 0: مخصصة للـ Services فقط (في الإصدارات الجديدة زي Vista وطالع).
-  * Session 1 & Higher: مخصصة للـ Interactive users.
+  * ال Session 0: مخصصة للـ Services فقط (في الإصدارات الجديدة زي Vista وطالع).
+  * ال Session 1 & Higher: مخصصة للـ Interactive users.
 
 ***
 
@@ -92,8 +92,6 @@ tasklist
 
 
 
-بص يا عمر، الـ smss.exe ده هو "المهندس الاستشاري" اللي بيخطط العمارة (الـ Sessions) ويشرف على بنائها. بعد ما فهمنا يعني إيه Session وعزل، تعال نشوف العملية دي بتتم إزاي بالتفصيل حسب المرجع اللي معاك:
-
 #### Session Manager (smss.exe) process
 
 الـ smss.exe هو أول User-mode process بيشتغل في النظام، وهو حلقة الوصل بين الـ Kernel وبين واجهة المستخدم اللي بنشوفها.
@@ -102,8 +100,8 @@ tasklist
 
 العملية دي مش بتشتغل بنسخة واحدة طول الوقت، لكن ليها نظام معين:
 
-* The Master Instance: دي أول نسخة بتتعمل، والـ Parent process بتاعها هو الـ System. مهمتها الأساسية إنها تعمل Creating new sessions في نظام التشغيل.
-* New Instances: لكل Session جديدة بتتعمل، الـ Master instance بتعمل Creating لنسخة جديدة من smss.exe مخصصة للجلسة دي عشان تجهزها.
+* ال The Master Instance: دي أول نسخة بتتعمل، والـ Parent process بتاعها هو الـ System. مهمتها الأساسية إنها تعمل Creating new sessions في نظام التشغيل.
+* ال  New Instances: لكل Session جديدة بتتعمل، الـ Master instance بتعمل Creating لنسخة جديدة من smss.exe مخصصة للجلسة دي عشان تجهزها.
 
 #### 2. How it Builds Sessions (The Workflow)
 
