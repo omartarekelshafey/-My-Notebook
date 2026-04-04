@@ -42,7 +42,7 @@
     * [Malware Analysis Fundamentals](lets-defend/soc-analyst-path/malware-analysis-fundamentals.md)
     * [network log analysis](lets-defend/soc-analyst-path/network-log-analysis/README.md)
       * [firewall logs](lets-defend/soc-analyst-path/network-log-analysis/firewall-logs.md)
-      * [Untitled](lets-defend/soc-analyst-path/network-log-analysis/untitled.md)
+      * [vpn Log](lets-defend/soc-analyst-path/network-log-analysis/vpn-log.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
