@@ -12,6 +12,7 @@
   * [CH 4 Tracking Accounts Login and Management](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-4-tracking-accounts-login-and-management.md)
   * [CH 5 Investigating Suspicious Process Execution Using   Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-5-investigating-suspicious-process-execution-using-windows-event-logs.md)
   * [CH 6 Investigating PowerShell   Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-6-investigating-powershell-event-logs.md)
+  * [CH 7 Investigating Persistence  and Lateral Movement Using  Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-7-investigating-persistence-and-lateral-movement-using-windows-event-logs.md)
 
 ## Blue Team Junior Analyst Pathway Bundle
 
