@@ -273,7 +273,7 @@ EDR/XDR بيدوا فرق الأمن القدرة إنها تتابع الأنش
 
 💡 ملاحظة: مش كل EDR بيجمع نفس التفاصيل → ده بيعتمد على النسخة والإعدادات.
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (26).png" alt="" width="500"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (25).png" alt="" width="500"><figcaption></figcaption></figure></div>
 
 ***
 

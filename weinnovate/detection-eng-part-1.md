@@ -47,8 +47,6 @@
 * **Loop 2 = Detection + Response = Safety net** (شبكة أمان لو الوقاية فشلت).
 * **Loop 3 = Recovery + Lessons** (لو حصل ضرر، نسترد + نتعلم).
 
-
-
 ## detection eng process
 
 تمام ✨ الموضوع ده بيتكلم عن **Detection Engineering Process** (عملية بناء وتطوير أنظمة الكشف).\
@@ -62,7 +60,7 @@
 
 * قبل ما نكتب أي Rule، لازم نفهم الـ **Attack Scenario**: المهاجم هيعمل إيه؟ إيه الهدف؟
 * بنحوّل الهجوم لقصة:\
-  &#xNAN;_&#x45;xample:_ "Attacker يستخدم PowerShell لتنزيل malicious file."
+  \&#xNAN;_Example:_ "Attacker يستخدم PowerShell لتنزيل malicious file."
 * الهدف: نربط الهجوم بالـ **MITRE ATT\&CK** أو أي framework.
 
 ***
@@ -130,7 +128,7 @@
 
 <figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
-**Threat Intelligence**&#x20;
+**Threat Intelligence**
 
 * بنستخدم تقارير intel اللي بتقول إيه الـ **latest attacks** أو الـ **IOCs** (Indicators of Compromise).
 * _مثال:_ Intel report بيقول إن فيه APT group بيستعملوا `rundll32.exe` مع malicious DLL → نكتب detection عليه.
@@ -147,9 +145,7 @@
   * هل فيه anomalous patterns مرتبطة بيه؟
 * لو لقوا حاجة suspicious → تتحول لـ **detection rule**.
 
-
-
-**Red Teaming Activities**&#x20;
+**Red Teaming Activities**
 
 * لما الـ red team يجربوا attack simulation ويستعملوا techniques معينة.
 * أي حاجة ينجحوا يعملوها → فرصة نكتب detection جديد.
@@ -157,7 +153,7 @@
 
 ***
 
-**Business Requirements**&#x20;
+**Business Requirements**
 
 * ساعات في متطلبات تخص الشركة أو الـ industry.
 * _مثال:_ البنك محتاج يراقب أي محاولة تغيير في SWIFT logs.
@@ -165,7 +161,7 @@
 
 ***
 
-**New Log Source**&#x20;
+**New Log Source**
 
 * لو تم إضافة system جديد (مثلاً: Cloud service, Firewall, EDR).
 * لازم نعمل detections تستغل الـ logs الجديدة.
@@ -173,7 +169,7 @@
 
 ***
 
-**New Policy / Regulation**&#x20;
+**New Policy / Regulation**
 
 * ساعات compliance بيفرض requirements.
 * _مثال:_ PCI-DSS أو GDPR بيطلبوا تراقب حاجات معينة.
@@ -183,7 +179,7 @@
 
 ## Rules
 
-**WHAT DOES QUERY DO WHEN**\
+**WHAT DOES QUERY DO WHEN**\
 **CALLED?**
 
 <figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
@@ -209,8 +205,6 @@
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-
-
 ### 🧠 **SIEM Query via Ruleset & Query Service (شرح مبسط):**
 
 1. **Load each rule**\
@@ -224,7 +218,7 @@
    * الـ raw log.
    * الـ metadata (مين، إمتى، فين).
 5. **Result = Alert (غالبًا)**\
-   **---------------------------------------------------------------------------------------------------**
+   &#xNAN;**---------------------------------------------------------------------------------------------------**
 
 | 📌 **الفكرة**       | Query واحدة بتدور على **event محدد** (زي maliciousdomain.com في DNS logs).                         | ربط **أكتر من event** من مصادر مختلفة علشان تكتشف هجوم متقدم.                                                          |
 | ------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |

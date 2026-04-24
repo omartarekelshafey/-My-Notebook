@@ -42,15 +42,13 @@
 
 ## انت كا Forensics practitioner محتاج ايه ؟
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>هو ده اللي انت محتلجه كا  Forensics practitioner </p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption><p>هو ده اللي انت محتلجه كا Forensics practitioner</p></figcaption></figure>
 
+## (Forensic Methodology)
 
+في تلات حاجات اساسيه في methodology<br>
 
-## &#x20;(Forensic Methodology)
-
-في تلات حاجات اساسيه في methodology <br>
-
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 ### 1. 🔍 Hypothesis/Prediction (الفرضية/التوقع)
 
@@ -69,7 +67,7 @@
 * **الدور**: النتيجة النهائية اللي بتثبت الفرضية أو تنفيها (مثلاً: "المتهم بريء لأن مفيش دليل").
 * 💡 الدليل لازم يكون **مستخرج بشكل علمي** + **متوثق كويس** علشان يقف في المحكمة.
 
-### example of methodology steps &#x20;
+### example of methodology steps
 
 ### 1. 🔍 Field Work
 
@@ -85,7 +83,7 @@
 
 ### 2. 🧪 Lab Work
 
-**steps**&#x20;
+**steps**
 
 * **Acquire:** استلم الـ artifacts من Field Work مع الـ label والـ Chain of Custody (فورم يوضح انتقال الأدلة).
 * **Cloning:** اصنع نسخة من الـ image عشان تحافظ على الأصل وتعمل عليها.
@@ -110,14 +108,11 @@
 
 * الأدلة اللي ما بتضيعش بفصل الكهرباء.
 * مثال: **Hard Disk** (البيانات والميتاداتا محفوظة).
-*   أمثلة:
-
-    * File System & OS Forensics
-    * Storage/Disk Forensics
-    * Mobile Device Forensics
-    * Image, Video & Audio Forensics
-
-
+* أمثلة:
+  * File System & OS Forensics
+  * Storage/Disk Forensics
+  * Mobile Device Forensics
+  * Image, Video & Audio Forensics
 
 1. **File System & OS Forensics**
    * تحليل الـ File System والـ OS (Windows, Linux, macOS, Android).
@@ -139,26 +134,24 @@
 
 ### Artifacts Types
 
-* **Web Browser History**&#x20;
-* **Download & Temporary Files**&#x20;
-* **Printer Logs**&#x20;
-* **Registry**&#x20;
-* **Deleted Files**&#x20;
-* **Emails**&#x20;
+* **Web Browser History**
+* **Download & Temporary Files**
+* **Printer Logs**
+* **Registry**
+* **Deleted Files**
+* **Emails**
 * **SMS** .
 * **Photos taken by digital cameras**
-* **Event Logs**&#x20;
+* **Event Logs**
 * **Applications & Packages**
 * **Social Media & OSINT**
-
-
 
 ## Stat Command
 
 ### `ls -l`
 
 * بيعرضلك تفاصيل عن الملفات بشكل طويل:
-  * **Permissions**:&#x20;
+  * **Permissions**:
   * **Timestamps**: تاريخ آخر تعديل (Modification Time).
 
 **example**
@@ -169,15 +162,15 @@
 
 * بيديك تفاصيل أعمق عن الملف مقارنة بـ `ls`.
 * بيعرض:
-  * **Inode**:  بيديك مكان ال file  علي الهارد.
+  * **Inode**: بيديك مكان ال file علي الهارد.
   * **Size**
   * **Blocks**: عدد البلوكات اللي مستخدمها الملف.
   * **File Type**:
   * **Timestamps**:
     * **Access**
     * **Modify**
-    * **Change**&#x20;
-    * **Birth**&#x20;
+    * **Change**
+    * **Birth**
 
 example
 
@@ -189,53 +182,51 @@ example
 
 *   **Move file** :
 
-    * الـ **Inode** بيبقى زي ما هو  معناه إن الملف متغيرش فعليًا، بس مكانه اتغير.
+    * الـ **Inode** بيبقى زي ما هو معناه إن الملف متغيرش فعليًا، بس مكانه اتغير.
 
-    before move                                                                              after move&#x20;
+    before move after move
 
-<div align="left"><figure><img src="../../.gitbook/assets/image (23).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../.gitbook/assets/image (22).png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 *   **Copy الملف**:
 
     * بيتولد **Inode جديد** → يعني اتكتب فعليًا نسخة جديدة.
 
-    before copy                                                                                  after copy&#x20;
+    before copy after copy
 
 <div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 124816.png" alt="" width="375"><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 125318.png" alt="" width="375"><figcaption></figcaption></figure></div>
 
 ## EXIF TOOL
 
-&#x20;هنجرب دلوقتي نفس اللي عملناه بال stat بس المرادي هنستعمل exif tool&#x20;
+هنجرب دلوقتي نفس اللي عملناه بال stat بس المرادي هنستعمل exif tool
 
-اول  حاجه نزلها لو مش عندك ب sudo apt install exif \
-&#x20;       بعدها  تكتب Exif  واسم الصورة&#x20;
+اول حاجه نزلها لو مش عندك ب sudo apt install exif\
+بعدها تكتب Exif واسم الصورة
 
 example
 
 <figure><img src="../../.gitbook/assets/Screenshot 2025-09-05 160704.png" alt=""><figcaption></figcaption></figure>
 
-
-
 ## windows properties
 
 #### 1**Original File**
 
-اي ملف خلينا نقول صورة مثلا بيكون فيها ال meta data  ديه&#x20;
+اي ملف خلينا نقول صورة مثلا بيكون فيها ال meta data ديه
 
 * **Creation Date** (تاريخ الإنشاء).
 * **Modification Date** (آخر تعديل).
 * **Access Date** (آخر مرة تم فتحه).
 * الميتاداتا الأصلية موجودة (نوع الموبايل – الكاميرا – وقت الالتقاط – البرنامج اللي صور بيه).
 
-#### &#x20;**Paint**
+#### **Paint**
 
-* لما فتحت الصورة في **Paint** وعدلتها وبعدها عملت save&#x20;
+* لما فتحت الصورة في **Paint** وعدلتها وبعدها عملت save
 
-كده ال meta data  اللي كانت موجوده في اول هتتغير لانه احنا عدلنا علي الصورة&#x20;
+كده ال meta data اللي كانت موجوده في اول هتتغير لانه احنا عدلنا علي الصورة
 
 ***
 
-#### 3. **Copy-Paste**&#x20;
+#### 3. **Copy-Paste**
 
 * لما عملت **Copy-Paste** للصورة:
   * الميتاداتا الأصلية فضلت زي ما هي.
@@ -245,4 +236,4 @@ example
 
     ينفع لو الهدف إننا نعرض الميتاداتا في المحكمة.
 
-بس طبعا الطريقه هتبقي غلط لو انا مهتم بمكان الفايل في الهارد  لانه لما بتعمل copy  مكان الفايل بيتغير في الهارد
+بس طبعا الطريقه هتبقي غلط لو انا مهتم بمكان الفايل في الهارد لانه لما بتعمل copy مكان الفايل بيتغير في الهارد

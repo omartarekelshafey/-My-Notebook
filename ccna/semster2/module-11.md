@@ -2,9 +2,7 @@
 
 ## Implement Port Security
 
-
-
-* ### &#x20;**(Secure Unused Ports):**
+* #### **(Secure Unused Ports):**
 * واحدة من أبسط الطرق لتأمين الشبكة هي تعطيل (Disable) أي منفذ (Port) مش واصل عليه جهاز حالياً.
 * يتم ذلك عن طريق الدخول على المنفذ واستخدام الأمر التالي:
 
@@ -14,10 +12,10 @@ shutdown
 ```
 
 * لتفعيل المنفذ مرة تانية لو احتجته، استخدم أمر `no shutdown`.
-* ### &#x20;**(Mitigate MAC Address Table Attacks):**
+* #### **(Mitigate MAC Address Table Attacks):**
 * أبسط وأنجح طريقة لمنع هجمات الـ MAC Address Table overflow هي تفعيل خاصية الـ Port Security.
 * الخاصية دي بتحدد عدد معين من الـ MAC Addresses المسموح ليها بالاتصال بالمنفذ.
-* ### &#x20;**(Enable Port Security):**
+* #### **(Enable Port Security):**
 * ملاحظة مهمة: الـ Port Security بيشتغل فقط على المنافذ اللي معمولة Access أو Trunk بشكل يدوي (Manually Configured)، ومش بيشتغل على المنافذ الـ Dynamic.
 * الأوامر اللازمة للتفعيل:
 
@@ -28,7 +26,7 @@ switchport port-security
 ```
 
 * بشكل افتراضي، الحد الأقصى للـ MAC Addresses هو 1 فقط.
-* ### &#x20;**(Limit and Learn MAC Addresses):**
+* #### **(Limit and Learn MAC Addresses):**
 * يوجد ثلاث طرق للـ Switch عشان يتعلم الـ MAC Address على المنفذ الآمن:
 
 1. **طريقة (Manually Configured):** الأدمن بيدخل الـ MAC بيده.
@@ -47,7 +45,7 @@ switchport port-security mac-address sticky
 
 ```
 
-* ### &#x20;**(Port Security Violation Modes):**
+* #### **(Port Security Violation Modes):**
 * ماذا يحدث لو جهاز غير مصرح بيه حاول يدخل؟ فيه 3 أوضاع:
 
 1. **وضع (Shutdown):** (ده الافتراضي) المنفذ بيقفل تماماً وبيدخل في حالة `error-disabled` ولمبة المنفذ بتطفي.
@@ -81,13 +79,13 @@ switchport port-security mac-address sticky
 * **(DHCP Attacks Review):**
 * هدف هجوم DHCP Starvation هو استنفاذ كل العناوين المتاحة عشان يعمل Denial of Service (DoS).
 * هجوم DHCP Spoofing بيتم فيه وضع خادم DHCP مزيف في الشبكة عشان يوزع عناوين وإعدادات غلط للعملاء.
-* &#x20;**DHCP (DHCP Snooping):**
+* **DHCP (DHCP Snooping):**
 * تقنية DHCP Snooping بتفلتر رسايل الـ DHCP وبتعمل Rate-limit (تحديد سرعة) على المنافذ غير الموثوقة.
 * يتم تصنيف المنافذ لنوعين:
 * **نوع الاول(Trusted Interfaces):** زي الـ Trunks والمنافذ الواصلة بالسيرفرات والرواتر.
 * **نوع التاني (Untrusted Interfaces):** زي كل منافذ الـ Access اللي واصلة بأجهزة المستخدمين.
 * الـ Switch بيبني جدول اسمه "DHCP Snooping Binding Table" بيربط فيه الـ MAC Address بالـ IP Address للمنافذ غير الموثوقة.
-* &#x20;**(Implementation Steps):**
+* **(Implementation Steps):**
 * الأمر الأساسي لتفعيل الخدمة عالمياً:
 
 ```bash
@@ -102,7 +100,7 @@ ip dhcp snooping trust
 
 ```
 
-* لتحديد عدد الرسائل المسموح بها عل&#x649;**(Untrusted Interfaces)**  (Rate Limit):
+* لتحديد عدد الرسائل المسموح بها عل&#x649;**(Untrusted Interfaces)** (Rate Limit):
 
 ```bash
 ip dhcp snooping limit rate <number>
@@ -113,11 +111,11 @@ ip dhcp snooping limit rate <number>
 
 ### Mitigate ARP Attacks
 
-* &#x20;**(Dynamic ARP Inspection - DAI):**
+* **(Dynamic ARP Inspection - DAI):**
 * في هجمات الـ ARP، المهاجم بيبعت رسايل ARP Replies مزيفة عشان يربط الـ MAC بتاعه بالـ IP بتاع الـ Gateway (بيعمل ARP Poisoning).
 * خاصية DAI بتعتمد على قاعدة بيانات DHCP Snooping عشان تتأكد إن الـ IP والـ MAC اللي في رسالة الـ ARP حقيقيين.
 * الخاصية دي بتعمل "Drop" (إسقاط) لأي رسالة ARP مزيفة جاية من منفذ غير موثوق.
-* &#x20;**(Configuration Guidelines):**
+* **(Configuration Guidelines):**
 * يُنصح بجعل كل منافذ الـ Access "غير موثوقة" (Untrusted)، وجعل المنافذ الواصلة بـ Switches تانية أو Routers "موثوقة" (Trusted).
 * أوامر التفعيل (يتم تفعيلها على الـ VLAN):
 
@@ -169,12 +167,9 @@ spanning-tree bpduguard enable
 النقطة دي بتتكلم عن كيفية إدارة المدة الزمنية اللي الـ Switch بيحتفظ فيها بالـ MAC Addresses الآمنة قبل ما يحذفها.
 
 * مفهوم التقادم (Aging Concept): تُستخدم خاصية Aging عشان نمسح الـ Secure MAC addresses من المنفذ بشكل أوتوماتيكي من غير ما نضطر نمسحها يدوياً. ده مفيد عشان الجدول ما يتمليش عناوين قديمة مش بنستخدمها.
-*   (Aging Types): يوجد نوعان من الـ Aging ممكن تفعيلهم على المنفذ
-
-
-
-    1. المطلق (Absolute): بيتم مسح العناوين بعد مرور وقت محدد (Aging time)، بغض النظر هل الجهاز لسه بيبعت داتا ولا لأ.
-    2. عدم النشاط (Inactivity): بيتم مسح العناوين فقط لو الجهاز بطل يبعت داتا لمدة محددة.
+* (Aging Types): يوجد نوعان من الـ Aging ممكن تفعيلهم على المنفذ
+  1. المطلق (Absolute): بيتم مسح العناوين بعد مرور وقت محدد (Aging time)، بغض النظر هل الجهاز لسه بيبعت داتا ولا لأ.
+  2. عدم النشاط (Inactivity): بيتم مسح العناوين فقط لو الجهاز بطل يبعت داتا لمدة محددة.
 *   تفعيل الخاصية (Configuration): عشان تفعل الـ Aging أو تغير وقته (بالدقائق) أو نوعه، بتستخدم الأمر ده داخل إعدادات الواجهة (Interface Mode):
 
     ```
@@ -183,4 +178,3 @@ spanning-tree bpduguard enable
     ```
 
     (ملاحظة: لو خليت الوقت 0، ده معناه إن الـ Aging بقى Disabled)
-

@@ -2,9 +2,7 @@
 
 ELASTICSEARCH (DATABASE ENGINE)
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 | **Rational Database** | **Elasticsearch** | **الشرح**                                                                      |
 | --------------------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -41,8 +39,6 @@ ELASTICSEARCH (DATABASE ENGINE)
 * **Data Distribution**: بتخلي البيانات الكبيرة تتوزع على أكتر من سيرفر.
 * **Parallel Processing**: البحث أو التحليل بيتقسم على shards مختلفة في نفس الوقت، فيسرع الأداء.
 * **Fault Tolerance**: حتى لو جزء من الداتا باز أو السيرفر وقع، النسخ (Replicas) تحفظلك الداتا وتخلي السيستم شغال.
-
-
 
 ## Nodes types
 
@@ -93,18 +89,15 @@ ELASTICSEARCH (DATABASE ENGINE)
 * Node واحد ممكن ياخد **أكتر من دور** (يعني ينفع يبقى Data + Ingest في نفس الوقت).
 * في الـ production عادة بنفصل الأدوار عشان الأداء والـ scaling.
 
-
-
-**DATA COLLECTING METHODS**\
-**Agent-Based**\
-Elastic Agent\
+**DATA COLLECTING METHODS**\
+**Agent-Based**\
+Elastic Agent\
 Beats
 
-\
-**Agent-Less**\
-Syslog\
-API\
+\
+**Agent-Less**\
+Syslog\
+API\
 etc
 
 <figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-

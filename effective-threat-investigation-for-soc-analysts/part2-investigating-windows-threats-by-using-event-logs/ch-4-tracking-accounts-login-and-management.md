@@ -2,17 +2,17 @@
 
 ## Account login tracking
 
-عشان تقدر تعمل Profile لحساب معين أو تتبع الحركات المشبوهة، شركة Microsoft بتوفر لك ميزة تسجيل كل  (Login attempts)، سواء كانت ناجحة أو فاشلة.
+عشان تقدر تعمل Profile لحساب معين أو تتبع الحركات المشبوهة، شركة Microsoft بتوفر لك ميزة تسجيل كل (Login attempts)، سواء كانت ناجحة أو فاشلة.
 
 **Key Features**
 
-* ال  Recording event logs: بيتم تسجيل تفاصيل دقيقة لكل محاولة دخول.
+* ال Recording event logs: بيتم تسجيل تفاصيل دقيقة لكل محاولة دخول.
 * ال Valuable information: السجلات دي بتشمل وقت المحاولة، اسم الحساب المستخدم، وطريقة المصادقة (Authentication method).
 * ال Storage: كل سجلات المصادقة دي بتتحفظ في ملف واحد أساسي وهو الـ Security log file.
 
 ### Windows accounts
 
-في Windows، أي  (Process) أو نشاط زي الـ Authentication  لازم يكون مرتبط بحساب محدد
+في Windows، أي (Process) أو نشاط زي الـ Authentication لازم يكون مرتبط بحساب محدد
 
 **Standard Accounts**
 
@@ -28,17 +28,17 @@
 
 * حساب SYSTEM: ده أقوى حساب في الويندوز وله سيطرة كاملة (Complete control) على كل موارد النظام
 
-**1. حساب SYSTEM**&#x20;
+**1. حساب SYSTEM**
 
-* الوظيفة: ده حساب  ليه كامل الصلاحيات على ملفات النظام والنواة (Kernel).
+* الوظيفة: ده حساب ليه كامل الصلاحيات على ملفات النظام والنواة (Kernel).
 * الهوية: بيتحكم في كل شيء محلياً، وبرا الجهاز بيظهر بهوية الكمبيوتر (Computer$).
 
-**2. حساب NETWORK SERVICE**&#x20;
+**2. حساب NETWORK SERVICE**
 
 * الوظيفة: مخصص للخدمات اللي محتاجة تكلم أجهزة تانية في الشبكة "بصفة رسمية".
-* الهوية: جوه جهازك اسمه NETWORK SERVICE، بس أول ما يخرج على الشبكة بيستخدم  Computer Account ($) عشان السيرفرات تعرفه.
+* الهوية: جوه جهازك اسمه NETWORK SERVICE، بس أول ما يخرج على الشبكة بيستخدم Computer Account ($) عشان السيرفرات تعرفه.
 
-**3. حساب LOCAL SERVICE**&#x20;
+**3. حساب LOCAL SERVICE**
 
 * الوظيفة: للخدمات البسيطة اللي ملهاش صلاحيات كبيرة ومحتاجة تتعامل مع الشبكة "بدون هوية".
 * الهوية: محلياً صلاحياته ضعيفة، وعلى الشبكة بيدخل بصفة Null Session (مجهول)، مبيقدرش يستخدم بيانات الـ Computer$.
@@ -80,7 +80,7 @@
 | --------- | ---------------------- | ------------------------------------------------------ |
 | 2         | Interactive            | واحد قاعد بكرسيه قدام الجهاز وكاتب الباسورد بالكيبورد. |
 | 3         | Network                | داخل يوصل لملف شير (SMB) أو طابعة من بعيد.             |
-| 4         | Batch                  |  ال (Scheduled Task) هي اللي بدأت الدخول.              |
+| 4         | Batch                  | ال (Scheduled Task) هي اللي بدأت الدخول.               |
 | 5         | Service                | ال (Service) هي اللي عملت Login عشان تشتغل.            |
 | 7         | Unlock                 | الجهاز كان معمول له Lock والمستخدم فتحه تاني.          |
 | 10        | Remote Interactive     | داخل عن طريق RDP.                                      |
@@ -118,8 +118,6 @@
 
 <figure><img src="../../.gitbook/assets/image (1) (1).png" alt="" width="535"><figcaption></figcaption></figure>
 
-
-
 **Account Lockout (Event ID 4740)**
 
 لما عدد محاولات الفشل يزيد عن الحد المسموح به في سياسة الشركة، الويندوز بيقفل الحساب وبيطلع الحدث رقم 4740.
@@ -135,7 +133,7 @@
 
 **Event ID 4672: Special Privileges Assigned**
 
-لما حساب له صلاحيات "خاصة" أو "إدارية" ينجح في الدخول، الويندوز بيسجل event برقم 4672.&#x20;
+لما حساب له صلاحيات "خاصة" أو "إدارية" ينجح في الدخول، الويندوز بيسجل event برقم 4672.
 
 **Sections of Event 4672**
 
@@ -151,13 +149,13 @@
 1. الـ Event ID 4624: وده بيقولك "فيه حساب دخل بنجاح" (زي ما شرحنا قبل كدة).
 2. الـ Event ID 4672: وده بيجي وراه فوراً عشان يقولك "الحساب اللي لسه داخل ده معاه صلاحيات Admin وده كشف بصلاحياته".
 
-#### مثال عملي من الكلام&#x20;
+#### مثال عملي من الكلام
 
 الحساب اللي اسمه `pbeesly` دخل على الجهاز.
 
 * التحليل: السيستم سجل 4672، وده معناه إن `pbeesly` ده مش مجرد موظف، ده شخص معاه Special Privileges. السجل بيفصل لنا كل الصلاحيات اللي يقدر يستخدمها خلال الجلسة دي.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 ## Login Validation Events
 
@@ -171,7 +169,7 @@
 
 ### NTLM Protocol: Event ID 4776
 
-لما بنستخدم بروتوكول NTLM في المصادقة، الويندوز بيسجل event برقم 4776.&#x20;
+لما بنستخدم بروتوكول NTLM في المصادقة، الويندوز بيسجل event برقم 4776.
 
 **Key Fields in Event 4776**
 
@@ -185,9 +183,9 @@
 
 **Error Codes Correlation**
 
-&#x20;الـ Error Codes في الحدث 4776 هي هي نفس أكواد الـ Sub Status اللي  في الـ Event 4625.
+الـ Error Codes في الحدث 4776 هي هي نفس أكواد الـ Sub Status اللي في الـ Event 4625.
 
-* مثال عملي&#x20;
+* مثال عملي
   * الحساب: `Mostafa.yahia`.
   * الجهاز المصدر: `WIN-SOC2`.
   * كود الخطأ: `0xc0000064`.
@@ -220,7 +218,7 @@
 
 ### Failure Codes in Event 4771
 
-خلي بالك، الأكواد هنا مختلفة عن الـ events اللي فاتت (4625 و 4776)،&#x20;
+خلي بالك، الأكواد هنا مختلفة عن الـ events اللي فاتت (4625 و 4776)،
 
 | **الكود (Failure Code)** | **المعنى التقني**       |
 | ------------------------ | ----------------------- |
@@ -243,30 +241,28 @@
 
 بيسجل نظام Microsoft العديد من الـ events اللي بتسمح لك بتتبع نشاطات إدارة الحسابات (account) و (security group). النشاطات دي بتشمل:
 
-&#x20;account creation&#x20;
+account creation
 
-* &#x20;account deletion
-* account disablement&#x20;
-* group creation&#x20;
+* account deletion
+* account disablement
+* group creation
 * adding and removing accounts from security groups
-* changes made to accounts&#x20;
+* changes made to accounts
 
 #### أهمية تتبع هذه الـ events:
 
 تتبع النشاطات دي بيساعدك في اكتشاف والتحقيق في تصرفات مشبوهة كتير، زي:
 
 * الـ accounts اللي بيتم إنشاؤها بواسطة attacker عشان يحافظ على الـ persistence
-* ال  accounts اللي بيتم إنشاؤها بواسطة unauthorized users
-* إضافة accounts المفروض متكونش موجوده في privileged security groupمعين &#x20;
+* ال accounts اللي بيتم إنشاؤها بواسطة unauthorized users
+* إضافة accounts المفروض متكونش موجوده في privileged security groupمعين
 * عمليات الـ account deletion والتغييرات غير المتوقعة.
 * نشاطات إدارة الـ account والـ group اللي بتتم outside of working hours
-
-
 
 عشان نفهم تتبع الـ Windows account and security group management بشكل أفضل، هنقسم الجزء ده لقسمين فرعيين:
 
 1. Tracking account creation, deletion, and change activities
-2. Tracking creation and account adding to security groups&#x20;
+2. Tracking creation and account adding to security groups
 
 ### Tracking account creation, deletion, and change activities
 
@@ -289,9 +285,7 @@
 
 #### جدول الـ Account management events
 
-<table data-header-hidden><thead><tr><th></th><th></th><th data-hidden></th></tr></thead><tbody><tr><td><strong>الـ Event ID</strong></td><td><strong>الوصف</strong> </td><td><strong>الوصف</strong> </td></tr><tr><td>4720</td><td>A user account was created</td><td>إنشاء حساب مستخدم جديد.</td></tr><tr><td>4722</td><td>A user account was enabled</td><td>تفعيل حساب كان مقفول.</td></tr><tr><td>4723</td><td>An attempt was made to change an account’s password</td><td>محاولة تغيير الباسورد (بواسطة المستخدم نفسه).</td></tr><tr><td>4724</td><td>An attempt was made to reset an account’s password</td><td>محاولة ريسيت للباسورد (بواسطة أدمن مثلاً).</td></tr><tr><td>4725</td><td>A user account was disabled</td><td>تعطيل حساب مستخدم.</td></tr><tr><td>4726</td><td>A user account was deleted</td><td>حذف حساب مستخدم نهائياً.</td></tr><tr><td>4738</td><td>A user account was changed</td><td>تغيير في بيانات الحساب (زي الاسم أو الصلاحيات).</td></tr><tr><td>4740</td><td>A user account was locked out</td><td>الحساب اتقفل بسبب محاولات دخول غلط كتير.</td></tr><tr><td>4767</td><td>A user account was unlocked</td><td>فك القفل عن حساب كان معمل له Lockout.</td></tr></tbody></table>
-
-
+<table data-header-hidden><thead><tr><th></th><th></th><th data-hidden></th></tr></thead><tbody><tr><td><strong>الـ Event ID</strong></td><td><strong>الوصف</strong></td><td><strong>الوصف</strong></td></tr><tr><td>4720</td><td>A user account was created</td><td>إنشاء حساب مستخدم جديد.</td></tr><tr><td>4722</td><td>A user account was enabled</td><td>تفعيل حساب كان مقفول.</td></tr><tr><td>4723</td><td>An attempt was made to change an account’s password</td><td>محاولة تغيير الباسورد (بواسطة المستخدم نفسه).</td></tr><tr><td>4724</td><td>An attempt was made to reset an account’s password</td><td>محاولة ريسيت للباسورد (بواسطة أدمن مثلاً).</td></tr><tr><td>4725</td><td>A user account was disabled</td><td>تعطيل حساب مستخدم.</td></tr><tr><td>4726</td><td>A user account was deleted</td><td>حذف حساب مستخدم نهائياً.</td></tr><tr><td>4738</td><td>A user account was changed</td><td>تغيير في بيانات الحساب (زي الاسم أو الصلاحيات).</td></tr><tr><td>4740</td><td>A user account was locked out</td><td>الحساب اتقفل بسبب محاولات دخول غلط كتير.</td></tr><tr><td>4767</td><td>A user account was unlocked</td><td>فك القفل عن حساب كان معمل له Lockout.</td></tr></tbody></table>
 
 ### Tracking creation and account adding to security groups
 
