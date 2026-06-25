@@ -45,6 +45,7 @@
       * [firewall logs](lets-defend/soc-analyst-path/network-log-analysis/firewall-logs.md)
       * [VPN Log](lets-defend/soc-analyst-path/network-log-analysis/vpn-log.md)
       * [proxy log analysis](lets-defend/soc-analyst-path/network-log-analysis/proxy-log-analysis.md)
+      * [IDS/IPS Log Analysis](lets-defend/soc-analyst-path/network-log-analysis/ids-ips-log-analysis.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
