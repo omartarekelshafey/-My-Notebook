@@ -4,15 +4,15 @@
 
 ## Effective Threat Investigation for SOC Analysts
 
-* [Part 1:   Email Investigation Techniques](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/README.md)
+* [Part 1: Email Investigation Techniques](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/README.md)
   * [CH1 Investigating Email Threats](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch1-investigating-email-threats.md)
   * [CH 2 Email Flow and Header Analysis](effective-threat-investigation-for-soc-analysts/part-1-email-investigation-techniques/ch-2-email-flow-and-header-analysis.md)
 * [Part2 Investigating Windows Threats by Using Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/README.md)
-  * [CH 3 Introduction to Windows   Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-3-introduction-to-windows-event-logs.md)
+  * [CH 3 Introduction to Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-3-introduction-to-windows-event-logs.md)
   * [CH 4 Tracking Accounts Login and Management](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-4-tracking-accounts-login-and-management.md)
-  * [CH 5 Investigating Suspicious Process Execution Using   Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-5-investigating-suspicious-process-execution-using-windows-event-logs.md)
-  * [CH 6 Investigating PowerShell   Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-6-investigating-powershell-event-logs.md)
-  * [CH 7 Investigating Persistence  and Lateral Movement Using  Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-7-investigating-persistence-and-lateral-movement-using-windows-event-logs.md)
+  * [CH 5 Investigating Suspicious Process Execution Using Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-5-investigating-suspicious-process-execution-using-windows-event-logs.md)
+  * [CH 6 Investigating PowerShell Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-6-investigating-powershell-event-logs.md)
+  * [CH 7 Investigating Persistence and Lateral Movement Using Windows Event Logs](effective-threat-investigation-for-soc-analysts/part2-investigating-windows-threats-by-using-event-logs/ch-7-investigating-persistence-and-lateral-movement-using-windows-event-logs.md)
 
 ## Blue Team Junior Analyst Pathway Bundle
 
@@ -43,7 +43,8 @@
     * [Malware Analysis Fundamentals](lets-defend/soc-analyst-path/malware-analysis-fundamentals.md)
     * [network log analysis](lets-defend/soc-analyst-path/network-log-analysis/README.md)
       * [firewall logs](lets-defend/soc-analyst-path/network-log-analysis/firewall-logs.md)
-      * [vpn Log](lets-defend/soc-analyst-path/network-log-analysis/vpn-log.md)
+      * [VPN Log](lets-defend/soc-analyst-path/network-log-analysis/vpn-log.md)
+      * [proxy log analysis](lets-defend/soc-analyst-path/network-log-analysis/proxy-log-analysis.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
