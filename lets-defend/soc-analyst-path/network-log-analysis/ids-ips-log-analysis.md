@@ -11,21 +11,34 @@
 
 ### Following information should be investigated in details when analyzing IDS/IPS logs
 
-\- The direction of attack (inbound or outbound) should be checked.
+### 1. Attack Direction
 
-\- The event severity level should be checked. Levels are usually set as low, medium, high, critical. High and critical levels indicate that activity is more important, quick action is required, and a false positive is less likely.
+* Inbound (من الخارج للداخل): محاولة اختراق خارجي تستهدف أنظمتك، وتحتاج للتأكد من صمود الدفاعات.
+* Outbound (من الداخل للخارج): مؤشر خطر أعلى، لأنها تعني غالباً أن جهازاً داخلياً أصيب بالفعل ويحاول التواصل مع سيرفر مخترق خارجي (C2).
 
-\- A different signature trigger state should be checked between the same source and target. Triggering different signatures means that the severity level of the event should be raised higher and a faster action should be taken. The event is resolved within the service level agreement (SLA) depending on its severity level in case of following situations like:
+### 2. Severity Level
 
-&#x20;       \- If a single signature is triggered,
+مؤشر درجة الخطورة يحدد سرعة التحرك:
 
-&#x20;       \- there are no different requests from the relevant source,
+* تصنيفات الخطورة المرتفعة (High / Critical) تعني أن الحدث ذو أهمية قصوى ويتطلب استجابة فورية.
+* التنبيهات المرتفعة تكون نسبة الإنذار الخاطئ (False Positive) فيها منخفضة جداً مقارنة بالتنبيهات المنخفضة.
 
-&#x20;       \- there is no different accept in the firewall logs.
+### 4. Port & Service Verification
 
-\- Is the port/service specified in the attack detail running on the target port? If it is running, the event level should be raised to the critical level, and the target system should be checked for infection. It should also be checked whether a response has been returned to the relevant system from the source. If the answer is no, blocking the attacking IP address as a precaution would be an appropriate action.
+التحقق من وجود الثغرة في البيئة الفعلية:
 
-\- Is the action taken just detection or has it been blocked as well? If the attack is blocked and there are no other requests from the same IP address on the firewall, we can wait a little longer for taking the action. However, if the action taken for the attack is only a detection, then other similar requests should be reviewed and block action should be applied if the content of the requests coming from the IP address is not false positive.
+* يجب فحص ما إذا كانت الخدمة أو البرنامج المستهدف بالهجوم يعمل فعلياً&#x20;
+* إذا كانت تعمل: ترفع الخطورة لـ Critical ويجب فحص الجهاز بالـ EDR للتأكد من عدم حدوث  (`Infection`).
+* إذا لم يرد المستهدف: لو تبين أن السيرفر لم يرسل أي رد (No Response) للمهاجم، يتم حظر الـ IP المهاجم على الـ Firewall فوراً كإجراء وقائي.
+
+### 5. Action Taken (Detection vs. Prevention)
+
+معرفة النتيجة النهائية للحزمة داخل الشبكة:
+
+* حالة الـ Blocked: إذا قام النظام بمنع الهجوم ومفهوش حركات تانية، يمكنك أخذ وقتك في التحقيق بمرونة لأن الخطر المباشر تم صده.
+* حالة الـ Detected: إذا قام النظام بكشف الهجوم فقط دون حظره، فهذا يعني أن الترافيك الخبيث وصل للهدف. يجب هنا مراجعة كافة الطلبات الشبيهة فوراً وتطبيق حظر يدوي على الـ Firewall لحماية السيرفر طالما تأكدت أنه ليس False Positive.
+
+هل تحب نطبق المنهجية دي على لوج عملي ونشوف إزاي هنمشي على الخمس خطوات دول بالترتيب؟
 
 ### Attacks Detected by IDS/IPS
 
