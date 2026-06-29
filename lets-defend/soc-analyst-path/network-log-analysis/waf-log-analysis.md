@@ -64,14 +64,14 @@ date=2022-01-26 time=19:47:26 log_id=20000008 msg_id=000018341360 device_id=FVVM
 
 \- Most requested URL information
 
-### الـ HTTP Request Methods الأساسية في الـ Web Traffic
-
-الـ Request Method بتوضح إيه هو نوع الإجراء أو العمل اللي الـ Request بيطلبه داخل الـ Web language، وأهم الـ Methods دي هي:
+## &#x20;HTTP Request Methods&#x20;
 
 * الـ GET: تُستخدم لاسترجاع الداتا (Retrieve data) من الـ Server.
-* الـ POST: تُستخدم لإرسال الداتا (Send data) إلى الـ Server (مثل رفع الصور أو الفيديوهات أو بيانات الـ Forms).
+* الـ POST: تُستخدم لإرسال الداتا (Send data) إلى الـ Server (مثل رفع الصور أو الفيديوهات).
 * الـ DELETE: تُستخدم لحذف الداتا أو الملفات الموجودة على الـ Server.
 * الـ PUT: تُستخدم لإرسال داتا إلى الـ Server، والداتا المرسلة دي بتقوم بعمل Create أو Update للملفات.
 * الـ OPTIONS: تُستخدم لمعرفة وتحديد الـ Methods اللي الـ Server بيقبلها وبيسمح بيها (Tells which methods the server accepts).
+* الـ TRACE: بتعمل Message loop-back test على طول المسار (Path) لحد ما توصل للـ Target resource، وده بيساعد في الـ Debugging ومعرفة لو الـ Request حصل له تعديل في السكة من خلال الـ Proxies.
+* الـ HEAD: بتطلب الـ Metadata الخاصة بالـ Resource في شكل Headers فقط، وهي نفس الـ Headers اللي الـ Server كان هيبعتها لو استخدمنا طريقة الـ GET، بس من غير ما يبعت الـ Response body (وده بيوفر الـ Bandwidth لو محتاجين نتأكد من الـ File size أو الـ Status بس).
 
 <br>
