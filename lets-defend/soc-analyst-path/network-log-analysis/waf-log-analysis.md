@@ -40,7 +40,7 @@ date=2022-01-26 time=19:47:26 log_id=20000008 msg_id=000018341360 device_id=FVVM
 * الـ Client error responses من (400–499): زي كود 403 (Forbidden) ومعناه إن الوصول للداتا المطلوبة غير مسموح به، أو كود 404 (Not Found) ومعناه إن الـ Content المطلوب مش موجود.
 * الـ Server error responses من (500–599): زي كود 503 (Service Unavailable) ومعناه إن الـ Server مش قادر يرد حاليًا.
 
-بتطبيق الكلام ده على الـ Sample WAF Log اللي اتكلمنا عنه:
+### بتطبيق الكلام ده على الـ Sample WAF Log اللي اتكلمنا عنه:
 
 * الـ Connection request القادم من الـ IP address رقم `19.6.150.138` والمتجه للـ Port رقم `443` الخاص بالـ Host رقم `172.16.10.10` (الموجود خلف الـ WAF) تم التعرف عليه كـ Malicious بسبب الـ Expressions اللي في الـ URL، وبناءً عليه الـ WAF طلع Alert.
 * الـ Policy المطبقة اسمها "Alert\_Policy" والـ Action بتاعها مضبوط على "Alert"، وده معناه إن الـ WAF شغال في الـ Monitoring mode (وضع المراقبة فقط وليس الحجب).
