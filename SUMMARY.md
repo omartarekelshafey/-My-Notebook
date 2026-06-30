@@ -47,6 +47,7 @@
       * [proxy log analysis](lets-defend/soc-analyst-path/network-log-analysis/proxy-log-analysis.md)
       * [IDS/IPS Log Analysis](lets-defend/soc-analyst-path/network-log-analysis/ids-ips-log-analysis.md)
       * [WAF Log Analysis](lets-defend/soc-analyst-path/network-log-analysis/waf-log-analysis.md)
+      * [DNS log analysis](lets-defend/soc-analyst-path/network-log-analysis/dns-log-analysis.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
