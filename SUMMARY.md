@@ -53,12 +53,12 @@
       * [Incident Management Systems (IMS)](lets-defend/soc-analyst-path/incident-management-101/incident-management-systems-ims.md)
       * [Case/Alert Naming](lets-defend/soc-analyst-path/incident-management-101/case-alert-naming.md)
       * [Playbooks](lets-defend/soc-analyst-path/incident-management-101/playbooks.md)
+    * [Threat intelligence](lets-defend/soc-analyst-path/threat-intelligence.md)
   * [detection](lets-defend/detection/README.md)
     * [XDR/EDR Basics](lets-defend/detection/xdr-edr-basics.md)
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
     * [Threat Hunting and IR with XDR/EDR](lets-defend/detection/threat-hunting-and-ir-with-xdr-edr.md)
     * [correlation](lets-defend/detection/correlation.md)
-  * [article\_en](lets-defend/article_en.md)
 
 ## weinnovate
 

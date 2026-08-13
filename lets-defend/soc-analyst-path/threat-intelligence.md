@@ -1,4 +1,4 @@
-# article\_en
+# Threat intelligence
 
 Cyber Threat Intelligence (CTI) is one of the most important fields in Cybersecurity. It aims to collect data from multiple sources and analyze it in order to produce **Actionable Intelligence** that helps organizations prevent Cyber Attacks and reduce damage.
 
@@ -45,7 +45,7 @@ The **Dissemination** phase involves distributing the Intelligence to relevant p
 
 ## Types of Cyber Threat Intelligence
 
-![Types of CTI](../.gitbook/assets/imagesimage1.png)
+![Types of CTI](../../.gitbook/assets/imagesimage1.png)
 
 The types of CTI differ based on the job level and the specific needs of each team within the organization:
 
@@ -345,7 +345,7 @@ Here's the scenario and the information we have at the start:
 
 Based on the information we have, the device's name is related to a fruit, so we do a Google search to find out.
 
-![Google search result for WiFi hacking device](../.gitbook/assets/imagesimage2.png)
+![Google search result for WiFi hacking device](../../.gitbook/assets/imagesimage2.png)
 
 As is clear here, the name of the hacking device is the **WiFi Pineapple**.
 {% endstep %}
@@ -357,13 +357,13 @@ Now we need to find out which website contains information about the delivery lo
 
 Based on the information we have — that the hacker's name is **jllerenac** — we do a Google search for him.
 
-![Search results for the hacker's profile](../.gitbook/assets/imagesimage3.png)
+![Search results for the hacker's profile](../../.gitbook/assets/imagesimage3.png)
 
-![Social media accounts found](../.gitbook/assets/imagesimage4.png)
+![Social media accounts found](../../.gitbook/assets/imagesimage4.png)
 
 After searching, we found several accounts for him on Twitter, GitHub, and LinkedIn.
 
-![Hacker's GitHub account](../.gitbook/assets/imagesimage5.png)
+![Hacker's GitHub account](../../.gitbook/assets/imagesimage5.png)
 
 We started with his GitHub account.
 
@@ -371,19 +371,19 @@ We started looking through his repos for anything related to selling the WiFi Pi
 
 At first we didn't find anything useful, so we started looking through his pull requests and commits.
 
-![Commits found in a repo not owned by him](../.gitbook/assets/imagesimage6.png)
+![Commits found in a repo not owned by him](../../.gitbook/assets/imagesimage6.png)
 
 Here we found that he had made commits in a repo that isn't his own.
 
-![Repository containing a single folder](../.gitbook/assets/imagesimage7.png)
+![Repository containing a single folder](../../.gitbook/assets/imagesimage7.png)
 
 We opened the repo shown in the image and found only a single folder.
 
-![Folder containing a single file](../.gitbook/assets/imagesimage8.png)
+![Folder containing a single file](../../.gitbook/assets/imagesimage8.png)
 
 We opened the folder and found only a single file.
 
-![File contents showing encoded coordinates](../.gitbook/assets/imagesimage9.png)
+![File contents showing encoded coordinates](../../.gitbook/assets/imagesimage9.png)
 
 We opened the file and found coordinates in it, but they needed to be decoded.
 
@@ -409,6 +409,6 @@ These were the coordinates:
 {% step %}
 ### Where is the delivery going to be?
 
-![Location result on the map](../.gitbook/assets/imagesimage10.png)
+![Location result on the map](../../.gitbook/assets/imagesimage10.png)
 {% endstep %}
 {% endstepper %}
