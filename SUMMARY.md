@@ -58,6 +58,7 @@
     * [Threat Detection and Classification with EDR/XDR](lets-defend/detection/threat-detection-and-classification-with-edr-xdr.md)
     * [Threat Hunting and IR with XDR/EDR](lets-defend/detection/threat-hunting-and-ir-with-xdr-edr.md)
     * [correlation](lets-defend/detection/correlation.md)
+  * [article\_en](lets-defend/article_en.md)
 
 ## weinnovate
 
