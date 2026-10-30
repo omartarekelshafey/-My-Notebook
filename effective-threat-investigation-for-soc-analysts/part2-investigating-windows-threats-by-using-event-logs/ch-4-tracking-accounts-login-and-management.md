@@ -26,7 +26,7 @@
 
 دي حسابات مخصصة للخدمات والبرامج اللي بتشتغل في الخلفية، وساعات بتشتغل قبل ما المستخدم يعمل Login أصلاً:
 
-* حساب SYSTEM: ده أقوى حساب في الويندوز وله سيطرة كاملة (Complete control) على كل موارد النظام
+* حساب SYSTEM: ده أقوى حساب في الويندوز وله (Complete control) على كل موارد النظام
 
 **1. حساب SYSTEM**
 
@@ -251,7 +251,7 @@ account creation
 
 #### أهمية تتبع هذه الـ events:
 
-تتبع النشاطات دي بيساعدك في اكتشاف والتحقيق في تصرفات مشبوهة كتير، زي:
+تتبع النشاطات دي بيساعدك في اكتشاف والتحقيق في تصرفات كتير، زي:
 
 * الـ accounts اللي بيتم إنشاؤها بواسطة attacker عشان يحافظ على الـ persistence
 * ال accounts اللي بيتم إنشاؤها بواسطة unauthorized users
@@ -291,17 +291,4 @@ account creation
 
 تستخدم الـ Active Directory security groups لتخصيص صلاحيات أمنية محددة لأعضائها. وعشان كدة، تقدر تستنتج صلاحيات أي account من خلال الـ security group اللي هو عضو فيها. وعشان تتابع النشاطات دي، نظام Microsoft بيسجل events لمراقبة إنشاء المجموعات، حذفها، أو إضافة وإزالة الأعضاء منها.
 
-| **الـ Event ID** | **الوصف**                           | **(Scope)** |
-| ---------------- | ----------------------------------- | ----------- |
-| 4727             | Global Group Created                | Global      |
-| 4730             | Global Group Deleted                | Global      |
-| 4728             | Member Added to Global Group        | Global      |
-| 4729             | Member Removed from Global Group    | Global      |
-| 4731             | Local Group Created                 | Local       |
-| 4734             | Local Group Deleted                 | Local       |
-| 4732             | Member Added to Local Group         | Local       |
-| 4733             | Member Removed from Local Group     | Local       |
-| 4754             | Universal Group Created             | Universal   |
-| 4758             | Universal Group Deleted             | Universal   |
-| 4756             | Member Added to Universal Group     | Universal   |
-| 4757             | Member Removed from Universal Group | Universal   |
+<table data-header-hidden data-search="false"><thead><tr><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>الـ Event ID</strong></td><td><strong>الوصف</strong></td><td><strong>(Scope)</strong></td></tr><tr><td>4727</td><td>Global Group Created</td><td>Global</td></tr><tr><td>4730</td><td>Global Group Deleted</td><td>Global</td></tr><tr><td>4728</td><td>Member Added to Global Group</td><td>Global</td></tr><tr><td>4729</td><td>Member Removed from Global Group</td><td>Global</td></tr><tr><td>4731</td><td>Local Group Created</td><td>Local</td></tr><tr><td>4734</td><td>Local Group Deleted</td><td>Local</td></tr><tr><td>4732</td><td>Member Added to Local Group</td><td>Local</td></tr><tr><td>4733</td><td>Member Removed from Local Group</td><td>Local</td></tr><tr><td>4754</td><td>Universal Group Created</td><td>Universal</td></tr><tr><td>4758</td><td>Universal Group Deleted</td><td>Universal</td></tr><tr><td>4756</td><td>Member Added to Universal Group</td><td>Universal</td></tr><tr><td>4757</td><td>Member Removed from Universal Group</td><td>Universal</td></tr></tbody></table>
