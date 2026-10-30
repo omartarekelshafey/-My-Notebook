@@ -69,7 +69,7 @@ tasklist
 
 #### 2. Windows Stations
 
-الـ Windows Station هي عبارة عن Security boundary (حدود أمنية) وظيفتها إنها تحوي الـ Desktops والـ Processes.
+الـ Windows Station هي عبارة عن Security boundaryوظيفتها إنها تحتوي  الـ Desktops والـ Processes.
 
 * الـ Winsta0: دي هي الـ Windows station الوحيدة اللي مسموح ليها تتفاعل مع المستخدم (Interactive).
 * الـ Non-interactive Stations: زي اللي بتشتغل تحتها الـ Services (مثلاً `Service-0x0-3e7$`).
@@ -99,13 +99,13 @@ tasklist
 
 #### 2. How it Builds Sessions (The Workflow)
 
-بمجرد ما الـ smss.exe تبدأ تجهز Session، بتمشي في خطوات محددة جداً حسب نوع الجلسة:
+بمجرد ما الـ smss.exe تبدأ تجهز Session، بتمشي في خطوات محددة جداً حسب نوع session:
 
 * For Session 0:
   1. بتبدأ الأول بتشغيل الـ csrss.exe عشان يدير الـ Processes and threads.
-  2. بعدها بتشغل الـ wininit.exe، وده المسؤول "الكبير" عن الـ Windows services في الجلسة دي.
+  2. بعدها بتشغل الـ wininit.exe، وده المسؤول عن الـ Windows services في sessionدي.
 * For Session 1 and higher:
-  1. برضه بتشغل الـ csrss.exe الخاص بالجلسة دي.
+  1. برضه بتشغل الـ csrss.exe الخاص بالsession دي.
   2. لكن هنا بتشغل الـ winlogon.exe بدل `wininit` عشان ده اللي بيتعامل مع الـ Users logging in والـ Interactive UI.
 
 ***
@@ -123,18 +123,16 @@ Process name: smss.exe\
 الـ csrss.exe هو المسؤول عن الـ User-mode side للـ Windows subsystem.
 
 * الوظيفة (Functionality): بيتم عمل Created لنسخة من الـ csrss.exe مع كل New session عشان تعمل Manage للـ Processes and threads وتعمل Import للـ DLLs اللي بتوفر الـ Windows API.
-* خصائص العملية (Process Attributes):
-  * اسم العملية (Process Name): csrss.exe.
-  * مسار العملية (Process Path): `%Systemroot%\System32\csrss.exe`.
-  * اسم المستخدم (Username): SYSTEM.
-  * عدد النسخ (Number of instances): نسخة واحدة لكل Session (يعني هتلاقي واحدة للـ Session 0 وواحدة لجلسة المستخدم).
-  * العملية الأب (Parent process): N/A؛ رغم إن الـ smss.exe instance هي اللي بتعمله Created، بس مش بيظهر كـ Parent في أي Analysis tool.
+* &#x20;(Process Attributes):
+  * &#x20;(Process Name): csrss.exe.
+  * &#x20;(Process Path): `%Systemroot%\System32\csrss.exe`.
+  * &#x20;(Username): SYSTEM.
+  * ال (Number of instances): نسخة واحدة لكل Session (يعني هتلاقي واحدة للـ Session 0 وواحدة لجلسة المستخدم).
+  * ال  (Parent process): N/A؛ رغم إن الـ smss.exe instance هي اللي بتعمله Created، بس مش بيظهر كـ Parent في أي Analysis tool.
 
 ***
 
 #### Windows Initialization (wininit.exe)
-
-العملية دي هي اللي بتبدأ أهم العمليات الأمنية والخدمية في النظام.
 
 * ال(Functionality): الـ wininit.exe بتمثل الـ Session 0 وهي المسؤولة عن عمل Initializing لكل من الـ Service Control Manager (services.exe) والـ Local Security Authority process (lsass.exe).
 * (Process Attributes):
@@ -162,7 +160,7 @@ Process name: smss.exe\
 
 #### 1. What is a DLL?
 
-الـ DLL هي اختصار لـ Dynamic Link Library، وهي عبارة عن ملف بيحتوي على Code and Data تقدر أكتر من Application تستخدمهم في نفس الوقت:
+الـ DLL هي اختصار لـ Dynamic Link Library، وهي عبارة عن ملف بيحتوي على Code and Data يقدر أكتر من Application يستخدمهم في نفس الوقت:
 
 * ال Shared Resources: بدل ما كل برنامج يكتب الكود بتاعه من الصفر، الويندوز بيحط الوظائف المشتركة في ملفات DLL عشان الكل ينده عليها.
 * ال Not Executable: ملفات الـ DLL مش بتقدر تشتغل لوحدها زي ملفات الـ `.exe`؛ هي محتاجة Host process يشغلها ويحملها في الـ Memory.
@@ -252,7 +250,7 @@ Process name: smss.exe\
   * (Number of instances): One for each interactive user login.
   * ال(Parent Process): N/A (بيكون Orphaned بعد ما الـ Userinit.exe اللي شغله يقفل).
 
-<table data-header-hidden data-full-width="false"><thead><tr><th width="168.79998779296875"></th><th width="160.79998779296875"></th><th width="309"></th><th width="172"></th><th></th></tr></thead><tbody><tr><td><strong>Process Name</strong></td><td><strong>Parent Process</strong></td><td><strong>process path</strong></td><td><strong>Username</strong></td><td><strong>Instances</strong></td></tr><tr><td>System</td><td>N/A</td><td>N/A</td><td>SYSTEM</td><td>One</td></tr><tr><td>smss.exe</td><td>System</td><td><code>%Systemroot%\System32\smss.exe</code></td><td>SYSTEM</td><td>One (Master)</td></tr><tr><td>csrss.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\csrss.exe</code></td><td>SYSTEM</td><td>One per Session</td></tr><tr><td>wininit.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\wininit.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>services.exe</td><td>wininit.exe</td><td><code>%Systemroot%\System32\services.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>svchost.exe</td><td>services.exe</td><td><code>%Systemroot%\System32\svchost.exe</code></td><td>SYSTEM, LOCAL/NETWORK SERVICE</td><td>Many</td></tr><tr><td>lsass.exe</td><td>wininit.exe</td><td><code>%Systemroot%\System32\lsass.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>winlogon.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\winlogon.exe</code></td><td>SYSTEM</td><td>One per User Login</td></tr><tr><td>LogonUI.exe</td><td>winlogon.exe</td><td><code>%Systemroot%\System32\LogonUI.exe</code></td><td>SYSTEM</td><td>One or More</td></tr><tr><td>explorer.exe</td><td>N/A</td><td><code>%Systemroot%\explorer.exe</code></td><td>Logged-in User</td><td>One per User Login</td></tr><tr><td>RuntimeBroker.exe</td><td>svchost.exe</td><td><code>%Systemroot%\System32\RuntimeBroker.exe</code></td><td>Logged-in User</td><td>One or More</td></tr></tbody></table>
+<table data-header-hidden data-full-width="false" data-search="false"><thead><tr><th width="168.79998779296875"></th><th width="160.79998779296875"></th><th width="309"></th><th width="172"></th><th></th></tr></thead><tbody><tr><td><strong>Process Name</strong></td><td><strong>Parent Process</strong></td><td><strong>process path</strong></td><td><strong>Username</strong></td><td><strong>Instances</strong></td></tr><tr><td>System</td><td>N/A</td><td>N/A</td><td>SYSTEM</td><td>One</td></tr><tr><td>smss.exe</td><td>System</td><td><code>%Systemroot%\System32\smss.exe</code></td><td>SYSTEM</td><td>One (Master)</td></tr><tr><td>csrss.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\csrss.exe</code></td><td>SYSTEM</td><td>One per Session</td></tr><tr><td>wininit.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\wininit.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>services.exe</td><td>wininit.exe</td><td><code>%Systemroot%\System32\services.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>svchost.exe</td><td>services.exe</td><td><code>%Systemroot%\System32\svchost.exe</code></td><td>SYSTEM, LOCAL/NETWORK SERVICE</td><td>Many</td></tr><tr><td>lsass.exe</td><td>wininit.exe</td><td><code>%Systemroot%\System32\lsass.exe</code></td><td>SYSTEM</td><td>One</td></tr><tr><td>winlogon.exe</td><td>N/A (Created by smss.exe)</td><td><code>%Systemroot%\System32\winlogon.exe</code></td><td>SYSTEM</td><td>One per User Login</td></tr><tr><td>LogonUI.exe</td><td>winlogon.exe</td><td><code>%Systemroot%\System32\LogonUI.exe</code></td><td>SYSTEM</td><td>One or More</td></tr><tr><td>explorer.exe</td><td>N/A</td><td><code>%Systemroot%\explorer.exe</code></td><td>Logged-in User</td><td>One per User Login</td></tr><tr><td>RuntimeBroker.exe</td><td>svchost.exe</td><td><code>%Systemroot%\System32\RuntimeBroker.exe</code></td><td>Logged-in User</td><td>One or More</td></tr></tbody></table>
 
 ## Windows Process Tracking events
 
@@ -309,7 +307,7 @@ Process name: smss.exe\
 
 بص يا عمر، الجدول ده فيه الخلاصة لكل رتب الأمان (Integrity Levels) اللي في الصور، مع شرح مبسط لكل رتبة عشان تبقى فاهمها وأنت بتحلل أي Log:
 
-#### جدول مستويات النزاهة (Mandatory Label)
+#### &#x20;(Mandatory Label)
 
 | **(RID Label)** | **(SID)**    | **(RID)**    | **(Meaning)**    | explain                                                               |
 | --------------- | ------------ | ------------ | ---------------- | --------------------------------------------------------------------- |
